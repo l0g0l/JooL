@@ -7,3 +7,13 @@ html(lang="en")
         link(rel="stylesheet" href="/public/css/style.css")
         link(rel="stylesheet" href="/public/css/normalize.css")
     body
+        form(action="/dashboard", method="POST", id="formulario")
+            label(for="email") Email: 
+            input(type="email", name="email", id="email" placeholder="Introducir email")
+            br
+            br
+            label(for="password") Password: 
+            input(type="password", name="password", id="password" placeholder="Introducir contraseña")
+            br
+            br
+            input(type="submit", value="Login", id="login")

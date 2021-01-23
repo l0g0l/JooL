@@ -3,7 +3,12 @@ html(lang="en")
     head
         meta(charset="UTF-8")
         meta(name="viewport", content="width=, initial-scale=1.0")
-        title MovieApp
+        title Dashboard
         link(rel="stylesheet" href="/public/css/style.css")
         link(rel="stylesheet" href="/public/css/normalize.css")
     body
+        button(id="movies" onclick="location.href='./movies.pug'") Mis Películas
+        button(id="search" onclick="location.href='./search.pug'") Buscar Películas
+        form(action="/logout", method="POST")
+            input(type="submit", value="logout", id="logout")
+
