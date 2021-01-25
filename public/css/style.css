@@ -1,4 +1,4 @@
-/* body{margin:0;padding:0;}
+body{margin:0;padding:0;}
 .hamburger{
 	position:fixed;
   background-color:transparent;
@@ -49,7 +49,7 @@
 	transform:translateY(200%) rotate(45deg) !important;
 }
 .hamburger.is-active .-mid{
-	opacity:0;
+	opacity:0;s
 }
 .hamburger.is-active .-bottom{
 	-webkit-transform:translateY(-200%) rotate(135deg) !important;
@@ -74,11 +74,10 @@
     z-index: 1001;
 }
 .menuppal ul{
-  margin:0;padding:0;
+  margin:45px;padding:0;
 }
 .menuppal ul li { 
   list-style: none;
-	text-align:center;
 	font-family: Verdadna, Arial, Helvetica;
 	color:nav-color-tex;
 	font-size:1.5rem;
@@ -95,63 +94,6 @@
 .menuppal ul li a:hover{
   text-decoration:none;
   color:#333;
-} */
+}
 
 
-*{
-	font-family: Arial;
-  }
-input:checked  ~ ul{
-	display:block;
-  }
-input {
-	display: none;
-  }
-label {
-	display: inline-block;
-	border: unset;
-	width: 30px;
-	height: 30px;
-	line-height: 30px;
-	font-weight: bold;
-	text-align: center;
-	user-select: none;
-  }
-
-  /* Estilo del boton cuando se pasa el mouse por encima*/
-  label:hover{
-	background: pink;
-  }
-/*   
-  /* Estilo del boton cuando el menú está expandido
-  input:checked ~ label {
-	background:yellow; 
-  } */
-ul{
-	display: none;
-	margin-top:0;
-	padding: 0;
-	width: 200px;
-   }
-  	li {
-	display: block;
-	background:white;
-	margin: 0;
-	padding: 8px;
-	list-style: none;
-	/* border: 1px solid grey; */
-  }
-  
-  /*Estilo cuando el mouse pasa encima de cada link del menu*/
-li:hover {
-	filter: brightness(110%);
-}
-#hamb {
-	width: 100%;
-}
-#avatar {
-width: 30%;
-}
-#tex_avatar {
-	margin-left: 5%;
-}
