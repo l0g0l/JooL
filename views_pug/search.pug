@@ -4,11 +4,29 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(name="viewport", content="width=, initial-scale=1.0")
         title Search Movie
-        link(rel="stylesheet" href="/public/css/style.css")
-        link(rel="stylesheet" href="/public/css/normalize.css")
+        link(rel="stylesheet" href="/css/style.css")
+        link(rel="stylesheet" href="/css/normalize.css")
     body
-        main
-            article
+        header
+            form(class="formulario" action="./search", method="POST")
+                input(id="peli" class="cuadro" type="text" name="pelicula" placeholder="Introducir Película")
+                input(id="buscador" class="cuadro" type="submit", value=" Buscar ")
+        section
+            div(id="peliculas")
+                - let i = 0;
+                while i < Longitud
+                    div(class=`pelicula`)
+                        h1=Resultados[i].Title
+                        h2=Resultados[i].Year
+                        - let imbd= Resultados[i].imdbID
+                        img(src=Resultados[i++].Poster, alt="Imagen de la Película")
+                        br
+                        br
+                        form(action=`/searchdetails/${imbd}` , method="GET", id="detalles")
+                            input(type="submit", value="Detalles")
+                        br
+                h1=Nofound
+        article
                 .hamburger
                     ._layer.-top
                     ._layer.-mid
@@ -26,4 +44,5 @@ html(lang="en")
                         li
                             button(style="display:none" onclick="signout()" id="signout") logout
         script(src='/js/autenticacion.js')
-                            
+                        
+
