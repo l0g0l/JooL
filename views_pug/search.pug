@@ -26,4 +26,23 @@ html(lang="en")
                             input(type="submit", value="Detalles")
                         br
                 h1=Nofound
+        article
+                .hamburger
+                    ._layer.-top
+                    ._layer.-mid
+                    ._layer.-bottom
+                nav.menuppal
+                    ul
+                        li
+                            img(id="avatar" src="/img/avatar/mujerAvatar.png")
+                        li 
+                                
+                        li
+                            a(href='/views_pug/dashboard.pug') Home
+                        li
+                            a(href='/views_pug/movies.pug') Mis pelis
+                        li
+                            button(style="display:none" onclick="signout()" id="signout") logout
+        script(src='/js/autenticacion.js')
                         
+

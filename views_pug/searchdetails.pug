@@ -4,8 +4,8 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(name="viewport", content="width=, initial-scale=1.0")
         title Search Details
-        link(rel="stylesheet" href="/css/style.css")
-        link(rel="stylesheet" href="/css/normalize.css")
+        link(rel="stylesheet" href="/public/css/style.css")
+        link(rel="stylesheet" href="/public/css/normalize.css")
     body
         h1=Details.Title
         h2=Details.Year
@@ -15,6 +15,27 @@ html(lang="en")
         h3=Details.Plot
         h3=Details.Awards
         img(src=Details.Poster, alt="Imagen de la Película específica")
+      main
+            article
+                .hamburger
+                    ._layer.-top
+                    ._layer.-mid
+                    ._layer.-bottom
+                nav.menuppal
+                    ul
+                        li
+                            img(id="avatar" src="/img/avatar/mujerAvatar.png")
+                        li 
+                                
+                        li
+                            a(href='/views_pug/dashboard.pug') Home
+                        li
+                            a(href='/views_pug/movies.pug') Mis pelis
+                        li
+                           button(style="display:none" onclick="signout()" id="signout") logout
+    script(src='/js/autenticacion.js')
+
 
          
+
         
