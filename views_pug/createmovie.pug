@@ -6,7 +6,26 @@ html(lang="en")
         title Create Movie
         link(rel="stylesheet" href="/css/style.css")
         link(rel="stylesheet" href="/css/normalize.css")
-        
     body
-   
-   
+        form(action=`/createmovie`, method="POST", id="createform")
+            label(for="titulo") Título: 
+            input(type="text", name="titulo", id="createtitulo", placeholder="Introducir título")
+            br
+            label(for="ano") Año: 
+            input(type="text", name="ano", id="createano", placeholder="Introducir año")
+            br
+            label(for="director") Director: 
+            input(type="text", name="director", id="createdirector", placeholder="Introducir director")
+            br
+            label(for="genero") Género: 
+            input(type="text", name="genero", id="creategenero", placeholder="Introducir género")
+            br
+            label(for="duracion") Duración: 
+            input(type="text", name="duracion", id="createduracion", placeholder="Introducir duración")
+            br
+            label(for="imagen") Url Imagen: 
+            input(type="text", name="imagen", id="createurl", placeholder="Introducir url de una imagen")
+            br
+            br
+            input(type="submit", value="Guardar")
+        script(src="/js/script.js")

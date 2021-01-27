@@ -25,6 +25,8 @@ html(lang="en")
                         form(action=`/searchdetails/${imbd}` , method="GET", id="detalles")
                             input(type="submit", value="Detalles")
                         br
+                        form(action="", method="POST" id="favoritos")
+                            input(type="submit" value="Añadir a Favoritos")
                 h1=Nofound
         article
                 .hamburger

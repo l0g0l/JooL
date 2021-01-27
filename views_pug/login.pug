@@ -6,11 +6,9 @@ html(lang="en")
         title Login
         link(rel="stylesheet" href="/css/style.css")
         link(rel="stylesheet" href="/css/normalize.css")
-        //- include menu_hamb.pug
     body
         main
             section(id="form_login")
-
                 form(action="/dashboard", method="POST", id="formulario")
                     label(for="email") Email: 
                     br
@@ -18,7 +16,7 @@ html(lang="en")
                     label(for="password") Password: 
                     input(type="password", name="password", id="password" placeholder="Introducir contraseña")
                     br
-                    input(type="submit", value="Login", id="login")
+                    input(type="submit", value="Login")
                     br
                 button(onclick="signin()" id="signin") login Facebook
                 //- div(id="user-image")
@@ -26,11 +24,7 @@ html(lang="en")
                 
         
 
-    
+    script(src="/js/script.js")
     script(src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js")
-
-    //- TODO: Add SDKs for Firebase products that you want to use
-    //-  https://firebase.google.com/docs/web/setup#available-libraries
     script(src="https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js")
-    //- script(src="/__/firebase/7.23.0/firebase-auth.js")
     script(src='/js/autenticacion.js')
