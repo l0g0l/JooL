@@ -36,21 +36,12 @@ html(lang="en")
                     div(class=`pelicula`)
                         - let id = identificador[i]
                         h2=Resultados[i++].titulo
-                        form(action=`/editmovie/${id}` , method="GET", id="editar")
+                        form(action=`/editmovie/${id}` , method="GET", id=`editar${i}`)
                             input(type="submit", value="Editar")
-                        form(action="/removeMovie", method="DELETE" id="eliminar")
-                            input(type="submit" value="X")
-                            
-        
-
-
-
-
-
-
-
-
-    script(src='/js/autenticacion.js')
+                        form(action=`/removeMovie/${id}?_method=DELETE`, method="POST", id=`eliminar${i}`, class="eliminar")
+                            input(type="submit", value="X")
+        script(src='/js/autenticacion.js')
+        script(src="/js/script.js")
   
   
         

@@ -64,6 +64,12 @@ exports.updateMovie = async (req, res) => {
     let save = await db.actualizarOneMovies(id2, actualizador);
     res.redirect('/movies?Actualizada');
 }
-exports.createMovie = async (req, res) => {
+exports.formcreateMovie = async (req, res) => {
     res.render('createmovie')
+}
+exports.createMovie = async (req, res) => {
+    
+}
+exports.deleteMovie = async (req, res) => {
+   
 }
