@@ -15,11 +15,26 @@ exports.getSearch = (req, res) => {
     res.render('search')
 }
 exports.getFilm = (req,res) => {
-    fetch(`http://www.omdbapi.com/?s=${req.body.pelicula}&apikey=${APIKEY}`)
+    let pelicula = req.body.pelicula;
+    let check = null;
+    let resultado = [];
+    fetch(`http://www.omdbapi.com/?s=${pelicula}&apikey=${APIKEY}`)
     .then(peli => peli.json())
-    .then(data => {
-        if(data.Response=="False"){
-            res.render('search', {Nofound: "Película no encontrada"});
+    .then(async data => {
+        if(data.Response=="False"){ // Si no hay nada en la API
+            let movies = await db.readMovies();
+            for (let i=0;i<movies.length;i++){
+                if (pelicula===movies[i].Title){
+                    check = i;
+                    resultado.push(movies[i])
+                }
+            }
+            if (check!= null){
+                console.log(movies[check])
+                res.render('search', {Resultados: resultado, Longitud: 1})
+            } else {
+                res.render('search', {Nofound: "Película no encontrada"});
+            }
         } else {
             res.render('search', {Resultados: data.Search, Longitud: data.Search.length})
         }
@@ -55,11 +70,11 @@ exports.editMovie = async (req, res) => {
 exports.updateMovie = async (req, res) => {
     let id2 = req.params.id;
     let actualizador = {
-        "titulo": req.body.titulo,
-        "genero": req.body.genero,
-        "duracion": req.body.duracion,
-        "ano": req.body.ano,
-        "director": req.body.director
+        "Title": req.body.titulo,
+        "Genre": req.body.genero,
+        "Runtime": req.body.duracion,
+        "Year": req.body.ano,
+        "Director": req.body.director
     }
     let save = await db.actualizarOneMovies(id2, actualizador);
     res.redirect('/movies?Actualizada');
@@ -68,6 +83,7 @@ exports.formcreateMovie = async (req, res) => {
     res.render('createmovie')
 }
 exports.createMovie = async (req, res) => {
+    
     
 }
 exports.deleteMovie = async (req, res) => {

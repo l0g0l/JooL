@@ -19,11 +19,16 @@ html(lang="en")
                         h1=Resultados[i].Title
                         h2=Resultados[i].Year
                         - let imbd= Resultados[i].imdbID
+                        if(imbd == null)
+                            h2=Resultados[i].Genre
+                            h2=Resultados[i].Director
+                            h2=Resultados[i].Runtime
                         img(src=Resultados[i++].Poster, alt="Imagen de la Película")
                         br
                         br
-                        form(action=`/searchdetails/${imbd}` , method="GET", id="detalles")
-                            input(type="submit", value="Detalles")
+                        if(imbd != null)
+                            form(action=`/searchdetails/${imbd}` , method="GET", id="detalles")
+                                input(type="submit", value="Detalles")
                         br
                         form(action="", method="POST" id="favoritos")
                             input(type="submit" value="Añadir a Favoritos")
