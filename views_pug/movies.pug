@@ -7,7 +7,7 @@ html(lang="en")
         link(rel="stylesheet" href="/css/style.css")
         link(rel="stylesheet" href="/css/normalize.css")
     body
-      main
+        main
             article
                 .hamburger
                     ._layer.-top
@@ -25,7 +25,23 @@ html(lang="en")
                             a(href='/views_pug/movies.pug') Mis pelis
                         li
                             button(style="display:none" onclick="signout()" id="signout") logout
-    script(src='/js/autenticacion.js')
+        
+        form(action=`/createmovie`, method="GET", id="nueva")
+            input(type="submit", value="Crear nueva película")
+        form(action="/logout", method="POST")
+            input(type="submit", value="logout", id="logout")
+        h1 Películas Almacenadas Localmente:
+        - let i = 0;
+                while i < Longitud
+                    div(class=`pelicula`)
+                        - let id = identificador[i]
+                        h2=Resultados[i++].Title
+                        form(action=`/editmovie/${id}` , method="GET", id=`editar${i}`)
+                            input(type="submit", value="Editar")
+                        form(action=`/removeMovie/${id}?_method=DELETE`, method="POST", id=`eliminar${i}`, class="eliminar")
+                            input(type="submit", value="X")
+        script(src='/js/autenticacion.js')
+        script(src="/js/script.js")
   
   
         
