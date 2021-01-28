@@ -1,18 +1,19 @@
 const fetch = require("node-fetch");
 const dotenv = require('dotenv');
 dotenv.config();
+const APIKEY = process.env.APIKEY;
 
 exports.getLogin = (req, res) => {
-    res.render('login') // Aquí habría que hacer todo el post de ver si el formulario está bien
+    res.status(200).render('login') // Aquí habría que hacer todo el post de ver si el formulario está bien
 }
 exports.getDashboard = (req, res) => {
-    res.render('dashboard')
+    res.status(200).render('dashboard')
 }
 exports.getSearch = (req, res) => {
-    res.render('search')
+    res.status(200).render('search');
 }
 exports.getFilm = (req,res) => {
-    fetch(`http://www.omdbapi.com/?s=${req.body.pelicula}&apikey=${process.env.APIKEY}`)
+    fetch(`http://www.omdbapi.com/?s=${req.body.pelicula}&apikey=${APIKEY}`)
     .then(peli => peli.json())
     .then(data => {
         if(data.Response=="False"){

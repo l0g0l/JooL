@@ -1,4 +1,171 @@
-body{margin:0;padding:0;}
+
+	*, *:before, *:after{
+		margin: 0;
+		padding: 0;
+		outline:0;
+		box-sizing: border-box;
+	}
+/* body {
+	font-family: sans-serif;
+} */
+.menu {
+	background: cadetblue;
+	height: 75px;
+	width: 100vw;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid white;
+	box-shadow: 5px 0 10px rgba(0, 0, 0, .6);
+}
+.logo {
+	color:white;
+	font-size: 35px;
+	padding: 0 80px;
+	font-weight: bold;
+}
+.menu_items {
+	display: flex;
+	list-style: none;
+	margin-right: 30px;
+}
+.menu_items li {
+	border-radius: 3px;
+	margin: 0 5px;
+}
+.menu_items li a {
+	padding: 7px 13px;
+	text-decoration: none;
+	font-size: 18px;
+	display: inline-block; /* para que los links ocupen todo su espacio*/
+	text-transform: uppercase;
+	color: white
+}
+.menu_items li:hover, li.active{
+	background: rgba(0, 0, 0, .3);
+	transition: 3s;
+}
+nav > span.material-icons {
+	margin-right: 30px;
+	font-size: 25px;
+	color:white;
+	cursor: pointer;
+	display: none;
+}
+ul.show {
+	top:65px; /* tamaño que le vamos a colocar al nav para adaptarle al movil, para que con el js podamos esconder el icono*/
+}
+
+/* ************************ Google********************************** */
+
+.container,
+      .profile-section,
+      .login-section {
+        margin-top: 2rem;
+      }
+      .container {
+        padding-left: 5rem;
+      }
+      .profile-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      #profile-picture {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+	  }
+	  /*********************************************************/
+@media screen and (max-width: 952px){
+	.logo {
+		font-size: 30px;
+		padding-left: 35px;
+	}
+	.menu_items li a {
+		font-size: 16px;
+	}
+}
+
+@media screen and (max-width:858px) {
+	.menu {
+		height: 65px;
+	}
+	nav > span.material-icons{
+		display: inline-flex; 
+	}
+	.menu_items {
+		position:fixed;
+		width: 100vw; /* ocupa el ancho del viewport*/
+		height: calc(100% - 65px);/*navevgador calcula el alto que debe dar*/
+		background: #414141;
+		top:-100vh;/*sacamos el desplegable fuera de la pantalla*/
+		text-align: center;
+		transition:all .3s;
+		flex-direction: column;
+	}
+	.menu_items li {
+		margin:30px 0 0 0;
+		line-height: 30px;
+
+	}
+	.menu_items li:hover {
+		background: none;
+	}
+	.menu_items li a {
+		font-size: 20px;
+		color:white;
+		font-weight: bold;
+
+	}
+	.menu_items li a:hover {
+		color:#d8d8df;
+	}
+	.logo {
+		font-size: 25px;
+		padding-left: 35px;
+	}
+
+}
+@media screen and (max-width:858px) and (orientation: landscape) {
+	.menu_items li {
+		margin: 5px 0 0 0;
+	}
+	.menu_items {
+		overflow: scroll;
+		height: calc(100% - 65px);
+	} 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* body{margin:0;padding:0;}
 .hamburger{
 	position:fixed;
   background-color:transparent;
@@ -56,7 +223,6 @@ body{margin:0;padding:0;}
 	-ms-transform:translateY(-200%) rotate(135deg) !important;
 	transform:translateY(-200%) rotate(135deg) !important;
 }
-
 .menuppal.is_active{
   transform: translate3d(0px, 0px, 0px);
 }
@@ -102,7 +268,7 @@ body{margin:0;padding:0;}
 }
 /**************************login***********************/
 
-
+/* 
 #form_login {
 	font-size: 1.2rem;
 	text-align: center;
@@ -125,4 +291,4 @@ body{margin:0;padding:0;}
 #login {
 	border:solid black;
 	outline: none;
-}
+} */ 

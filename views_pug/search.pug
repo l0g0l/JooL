@@ -1,48 +1,51 @@
 <!DOCTYPE html>
-html(lang="en")
+html(lang='en')
     head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=, initial-scale=1.0")
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width', initial-scale='1.0')
         title Search Movie
-        link(rel="stylesheet" href="/css/style.css")
-        link(rel="stylesheet" href="/css/normalize.css")
+        link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+        link(rel='stylesheet' href='/css/normalize.css')
+        link(rel='stylesheet' href='/css/style.css')
+        script(defer, src='/js/script.js')
     body
         header
-            form(class="formulario" action="./search", method="POST")
-                input(id="peli" class="cuadro" type="text" name="pelicula" placeholder="Introducir Película")
-                input(id="buscador" class="cuadro" type="submit", value=" Buscar ")
+            nav.menu
+                label.logo MoviApp
+                ul.menu_items
+                    li.active
+                        a(href='#') Home
+                    li
+                        a(href='#') Mis Pelis
+                    li
+                        a(href='#') Avatar
+                    li
+                        a(href='#') Logout
+                span.btn_menu.material-icons menu
         section
-            div(id="peliculas")
+            form(class='formulario' action='./search', method='POST')
+                input(id='peli' class='cuadro' type='text' name='pelicula' placeholder='Introducir Película')
+                input(id='buscador' class='cuadro' type='submit', value=' Buscar ')
+        section
+            div(id='peliculas')
                 - let i = 0;
                 while i < Longitud
                     div(class=`pelicula`)
                         h1=Resultados[i].Title
                         h2=Resultados[i].Year
                         - let imbd= Resultados[i].imdbID
-                        img(src=Resultados[i++].Poster, alt="Imagen de la Película")
+                        img(src=Resultados[i++].Poster, alt='Imagen de la Película')
                         br
                         br
-                        form(action=`/searchdetails/${imbd}` , method="GET", id="detalles")
-                            input(type="submit", value="Detalles")
+                        form(action=`/searchdetails/${imbd}` , method='GET', id='detalles')
+                            input(type='submit', value='Detalles')
                         br
-                h1=Nofound
-        article
-                .hamburger
-                    ._layer.-top
-                    ._layer.-mid
-                    ._layer.-bottom
-                nav.menuppal
-                    ul
-                        li
-                            img(id="avatar" src="/img/avatar/mujerAvatar.png")
-                        li 
-                                
-                        li
-                            a(href='/views_pug/dashboard.pug') Home
-                        li
-                            a(href='/views_pug/movies.pug') Mis pelis
-                        li
-                            button(style="display:none" onclick="signout()" id="signout") logout
-        script(src='/js/autenticacion.js')
+        
+    script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js')
+    script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js')
+    script(src='https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js')
+   
+    script(src='/js/autenticacion.js')
+        
                         
 
