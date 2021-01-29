@@ -8,6 +8,7 @@ const APIKEY = process.env.APIKEY;
 
 exports.getLogin = (req, res) => {
     res.status(200).render('login') // Aquí habría que hacer todo el post de ver si el formulario está bien
+}
 exports.getDashboard = (req, res) => {
     res.status(200).render('dashboard')
 }

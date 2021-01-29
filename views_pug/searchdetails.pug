@@ -5,16 +5,22 @@ html(lang='en')
         meta(name='viewport', content='width=device-width', initial-scale='1.0')
         title Search Details
         link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
-        link(rel='stylesheet' href='/css/style.css')
         link(rel='stylesheet' href='/css/normalize.css')
+        link(rel='stylesheet' href='/css/style.css')
     body
-     main
-            header
-                nav.menu
-                    label.logo MoviApp
-                    ul.menu_items
-                        li.active
-                            a(href='#') Home
+        header
+            nav.menu
+                label.logo MoviApp
+                ul.menu_items
+                    li.active
+                        a(href='#') Home
+                    li
+                        a(href='#') Mis Pelis
+                    li
+                        a(href='#') Avatar
+                    li
+                        a(href='#') Logout
+                span.btn_menu.material-icons menu
         button(onclick="window.history.go(-1)") Atrás
         h1=Details.Title
         h2=Details.Year
@@ -28,6 +34,7 @@ html(lang='en')
     script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js')
     script(src='https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js')
     script(src='/js/autenticacion.js')
+    script(defer, src='/js/script.js')
 
 
          

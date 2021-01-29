@@ -5,8 +5,8 @@ html(lang='en')
         meta(name='viewport', content='width=device-width', initial-scale='1.0')
         title Movies
         link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet')
+        link(rel='stylesheet' href='/css/normalize.css')
         link(rel='stylesheet' href='/css/style.css')
-        link(rel='stylesheet' href='/css/normalize.css'  
     body
         header
             nav.menu
@@ -14,13 +14,14 @@ html(lang='en')
                 ul.menu_items
                     li.active
                         a(href='#') Home
+                        
                     li
                         a(href='#') Mis Pelis
                     li
                         a(href='#') Avatar
                     li
                         a(href='#') Logout
-                span.material-icons menu
+                span.btn_menu.material-icons menu
         form(action=`/createmovie`, method="GET", id="nueva")
             input(type="submit", value="Crear nueva película")
         form(action="/logout", method="POST")
