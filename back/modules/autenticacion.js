@@ -1,6 +1,11 @@
 
 // // web app's Firebase configuration
 
+// const firebase = require ('firebase/app');
+// require ('firebase/auth');
+// require ('firebase/firestore');
+
+
 // const firebaseConfig = {
 //   apiKey: "AIzaSyCJHzspnHlZx8wFc5VYi_O9ztiuEhZW0NY",
 //   authDomain: "movieapp-c6dbc.firebaseapp.com",
@@ -10,10 +15,12 @@
 //   appId: "1:660221340799:web:af0ff2c03600a39f48e34a"
 // }
 // // Initialize Firebase
+
 // const firebase = require ('firebase/app');
 // const autenticacion = require ('./modules/autenticacion')
 // require ('firebase/auth');
 // require ('firebase/firestore');
+
 
 // firebase.initializeApp(firebaseConfig)
 // /******************************FACEBOOK*****************************/

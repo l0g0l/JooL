@@ -13,11 +13,9 @@ html(lang='en')
                 label.logo MoviApp
                 ul.menu_items
                     li.active
-                        a(href='#') Home
+                        a(href='/dashboard') Home
                     li
-                        a(href='#') Mis Pelis
-                    li
-                        a(href='#') Avatar
+                        a(href='/movies') Mis Pelis
                     li
                         a(href='#') Logout
                 span.btn_menu.material-icons menu
@@ -46,7 +44,7 @@ html(lang='en')
                         br
                         form(action="", method="POST" id="favoritos")
                             input(type="submit" value="Añadir a Favoritos")
-                h1=Nofound
+                h1=Nofound   
     script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js')
     script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js')
     script(src='https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js')

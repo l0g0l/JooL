@@ -13,21 +13,21 @@ html(lang='en')
             nav.menu
                 label.logo MoviApp
                 ul.menu_items
-                    li.active
-                        a(href='#') Home
                     li
-                        a(href='#') Mis Pelis
+                        a(href='/dashboard') Home
                     li
-                        a(href='#') Avatar
+                        a(href='/movies') Mis Pelis
                     li
                         a(href='#') Logout
+                    li
+                        img(src="/mujerAvatar")
                 span.btn_menu.material-icons menu
        
         
     script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js')
     script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js')
     script(src='https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js')
-   
+            
     script(src='/js/autenticacion.js')
         
                         
