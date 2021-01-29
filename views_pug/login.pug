@@ -1,30 +1,40 @@
 <!DOCTYPE html>
-html(lang="en")
+html(lang='en')
     head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=, initial-scale=1.0")
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width', initial-scale='1.0')
         title Login
-        link(rel="stylesheet" href="/css/style.css")
-        link(rel="stylesheet" href="/css/normalize.css")
+        link(rel='stylesheet' href='/css/normalize.css')
+        link(rel='stylesheet' href='/css/style.css')
     body
         main
-            section(id="form_login")
-                form(action="/dashboard", method="POST", id="formulario")
-                    label(for="email") Email: 
+            section(id='form_login')
+                form(action='/dashboard', method='POST', id='formulario')
+                    label(for='email') Email: 
                     br
-                    input(type="email", name="email", id="email" placeholder="Introducir email")
-                    label(for="password") Password: 
-                    input(type="password", name="password", id="password" placeholder="Introducir contraseña")
+                    input(type='email', name='email', id='email' placeholder='Introducir email')
+                    label(for='password') Password: 
+                    input(type='password', name='password', id='password' placeholder='Introducir contraseña')
                     br
-                    input(type="submit", value="Login")
+                    input(type='submit', value='Login')
                     br
-                button(onclick="signin()" id="signin") login Facebook
-                //- div(id="user-image")
-                //- h1(id="user-email")
-                
-        
-
-    script(src="/js/script.js")
-    script(src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js")
-    script(src="https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js")
+        button(onclick='signin()' id='signin') Login with Facebook
+        div(id='user-image')
+        h1(id='user-email')
+        button(style ='display:none' onclick='signout()' id='signout') Logout
+        div(class='container')
+            div(class='')
+        div(class='profile-section')
+            img(id='profile-picture', src='./images/profile-image-placeholder.jpg')
+            div(id='profile-email')
+            div(id='profile-name')
+        div(class='login-section')
+            button(id='login-button' style='display: none;') Login with Google
+            button(id='logout-button' style='display: none;') Logout
+     
+    script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js')
+    script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js')
+    script(src='https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js')
     script(src='/js/autenticacion.js')
+   
+    

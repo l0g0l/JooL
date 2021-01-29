@@ -1,29 +1,34 @@
 <!DOCTYPE html>
-html(lang="en")
+html(lang='en')
     head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=, initial-scale=1.0")
-        title Movies
-        link(rel="stylesheet" href="/css/style.css")
-        link(rel="stylesheet" href="/css/normalize.css")
-        
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width', initial-scale='1.0')
+        title Search Movie
+        link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+        link(rel='stylesheet' href='/css/normalize.css')
+        link(rel='stylesheet' href='/css/style.css')
+        script(defer, src='/js/script.js')
     body
-      
-        div(class='hamburger')
-            div(class='_layer-mid')
-            div(class='_layer-top')
-            div(class='_layer-bottom')
-            
-            nav.menuppal
-                ul
+        header
+            nav.menu
+                label.logo MoviApp
+                ul.menu_items
+                    li.active
+                        a(href='#') Home
+                    li
+                        a(href='#') Mis Pelis
                     li
                         a(href='#') Avatar
                     li
-                        a(href='#') Home
-                    li
-                        a(href='#') Mis pelis
-                    li
                         a(href='#') Logout
+                span.btn_menu.material-icons menu
+       
+        
+    script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js')
+    script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js')
+    script(src='https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js')
+   
+    script(src='/js/autenticacion.js')
+        
+                        
 
-        script(src='/js/script.js')
-    

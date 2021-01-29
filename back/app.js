@@ -5,7 +5,18 @@ let methodOverride = require("method-override");
 app.use(methodOverride("_method"));
 const port = 3000;
 
+const firebase = require ('firebase/app');
+const autenticacion = require ('./modules/autenticacion')
+require ('firebase/auth');
+require ('firebase/firestore');
+
+// Initialize Firebase
+firebase.initializeApp(autenticacion.firebaseConfig)
+
+
 app.use (express.static('public')); // Hacemos public que se pueda ver
+// Para Poder leer el process.env
+
  // console.log(process.env.APIKEY) Para acceder a la apiKey hay que poner process.env.NOMBREVARIABLE
 
 let bodyParser = require('body-parser'); // Para poder acceder a lo de .body

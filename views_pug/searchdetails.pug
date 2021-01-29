@@ -1,12 +1,20 @@
 <!DOCTYPE html>
-html(lang="en")
+html(lang='en')
     head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=, initial-scale=1.0")
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width', initial-scale='1.0')
         title Search Details
-        link(rel="stylesheet" href="/public/css/style.css")
-        link(rel="stylesheet" href="/public/css/normalize.css")
+        link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+        link(rel='stylesheet' href='/css/style.css')
+        link(rel='stylesheet' href='/css/normalize.css')
     body
+     main
+            header
+                nav.menu
+                    label.logo MoviApp
+                    ul.menu_items
+                        li.active
+                            a(href='#') Home
         button(onclick="window.history.go(-1)") Atrás
         h1=Details.Title
         h2=Details.Year
@@ -15,25 +23,10 @@ html(lang="en")
         h3=Details.Actors
         h3=Details.Plot
         h3=Details.Awards
-        img(src=Details.Poster, alt="Imagen de la Película específica")
-        main
-            article
-                .hamburger
-                    ._layer.-top
-                    ._layer.-mid
-                    ._layer.-bottom
-                nav.menuppal
-                    ul
-                        li
-                            img(id="avatar" src="/img/avatar/mujerAvatar.png")
-                        li 
-                                
-                        li
-                            a(href='/views_pug/dashboard.pug') Home
-                        li
-                            a(href='/views_pug/movies.pug') Mis pelis
-                        li
-                           button(style="display:none" onclick="signout()" id="signout") logout
+        img(src=Details.Poster, alt='Imagen de la Película específica')                     
+    script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js')
+    script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js')
+    script(src='https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js')
     script(src='/js/autenticacion.js')
 
 
