@@ -13,14 +13,13 @@ html(lang='en')
                 label.logo MoviApp
                 ul.menu_items
                     li.active
-                        a(href='#') Home
-                        
+                        a(href='/dashboard') Home
                     li
-                        a(href='#') Mis Pelis
-                    li
-                        a(href='#') Avatar
+                        a(href='/movies') Mis Pelis
                     li
                         a(href='#') Logout
+                    li
+                        img(src="/img/avatar/mujerAvatar.png" class="logoD")
                 span.btn_menu.material-icons menu
         form(action=`/createmovie`, method="GET", id="nueva")
             input(type="submit", value="Crear nueva película")
