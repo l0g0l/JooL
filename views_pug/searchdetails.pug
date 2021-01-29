@@ -8,6 +8,14 @@ html(lang='en')
         link(rel='stylesheet' href='/css/style.css')
         link(rel='stylesheet' href='/css/normalize.css')
     body
+     main
+            header
+                nav.menu
+                    label.logo MoviApp
+                    ul.menu_items
+                        li.active
+                            a(href='#') Home
+        button(onclick="window.history.go(-1)") Atrás
         h1=Details.Title
         h2=Details.Year
         h3=Details.Writer
@@ -15,27 +23,10 @@ html(lang='en')
         h3=Details.Actors
         h3=Details.Plot
         h3=Details.Awards
-        img(src=Details.Poster, alt='Imagen de la Película específica')
-        main
-            header
-                nav.menu
-                    label.logo MoviApp
-                    ul.menu_items
-                        li.active
-                            a(href='#') Home
-                        li
-                            a(href='#') Mis Pelis
-                        li
-                            a(href='#') Avatar
-                        li
-                            a(href='#') Logout
-                    span.btn_menu.material-icons menu
-
-                           
+        img(src=Details.Poster, alt='Imagen de la Película específica')                     
     script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js')
     script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js')
     script(src='https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js')
-   
     script(src='/js/autenticacion.js')
 
 

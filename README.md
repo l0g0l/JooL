@@ -1,3 +1,29 @@
+RUTA TRABAJO GIT
+
+1.- Abrimos VS
+2.- Abro rama y entro en ella: git checkout -b (nombre)
+	2.1.- Solo crear rama: git branch 
+	2.2.- Para cambiar de rama a main: git checkout main
+
+3.- Trabajar y pushear con frecuencia haciendo commits muy descriptivos
+	3.1.- git add -A, git commit -m “xxxxx”, git push origin (nombre de rama) 			NUNCA A MAIN
+4.- Antes de unir mi rama a main SIEMPRE hacer un pull request (es mucho más fácil solucionar conflicto en un pull request que es un push ya subido a main)
+5.- Hacemos pull request, si se aceptan los cambios se fusiona directamente a MAIN remoto. SIEMPRE borrar la rama mergeada en el repo y en local: git branch -d       (nombre de la rama)
+6.- git pull en main
+7.- git merge main desde la rama hamburguesa
+8.- git push origin main
+
+JAVI
+
+pull request a javi
+si acepta, javi se pasa a main git checkout main
+git fetch upstream
+git merge upstream/main
+git push origin main
+git checkout javi
+git merge main
+
+
 Requisitos del proyecto
 
 Se pide desarrollar una aplicación web de búsqueda y gestión de películas que contemple las siguientes funcionalidades y endpoints asociados. Trabajaremos sobre los conceptos vistos de Frontend y Backend en clase

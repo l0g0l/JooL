@@ -6,11 +6,9 @@ html(lang='en')
         title Login
         link(rel='stylesheet' href='/css/normalize.css')
         link(rel='stylesheet' href='/css/style.css')
-      
     body
         main
             section(id='form_login')
-
                 form(action='/dashboard', method='POST', id='formulario')
                     label(for='email') Email: 
                     br
@@ -18,13 +16,12 @@ html(lang='en')
                     label(for='password') Password: 
                     input(type='password', name='password', id='password' placeholder='Introducir contraseña')
                     br
-                    input(type='submit', value='Login', id='login')
+                    input(type='submit', value='Login')
                     br
         button(onclick='signin()' id='signin') Login with Facebook
         div(id='user-image')
         h1(id='user-email')
         button(style ='display:none' onclick='signout()' id='signout') Logout
-
         div(class='container')
             div(class='')
         div(class='profile-section')
