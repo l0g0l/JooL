@@ -8,6 +8,7 @@ const APIKEY = process.env.APIKEY;
 
 exports.getLogin = (req, res) => {
     res.status(200).render('login') // Aquí habría que hacer todo el post de ver si el formulario está bien
+}
 exports.getDashboard = (req, res) => {
     res.status(200).render('dashboard')
 }
@@ -30,7 +31,7 @@ exports.getFilm = (req,res) => {
                 }
             }
             if (check!= null){
-                console.log(movies[check])
+                console.log(resultado)
                 res.render('search', {Resultados: resultado, Longitud: 1})
             } else {
                 res.render('search', {Nofound: "Película no encontrada"});

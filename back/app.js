@@ -27,7 +27,7 @@ app.set('views','./views_pug'); // Para poder usar pug
 
 app.get('/', movies.getLogin);
 app.get('/search', movies.getSearch);
-app.post('/dashboard', movies.getDashboard);
+app.get('/dashboard', movies.getDashboard);
 app.post('/search', urlencodedParser, movies.getFilm);
 app.get('/searchdetails/:imbd', movies.getDetails);
 app.get('/movies', movies.getMovies);

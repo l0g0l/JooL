@@ -9,7 +9,7 @@ html(lang='en')
     body
         main
             section(id='form_login')
-                form(action='/dashboard', method='POST', id='formulario')
+                form(action='/dashboard', method='GET', id='formulario')
                     label(for='email') Email: 
                     br
                     input(type='email', name='email', id='email' placeholder='Introducir email')
@@ -36,5 +36,6 @@ html(lang='en')
     script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js')
     script(src='https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js')
     script(src='/js/autenticacion.js')
+    script(src='/js/script.js')
    
     
