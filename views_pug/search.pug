@@ -7,7 +7,6 @@ html(lang='en')
         link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
         link(rel='stylesheet' href='/css/normalize.css')
         link(rel='stylesheet' href='/css/style.css')
-        script(defer, src='/js/script.js')
     body
         header
             nav.menu
@@ -36,16 +35,10 @@ html(lang='en')
                         - let imbd= Resultados[i].imdbID
                         img(src=Resultados[i++].Poster, alt='Imagen de la Película')
                         br
-                        br
-                        form(action=`/searchdetails/${imbd}` , method='GET', id='detalles')
-                            input(type='submit', value='Detalles')
-                        br
                         if(imbd == null)
-                            h2=Resultados[i].Genre
-                            h2=Resultados[i].Director
-                            h2=Resultados[i].Runtime
-                        img(src=Resultados[i++].Poster, alt="Imagen de la Película")
-                        br
+                            h2=Resultados[0].Genre
+                            h2=Resultados[0].Director
+                            h2=Resultados[0].Runtime
                         br
                         if(imbd != null)
                             form(action=`/searchdetails/${imbd}` , method="GET", id="detalles")
@@ -54,11 +47,11 @@ html(lang='en')
                         form(action="", method="POST" id="favoritos")
                             input(type="submit" value="Añadir a Favoritos")
                 h1=Nofound
-        
     script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js')
     script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js')
     script(src='https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js')
     script(src='/js/autenticacion.js')
+    script(defer, src='/js/script.js')
         
    
 
