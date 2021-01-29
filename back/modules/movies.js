@@ -31,7 +31,7 @@ exports.getFilm = (req,res) => {
                 }
             }
             if (check!= null){
-                console.log(movies[check])
+                console.log(resultado)
                 res.render('search', {Resultados: resultado, Longitud: 1})
             } else {
                 res.render('search', {Nofound: "Película no encontrada"});
