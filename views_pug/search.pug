@@ -18,9 +18,11 @@ html(lang='en')
                         a(href='/movies') Mis Pelis
                     li
                         a(href='#') Logout
+                    li
+                        img(src="/img/avatar/mujerAvatar.png" class="logoD")
                 span.btn_menu.material-icons menu
-        section
-            form(class='formulario' action='./search', method='POST')
+        section               // añadido id
+            form(id='formularioS' action='./search', method='POST') 
                 input(id='peli' class='cuadro' type='text' name='pelicula' placeholder='Introducir Película')
                 input(id='buscador' class='cuadro' type='submit', value=' Buscar ')
         section
@@ -31,7 +33,7 @@ html(lang='en')
                         h1=Resultados[i].Title
                         h2=Resultados[i].Year
                         - let imbd= Resultados[i].imdbID
-                        img(src=Resultados[i++].Poster, alt='Imagen de la Película')
+                        img(src=Resultados[i++].Poster, alt='Imagen de la Película' id="Poster")
                         br
                         if(imbd == null)
                             h2=Resultados[0].Genre
@@ -50,6 +52,7 @@ html(lang='en')
     script(src='https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js')
     script(src='/js/autenticacion.js')
     script(defer, src='/js/script.js')
+//- script(defer, src='/js/script2.js')
         
    
 
