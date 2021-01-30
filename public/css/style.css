@@ -33,6 +33,9 @@
 	/* border-radius: 3px; */
 	margin: 0 10px;
 }
+#Poster{
+	width: 50%;
+}
 .menu_items li a {
 	padding: 7px 15px;
 	text-decoration: none;

@@ -21,7 +21,7 @@ exports.readMovies  = async () => {
 }
 exports.readOneMovie  = async (id) => {
     let id2 = new ObjectID(id);
-    const client = await conexion();
+    const client = await conexion ();
     const result = await client
     .db("moviedb")
     .collection("catalogo")
@@ -31,11 +31,19 @@ exports.readOneMovie  = async (id) => {
 }
 exports.actualizarOneMovies = async (id, actualizador) => {
     let id2 = new ObjectID(id);
-    console.log(id2)
     const client = await conexion ();
     const result = await client
     .db("moviedb")
     .collection("catalogo")
     .updateOne({ _id: id2 }, { $set: actualizador });
     return result
+}
+exports.eliminarMovie = async (id) => {
+    let id2 = new ObjectID(id);
+    const client = await conexion ();
+    const result = await client
+    .db("moviedb")
+    .collection("catalogo")
+    .deleteOne({ _id : id2});
+    console.log(`${result.deletedCount} document(s) was/were deleted.`);
 }

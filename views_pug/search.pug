@@ -31,15 +31,14 @@ html(lang='en')
                         h1=Resultados[i].Title
                         h2=Resultados[i].Year
                         - let imbd= Resultados[i].imdbID
-                        img(src=Resultados[i++].Poster, alt='Imagen de la Película')
+                        - let id= Resultados[i]._id
+                        img(src=Resultados[i++].Poster, alt='Imagen de la Película' id="Poster")
                         br
                         if(imbd == null)
-                            h2=Resultados[0].Genre
-                            h2=Resultados[0].Director
-                            h2=Resultados[0].Runtime
-                        br
+                            form(action=`/searchdetails/${id}` , method="GET", id="detallesMongo")
+                                input(type="submit", value="Detalles")
                         if(imbd != null)
-                            form(action=`/searchdetails/${imbd}` , method="GET", id="detalles")
+                            form(action=`/searchdetails/${imbd}` , method="GET", id="detallesApi")
                                 input(type="submit", value="Detalles")
                         br
                         form(action="", method="POST" id="favoritos")

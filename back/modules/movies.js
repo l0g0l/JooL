@@ -42,18 +42,24 @@ exports.getFilm = (req,res) => {
     })
     .catch(error => console.log(error))
 };
-exports.getDetails = (req, res) => {
+exports.getDetails = async (req, res) => {
     let id = req.params.imbd;
-    fetch(`http://www.omdbapi.com/?i=${id}&apikey=${process.env.APIKEY}`)
-    .then(peli => peli.json())
-    .then(data => { 
-        if(data.Response=="False"){
-            res.render('searchdetails', {Nofound: "Película no encontrada"});
-        } else {
-            res.render('searchdetails', {Details: data})
-        }
-    })
-    .catch(error => console.log(error))
+    if (id.length<15){
+        fetch(`http://www.omdbapi.com/?i=${id}&apikey=${process.env.APIKEY}`)
+        .then(peli => peli.json())
+        .then(data => { 
+            if(data.Response=="False"){
+                res.render('searchdetails', {Nofound: "Película no encontrada"});
+            } else {
+                res.render('searchdetails', {Details: data})
+            }
+        })
+        .catch(error => console.log(error))
+    } else {
+        let movies = await db.readOneMovie(id);
+        console.log(movies)
+        res.render('searchdetails', {Details: movies[0]})
+    }
 }
 exports.getMovies = async (req, res) => {
     let movies = await db.readMovies();
@@ -88,5 +94,7 @@ exports.createMovie = async (req, res) => {
     
 }
 exports.deleteMovie = async (req, res) => {
-   
+    let id2 = req.params.id;
+    let eliminar = await db.eliminarMovie(id2);
+    res.status(200).redirect('/movies?Borrada');
 }

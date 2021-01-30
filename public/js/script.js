@@ -151,7 +151,6 @@ if (eliminar){
         event.preventDefault();
         pregunta = confirm("¿Deseas eliminar realmente esta Película?");
         if (pregunta){
-          console.log("Aceptada")
           event.target.submit();
         } else {
           alert ("No borrada");
