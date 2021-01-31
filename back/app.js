@@ -35,7 +35,7 @@ app.get('/editmovie/:id', movies.editMovie);
 app.put('/editmovie/:id', urlencodedParser, movies.updateMovie);
 app.get('/createmovie', movies.formcreateMovie);
 app.post('/createmovie', urlencodedParser, movies.createMovie);
-app.delete('/removeMovie/:id', movies.deleteMovie)
+app.delete('/removeMovie/:id', urlencodedParser, movies.deleteMovie)
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)

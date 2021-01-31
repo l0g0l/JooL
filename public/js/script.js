@@ -87,9 +87,10 @@ let createform = document.getElementById("createform");
 let eliminar = document.querySelectorAll('.eliminar');
 let search = document.getElementById("formularioS");
 let edit = document.getElementById("editform");
+let dashboard = document.getElementById("dashboard");
 
-if (formulario) {
-  formulario.addEventListener("submit", function (event) {
+if (formulario){
+  formulario.addEventListener("submit", function (event){
     console.log(event)
     event.preventDefault();
     let email = document.getElementById("email").value;
@@ -219,3 +220,15 @@ if (edit) {
     }
   })
 }
+
+if (dashboard)
+document.addEventListener('DOMContentLoaded', () => {
+    const elementosCarrousel = document.querySelectorAll('.carousel');
+    M.Carousel.init(elementosCarrousel, {
+        duration:480,
+        dist:-80,
+        indicators: true,
+        padding: -20
+    })
+});
+

@@ -8,6 +8,12 @@
 /* body {
 	font-family: sans-serif;
 } */
+main{
+	height:100%;
+	width: 100%;
+	margin:0;
+  }
+
 .menu {
 	background: cadetblue;
 	height: 75px;
@@ -34,7 +40,7 @@
 	/* border-radius: 3px; */
 	margin: 0 10px;
 }
-#Poster {
+#Poster{
 	width: 50%;
 }
 .menu_items li a {
@@ -150,8 +156,140 @@ ul.show {
 	} 
 }
 
+/* ************************Javi********************************** */
 
-
+body {
+	background-color: #6090b1;
+}
+section.cabecera{
+	font-family: SF Pro Display;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 34px;
+	line-height: 41px;
+	letter-spacing: 0.374px;	
+	color: black;
+	margin-left: 20px;
+	margin-top: 90px;
+	margin-bottom: 8px;
+}
+label.cajas {
+	width: 95%;
+	margin-top: 5px;
+	margin-left:45px;
+	font-family: SF Pro Text;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 13px;
+	line-height: 18px;
+	letter-spacing: -0.078px;
+	text-transform: uppercase;
+	color: black;
+}
+form#formulario, div.buscador, form.logout{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+input#email, input#password, button#movies, button#search, input#logout{
+	align-content: space-between;
+	flex-direction: center;
+	align-items: center;
+	width: 90%;
+	height: 40px;
+	flex-grow: 0;
+	margin: 5px 0px;
+	font-family: SF Pro Text;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 22px;
+	letter-spacing: -0.408px;
+	color: black;
+	border-radius: 10px;
+	padding-left: 10px;
+	box-shadow: 4px 4px;
+}
+input#boton_login{
+	margin-top: 15px;
+	width: 40%;
+	height: 42px;
+	align-content: space-between;
+	flex-direction: center;
+	align-items: center;
+	font-family: SF Pro Text;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 19px;
+	line-height: 22px;
+	text-align: center;
+	letter-spacing: -0.408px;
+	color: black;
+	border-radius: 10px;
+	box-shadow: 4px 4px;
+}
+img.logobrand{
+	width: 80px;
+	margin-top: 40px;
+	margin-right: 17px;
+	border-radius: 70px;
+	box-shadow: 4px 4px;
+}
+div.buscador{
+	margin-top: 15px;
+}
+input#logout{
+	width: 40%;
+}
+h2 {
+	font-size: 30px;
+	margin-top: -15px;
+	margin-bottom: 15px;
+	text-align: center;
+	color: rgb(239, 239, 239);
+}
+div.ubicando{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+div.container{
+	padding-left: 0px;
+}
+.carousel{
+	margin-top: 10px;
+	height: 335px;
+	border: solid black;
+	border-radius: 10px;
+	background-color: rgb(239, 239, 239);
+}
+.carousel .carousel-item{
+	margin-top:-35px;
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	user-select: none;
+	width: 80%;
+}
+.carousel .carousel-item img{
+	width: 80%;
+	object-fit: cover;
+	border-radius: 15px;
+	margin-bottom: -10px;
+}
+.carousel .indicators .indicator-item{
+	border-radius: 0;
+	transform: rotate(45deg);
+	margin: 5px 10px;
+	background: black;
+}
+.carousel-item p {
+	font-family: 'Comic Sans';
+	font-size: 20px;
+	margin-bottom: 5px;
+	margin-top: 30px
+}
 
 
 
