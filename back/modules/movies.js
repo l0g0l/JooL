@@ -124,5 +124,5 @@ exports.createMovie = async (req, res) => {
 exports.deleteMovie = async (req, res) => {
     let id2 = req.params.id;
     let eliminar = await db.eliminarMovie(id2);
-    res.status(200).redirect('movies?Borrada');
+    res.status(200).redirect('/movies?Borrada');
 }

@@ -11,13 +11,15 @@ html(lang='en')
         main(id="dashboard")
             div(class="buscador")
                 button(id='movies' onclick="location.href='./movies'") Mis Películas
-                button(id='search' onclick="location.href='./search'") Buscar Películas
+                form(class='formulario' action='./search', method='POST')
+                    input(id='peli' class='cuadro' type='text' name='pelicula' placeholder='Introducir Película')
+                    input(id='buscador' class='cuadro' type='submit', value=' Buscar ')
             form(action='/logout', method='POST', class="logout")
                 input(type='submit', value='Log Out', id='logout')
             div(class="container")
                 div(class="row")
                     div(class="col s12")
-                        h2(class="center-align") Estrenos 2021
+                        h2(class="center-align") Estrenos de 2021
                         div(class="carousel center-align")
                             div(class="carousel-item")
                                 p Venom
