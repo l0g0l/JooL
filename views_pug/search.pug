@@ -21,8 +21,8 @@ html(lang='en')
                     li
                         img(src="/img/avatar/mujerAvatar.png" class="logoD")
                 span.btn_menu.material-icons menu
-        section               // añadido id
-            form(id='formularioS' action='./search', method='POST') 
+        section              
+            form(class='formularioS' action='./search', method='POST') 
                 input(id='peli' class='cuadro' type='text' name='pelicula' placeholder='Introducir Película')
                 input(id='buscador' class='cuadro' type='submit', value=' Buscar ')
         section
@@ -51,7 +51,7 @@ html(lang='en')
     script(src='https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js')
     script(src='/js/autenticacion.js')
     script(defer, src='/js/script.js')
-//- script(defer, src='/js/script2.js')
+
         
    
 
