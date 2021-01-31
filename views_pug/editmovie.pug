@@ -4,10 +4,10 @@ html(lang='en')
         meta(charset='UTF-8')
         meta(name='viewport', content='width=device-width', initial-scale='1.0')
         title Edit Movie
-        link(rel='stylesheet' href='/css/style.css')
         link(rel='stylesheet' href='/css/normalize.css')
+        link(rel='stylesheet' href='/css/style.css')
     body
-        form(action=`/editmovie/${identificador}?_method=PUT`, method="POST")
+        form(action=`/editmovie/${identificador}?_method=PUT`, method="POST" id="editform"))
             label(for="titulo") Título: 
             input(type="text", name="titulo", id="editartitulo", value=Resultados[0].Title)
             br
@@ -23,8 +23,10 @@ html(lang='en')
             label(for="duracion") Duración: 
             input(type="text", name="duracion", id="editarduracion", value=Resultados[0].Runtime)
             br
-            img(src=Resultados[0].Poster, alt="Poster de la película")
-            br
+            img(src=Resultados[0].Poster, alt="Poster de la película" id="editarurl") 
+            br                                                     //- añadido id
             input(type="submit", value="Guardar")
         button(onclick="window.history.go(-1)") Cancelar
+    //- script(defer, src='/js/script2.js')
+        
 

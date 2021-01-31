@@ -34,6 +34,7 @@ main{
 	display: flex;
 	list-style: none;
 	margin-right: 30px;
+	align-items: center;
 }
 .menu_items li {
 	/* border-radius: 3px; */
@@ -49,10 +50,13 @@ main{
 	display: inline-block; /* para que los links ocupen todo su espacio*/
 	text-transform: uppercase;
 	color: white;
-	transition: 3s;
+	transition:3s;
+	
+	
 }
 .menu_items li:hover, li:active{
 	background: rgba(0, 0, 0,.3);
+	
 	
 }
 nav > span.material-icons {
@@ -125,13 +129,13 @@ ul.show {
 		line-height: 30px;
 
 	}
-	.menu_items li:hover {
-		background: none;
+	.menu_items li:hover li:active {
+		background: rgba(0, 0, 0,.3);
 	}
 	.menu_items li a {
-		font-size: 20px;
+		font-size: 25px;
 		color:white;
-		font-weight: bold;
+		/* font-weight: bold; */
 
 	}
 	.menu_items li a:hover {
@@ -141,7 +145,6 @@ ul.show {
 		font-size: 25px;
 		padding-left: 35px;
 	}
-
 }
 @media screen and (max-width:858px) and (orientation: landscape) {
 	.menu_items li {

@@ -19,6 +19,8 @@ html(lang='en')
                     input(type='email', name='email', id='email' placeholder='Introducir email')
                     label(for='password', class="cajas") Password 
                     input(type='password', name='password', id='password' placeholder='Introducir contraseña')
+                    button(type="button", class="btn_psw", onclick="mostrarContraseña()") Mostrar Contraseña
+                    br
                     input(type='submit', value='Log In', id="boton_login")
             section(id='login_facebook')
                 button(onclick='signin()' id='signin') Facebook
@@ -34,10 +36,15 @@ html(lang='en')
                     div(class='login-section')
                         button(id='login-button' style='display: none;') Login with Google
                         button(id='logout-button' style='display: none;') Logout
+
     script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js')
     script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js')
     script(src='https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js')
     script(src='/js/autenticacion.js')
     script(src='/js/script.js')
+//- script(src='/js/script2.js')
+
+    
+
 
     

@@ -2,7 +2,7 @@ const fetch = require("node-fetch");
 const dotenv = require('dotenv');
 dotenv.config();
 
-const db = require ('../model/db');
+const db = require('../model/db');
 ObjectID = require('mongodb').ObjectID;
 const APIKEY = process.env.APIKEY;
 
@@ -15,7 +15,7 @@ exports.getDashboard = (req, res) => {
 exports.getSearch = (req, res) => {
     res.status(200).render('search');
 }
-exports.getFilm = (req,res) => {
+exports.getFilm = (req, res) => {
     let pelicula = req.body.pelicula;
     let check = null;
     let resultado = [];
@@ -64,9 +64,10 @@ exports.getDetails = async (req, res) => {
 exports.getMovies = async (req, res) => {
     let movies = await db.readMovies();
     let id = [];
-    movies.forEach((element,index) => {
+    movies.forEach((element, index) => {
         id[index] = new ObjectID(element._id);
     });
+
     res.status(200).render('movies', {Resultados: movies, Longitud: movies.length, identificador:id})
 }
 exports.editMovie = async (req, res) => {

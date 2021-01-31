@@ -12,7 +12,7 @@ html(lang='en')
             nav.menu
                 label.logo MoviApp
                 ul.menu_items
-                    li.active
+                    li
                         a(href='/dashboard') Home
                     li
                         a(href='/movies') Mis Pelis
@@ -21,7 +21,6 @@ html(lang='en')
                     li
                         img(src="/img/avatar/mujerAvatar.png" class="logoD")
                 span.btn_menu.material-icons menu
-        form(action=`/createmovie`, method="GET", id="nueva")
             input(type="submit", value="Crear nueva película")
         h1 Películas Almacenadas Localmente:
         - let i = 0;
@@ -38,6 +37,7 @@ html(lang='en')
     script(src='https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js')
     script(src='/js/autenticacion.js')
     script(src="/js/script.js")
+//- script(defer, src='/js/script2.js')
 
   
   
