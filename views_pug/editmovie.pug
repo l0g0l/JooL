@@ -11,8 +11,8 @@ html(lang='en')
             label(for="titulo") Título: 
             input(type="text", name="titulo", id="editartitulo", value=Resultados[0].Title)
             br
-            label(for="ano") Año: 
-            input(type="text", name="ano", id="editaraño", value=Resultados[0].Year)
+            label(for="year") Año: 
+            input(type="text", name="year", id="editaryear", value=Resultados[0].Year)
             br
             label(for="director") Director: 
             input(type="text", name="director", id="editardirector", value=Resultados[0].Director)
@@ -24,9 +24,9 @@ html(lang='en')
             input(type="text", name="duracion", id="editarduracion", value=Resultados[0].Runtime)
             br
             img(src=Resultados[0].Poster, alt="Poster de la película" id="editarurl") 
-            br                                                     //- añadido id
+            br                                                     
             input(type="submit", value="Guardar")
         button(onclick="window.history.go(-1)") Cancelar
-    //- script(defer, src='/js/script2.js')
+        script(src="/js/script.js")
         
 
