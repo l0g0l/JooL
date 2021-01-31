@@ -8,35 +8,36 @@ html(lang='en')
         link(rel='stylesheet' href='/css/style.css')
     body
         main
+            header
+                div(class="ubicando")
+                    img(src="./img/Logo.png", alt="Logo", class="logobrand")
+            section(class='cabecera')
+                p Log In
             section(id='form_login')
                 form(action='/dashboard', method='GET', id='formulario')
-                    label(for='email') Email: 
-                    br
+                    label(for='email', class="cajas") Email 
                     input(type='email', name='email', id='email' placeholder='Introducir email')
-                    label(for='password') Password: 
+                    label(for='password', class="cajas") Password 
                     input(type='password', name='password', id='password' placeholder='Introducir contraseña')
-                    br
-                    input(type='submit', value='Login')
-                    br
-        button(onclick='signin()' id='signin') Login with Facebook
-        div(id='user-image')
-        h1(id='user-email')
-        button(style ='display:none' onclick='signout()' id='signout') Logout
-        div(class='container')
-            div(class='')
-        div(class='profile-section')
-            img(id='profile-picture', src='./images/profile-image-placeholder.jpg')
-            div(id='profile-email')
-            div(id='profile-name')
-        div(class='login-section')
-            button(id='login-button' style='display: none;') Login with Google
-            button(id='logout-button' style='display: none;') Logout
-     
+                    input(type='submit', value='Log In', id="boton_login")
+            section(id='login_facebook')
+                button(onclick='signin()' id='signin') Facebook
+                    div(id='user-image')
+                    h1(id='user-email')
+                    button(style ='display:none' onclick='signout()' id='signout') Logout
+                    div(class='container')
+                        div(class='')
+                    div(class='profile-section')
+                        img(id='profile-picture', src='./images/profile-image-placeholder.jpg')
+                        div(id='profile-email')
+                        div(id='profile-name')
+                    div(class='login-section')
+                        button(id='login-button' style='display: none;') Login with Google
+                        button(id='logout-button' style='display: none;') Logout
     script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js')
     script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js')
     script(src='https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js')
     script(src='/js/autenticacion.js')
-
-    script(src='/js/scrip.js')
+    script(src='/js/script.js')
 
     

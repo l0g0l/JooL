@@ -28,7 +28,7 @@ function checkPassword (password){
   }
 }
 function checkTitulo (titulo){
-  let expReg = /^[a-z0-9À-ÿ\u00f1\u00d1\!\@\#\$\%\&]{1,19}$/gi
+  let expReg = /^[a-z0-9À-ÿ\s\u00f1\u00d1\!\@\#\$\%\&]{1,19}$/gi
   if(expReg.test(titulo)){
       return true
   } else {
@@ -80,6 +80,7 @@ let menu = document.querySelector('.hamburger');
 let formulario = document.getElementById("formulario");
 let createform = document.getElementById("createform");
 let eliminar = document.querySelectorAll('.eliminar');
+let dashboard = document.getElementById("dashboard");
  if (menu){
    menu.addEventListener('click', toggleMenu, false);
  }
@@ -151,7 +152,6 @@ if (eliminar){
         event.preventDefault();
         pregunta = confirm("¿Deseas eliminar realmente esta Película?");
         if (pregunta){
-          console.log("Aceptada")
           event.target.submit();
         } else {
           alert ("No borrada");
@@ -159,4 +159,13 @@ if (eliminar){
     })
   }
 }
-
+if (dashboard)
+document.addEventListener('DOMContentLoaded', () => {
+    const elementosCarrousel = document.querySelectorAll('.carousel');
+    M.Carousel.init(elementosCarrousel, {
+        duration:480,
+        dist:-80,
+        indicators: true,
+        padding: -20
+    })
+});
