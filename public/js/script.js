@@ -171,7 +171,7 @@ if(search){
   let titulo = document.getElementById("peli").value;
 
   if (titulo == "") {
-      alert('Campo vacío. Por favor introduzca el titulo de una película')
+      alert('Campo vacío. Por favor introduce el título de una película')
       
   } else {event.target.submit()};
 });
