@@ -47,3 +47,12 @@ exports.eliminarMovie = async (id) => {
     .deleteOne({ _id : id2});
     console.log(`${result.deletedCount} document(s) was/were deleted.`);
 }
+exports.crearOneMovies = async (creador) => {
+    const client = await conexion();
+    const result = await client
+    .db("moviedb")
+    .collection("catalogo")
+    .insertOne(creador);
+    console.log(`New listing created with the following id: ${result.insertedId}`);
+    return result.insertedId;
+}

@@ -8,6 +8,12 @@
 /* body {
 	font-family: sans-serif;
 } */
+main{
+	height:100%;
+	width: 100%;
+	margin:0;
+  }
+
 .menu {
 	background: cadetblue;
 	height: 75px;
@@ -147,8 +153,128 @@ ul.show {
 	} 
 }
 
+/* ************************Javi********************************** */
 
+body {
+	background-color: #6090b1;
+}
+section.cabecera{
+	font-family: SF Pro Display;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 34px;
+	line-height: 41px;
+	letter-spacing: 0.374px;	
+	color: #E6E6E6;
+	margin-left: 20px;
+	margin-top: 100px;
+	margin-bottom: 8px;
+}
+label.cajas {
+	width: 95%;
+	margin-top: 5px;
+	margin-left:45px;
+	font-family: SF Pro Text;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 13px;
+	line-height: 18px;
+	letter-spacing: -0.078px;
+	text-transform: uppercase;
+	color: #7F7F7F;
+}
+form#formulario, div.buscador, form.logout{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+input#email, input#password, button#movies, button#search, input#logout{
+	align-content: space-between;
+	flex-direction: center;
+	align-items: center;
+	width: 90%;
+	height: 40px;
+	flex-grow: 0;
+	margin: 5px 0px;
+	font-family: SF Pro Text;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 22px;
+	letter-spacing: -0.408px;
+	color: #7F7F7F;
+	border-radius: 10px;
+	padding-left: 10px;
+}
+input#boton_login{
+	margin-top: 15px;
+	width: 40%;
+	height: 42px;
+	align-content: space-between;
+	flex-direction: center;
+	align-items: center;
+	font-family: SF Pro Text;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 19px;
+	line-height: 22px;
+	text-align: center;
+	letter-spacing: -0.408px;
+	color: #7F7F7F;
+	border-radius: 10px;
+}
+img.logobrand{
+	width: 80px;
+	margin-top: 40px;
+	margin-right: 17px;
+	border-radius: 70px;
+}
+div.buscador{
+	margin-top: 20px;
+}
+input#logout{
+	width: 40%;
+}
+h2 {
+	font-size: 30px;
+	margin-top: -10px;
+	margin-bottom: 0px;
+	text-align: center;
+	color: white;
+}
+div.ubicando{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+div.container{
+	padding-left: 0px;
+}
+.carousel{
+	margin-top: -45px;
+	min-width: 250px;
+}
 
+.carousel .carousel-item{
+	margin-top:0px;
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	user-select: none;
+	width: 80%;
+}
+.carousel .carousel-item img{
+	width: 80%;
+	object-fit: cover;
+	border-radius: 15px;
+}
+.carousel .indicators .indicator-item{
+	border-radius: 0;
+	transform: rotate(45deg);
+	margin: 18px 15px;
+	background: black;
+}
 
 
 
