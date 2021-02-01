@@ -37,7 +37,7 @@ function checkRegexp(cadena, redexp) {
   }
 }
 
-let formulario = document.getElementById("formulario"); // en el formulario tenia una clase, lo he cambiado a ID
+let formulario = document.getElementById("formulario"); 
 let createform = document.getElementById("createform");
 let eliminar = document.querySelectorAll('.eliminar');
 let search = document.querySelector('.formularioS'); // he añadido una S de serach para diferenciarlo del otro formulario

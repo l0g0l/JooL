@@ -3,36 +3,42 @@ html(lang='en')
     head
         meta(charset='UTF-8')
         meta(name='viewport', content='width=device-width', initial-scale='1.0')
-        title Dashboard
+        title JooL
+        link(rel="shortcut icon" href="/img/favicon/pelicula.ico")
+        link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
         link(rel='stylesheet' href='/css/normalize.css')
         link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css")
-        link(rel='stylesheet' href='/css/style.css')
-    body
+        link(rel='stylesheet' href='/css/style2.css')
+    body(id="big")
         main(id="dashboard")
             div(class="buscador")
-                button(id='movies' onclick="location.href='./movies'") Mis Películas
                 form(class='formularioS' action='./search', method='POST')
                     input(id='peli' class='cuadro' type='text' name='pelicula' placeholder='Introducir Película')
-                    input(id='buscador' class='cuadro' type='submit', value=' Buscar ')
-            form(action='/logout', method='POST', class="logout")
-                input(type='submit', value='Log Out', id='logout')
+                    span(class="material-icons") search
+                        input(id='buscador' class='cuadro' type='submit', value=' Buscar ')
+                button(id='movies' onclick="location.href='./movies'") 
+                    span(class="material-icons") favorite
+                form(action='/logout', method='POST', class="logout")
+                    span(class="material-icons") logout
+                        input(type='submit' id='logout')
+                    
             div(class="container")
                 div(class="row")
                     div(class="col s12")
-                        h2(class="center-align") Estrenos de 2021
+                        h2(class="center-align") Estrenos del 2020
                         div(class="carousel center-align")
                             div(class="carousel-item")
                                 p Venom
-                                img(src="./img/estreno1.jpg", alt="Próximos estrenos de películas")
+                                img(src="./img/pelisCarrusel/estreno1.jpg", alt="Próximos estrenos de películas")
                             div(class="carousel-item")
                                 p Viuda Negra
-                                img(src="./img/estreno2.jpg", alt="Próximos estrenos de películas")
+                                img(src="./img/pelisCarrusel/estreno2.jpg", alt="Próximos estrenos de películas")
                             div(class="carousel-item")
                                 p Noticas del Gran Mundo
-                                img(src="./img/estreno3.jpg", alt="Próximos estrenos de películas")
+                                img(src="./img/pelisCarrusel/estreno3.jpg", alt="Próximos estrenos de películas")
                             div(class="carousel-item")
                                 p Inmune
-                                img(src="./img/estreno4.jpg", alt="Próximos estrenos de películas")
+                                img(src="./img/pelisCarrusel/estreno4.jpg", alt="Próximos estrenos de películas")
                         
 
 
