@@ -13,39 +13,39 @@ html(lang='en')
             h1=estado
         form(action=`/createmovie`, method="POST", id="createform")
             label(for="titulo") Título: 
-            input(type="text", name="titulo", id="createtitulo", placeholder="Introducir título")
+            input(type="text", name="titulo", id="createtitulo", placeholder=" Título")
             br
             label(for="year") Año: 
-            input(type="text", name="year", id="createyear", placeholder="Introducir año")
+            input(type="text", name="year", id="createyear", placeholder=" Año")
             br
             label(for="director") Director: 
-            input(type="text", name="director", id="createdirector", placeholder="Introducir director")
+            input(type="text", name="director", id="createdirector", placeholder=" Director")
             br
             label(for="genero") Género: 
-            input(type="text", name="genero", id="creategenero", placeholder="Introducir género")
+            input(type="text", name="genero", id="creategenero", placeholder=" Género")
             br
             label(for="duracion") Duración: 
-            input(type="text", name="duracion", id="createduracion", placeholder="Introducir duración")
+            input(type="text", name="duracion", id="createduracion", placeholder=" Duración")
             br
             label(for="escritor") Escritor: 
-            input(type="text", name="escritor", id="createescritor", placeholder="Introducir escritor")
+            input(type="text", name="escritor", id="createescritor", placeholder=" Escritor")
             br
-            label(for="actores") Actores Principales: 
-            input(type="text", name="actores", id="createactores", placeholder="Introducir actores")
+            label(for="actores") Actores Ppales: 
+            input(type="text", name="actores", id="createactores", placeholder=" Actores")
             br
             label(for="resumen") Resumen: 
-            input(type="text", name="resumen", id="createresumen", placeholder="Introducir un resumen")
+            input(type="text", name="resumen", id="createresumen", placeholder=" Resumen")
             br
             label(for="premios") Premios: 
-            input(type="text", name="premios", id="createpremios", placeholder="Introducir los premios recibidos")
+            input(type="text", name="premios", id="createpremios", placeholder=" Premios Recibidos")
             br
             label(for="imagen") Url Imagen: 
-            input(type="text", name="imagen", id="createurl", placeholder="Introducir url de una imagen")
+            input(type="text", name="imagen", id="createurl", placeholder=" Url de una imagen")
             br
             br
-            input(type="submit", value="Guardar")
+            input(type="submit", value="Guardar" id="guardar")
         form(action=`/movies`, method="GET" id="create")
-            input(type="submit" value="Cancelar")
+            input(type="submit" value="Cancelar" id="cancelar")
         script(src="/js/script.js")
    
 
