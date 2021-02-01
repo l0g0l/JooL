@@ -22,11 +22,11 @@ function mostrarContraseña() {
 
 let regexp_email = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/
 let regexp_psw = /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/ //La contraseña debe tener al menos entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un caracter no alfanumérico.
-let regexp_titulo = /^[a-z0-9À-ÿ\u00f1\u00d1\:\!\@\#\$\%\&\s]{1,100}$/gi //El título debe tener al entre 1 y 100 caracteres, incluyendo cualquier letra acentuada o no, números, ñ Ñ, y esos caracteres especiales, \s permite espacios en blanco
+let regexp_titulo = /^[a-z0-9À-ÿ\s\u00f1\u00d1\:\!\@\#\$\%\&]{1,100}$/gi //El título debe tener al entre 1 y 100 caracteres, incluyendo cualquier letra acentuada o no, números, ñ Ñ, y esos caracteres especiales, \s permite espacios en blanco
 let regexp_year = /^(1[8-9][0-9][0-9]|20[0-9][0-9]|2100)$/ // desde 1800 a 1999 o desde 2000 a 2099 o 2100
-let regexp_director = /^[a-z\sÀ-ÿ\u00f1\u00d1]{2,19}$/gi //El nombre debe tener al entre 2 y 19 caracteres, incluyendo cualquier letra acentuada o no, números, ñ Ñ
+let regexp_director = /^[a-zÀ-ÿ\s\u00f1\u00d1]{2,19}$/gi //El nombre debe tener al entre 2 y 19 caracteres, incluyendo cualquier letra acentuada o no, números, ñ Ñ
 let regexp_genero = /^[a-z\sÀ-ÿ\u00f1\u00d1\-\/]{2,25}$/gi //El género debe tener al entre 2 y 25 caracteres, incluyendo cualquier letra acentuada o no ??, número, ñ Ñ, -, / e incluído guión y barra
-let reexp_duracion = /^[a-z\s0-9\:]{4,15}$/gi // 2 horas, 02:45
+let regexp_duracion = /^[a-z\s0-9\:]{4,15}$/gi // 2 horas, 02:45
 let regexp_url = /^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/
 
 function checkRegexp(cadena, redexp) {
@@ -124,7 +124,7 @@ if(edit) {
   edit.addEventListener("submit", function(event) {
   event.preventDefault();
       let titulo = document.getElementById("editartitulo").value;
-      let year = document.getElementById("editarayear").value; // 
+      let year = document.getElementById("editaryear").value; // 
       let director = document.getElementById("editardirector").value;
       let genero = document.getElementById("editargenero").value;
       let duracion = document.getElementById("editarduracion").value;
