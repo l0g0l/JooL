@@ -3,49 +3,51 @@ html(lang='en')
     head
         meta(charset='UTF-8')
         meta(name='viewport', content='width=device-width', initial-scale='1.0')
-        title Search Movie
+        title JooL
+        link(rel="shortcut icon" href="/img/favicon/pelicula.ico")
         link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
         link(rel='stylesheet' href='/css/normalize.css')
-        link(rel='stylesheet' href='/css/style.css')
+        link(rel='stylesheet' href='/css/style2.css')
     body
-        header
-            nav.menu
-                label.logo MoviApp
-                ul.menu_items
-                    li.active
-                        a(href='/dashboard') Home
-                    li
-                        a(href='/movies') Mis Pelis
-                    li
-                        a(href='#') Logout
-                    li
-                        img(src="/img/avatar/mujerAvatar.png" class="logoD")
-                span.btn_menu.material-icons menu
-        section              
-            form(class='formularioS' action='./search', method='POST') 
-                input(id='peli' class='cuadro' type='text' name='pelicula' placeholder='Introducir Película')
-                input(id='buscador' class='cuadro' type='submit', value=' Buscar ')
-        section
-            div(id='peliculas')
-                - let i = 0;
-                while i < Longitud
-                    div(class=`pelicula`)
-                        h1=Resultados[i].Title
-                        h2=Resultados[i].Year
-                        - let imbd= Resultados[i].imdbID
-                        - let id= Resultados[i]._id
-                        img(src=Resultados[i++].Poster, alt='Imagen de la Película' id="Poster")
-                        br
-                        if(imbd == null)
-                            form(action=`/searchdetails/${id}` , method="GET", id="detallesMongo")
-                                input(type="submit", value="Detalles")
-                        if(imbd != null)
-                            form(action=`/searchdetails/${imbd}` , method="GET", id="detallesApi")
-                                input(type="submit", value="Detalles")
-                        br
-                        form(action="", method="POST" id="favoritos")
-                            input(type="submit" value="Añadir a Favoritos")
-                h1=Nofound   
+        main(id="malef")
+            header
+                nav.menu
+                    //- img(src="/img/logos/JooL(2).png" id="logodashb")
+                    ul.menu_items
+                        li.active
+                            a(href='/dashboard') Home
+                        li
+                            a(href='/movies') Mis Pelis
+                        li
+                            a(href='#') Logout
+                        li
+                            img(src="/img/avatar/mujerAvatar.png" class="logoD")
+                    span.btn_menu.material-icons menu
+            //- section              
+            //-     form(class='formularioS' action='./search', method='POST') 
+            //-         input(id='peli' class='cuadro' type='text' name='pelicula' placeholder='Introducir Película')
+            //-         input(id='buscador' class='cuadro' type='submit', value=' Buscar ')
+            section
+                div(id='peliculas_search')
+                    - let i = 0;
+                    while i < Longitud
+                            h1=Resultados[i].Title
+                            h2=Resultados[i].Year
+                            - let imbd= Resultados[i].imdbID
+                            - let id= Resultados[i]._id
+                            img(src=Resultados[i++].Poster, alt='Imagen de la Película' id="Poster")
+                            br
+                div(id="btn_detalles")
+                    if(imbd == null) 
+                        form(action=`/searchdetails/${id}` , method="GET", id="detallesMongo") 
+                            input(type="submit", value="Detalles")
+                    if(imbd != null)
+                        form(action=`/searchdetails/${imbd}` , method="GET", id="detallesApi")
+                            input(type="submit", value="Detalles")
+                    br
+                    form(action="", method="POST" id="favoritos")
+                        input(type="submit" value="Añadir a Favoritos")
+                    h1=Nofound   
     script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js')
     script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js')
     script(src='https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js')

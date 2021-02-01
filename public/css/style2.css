@@ -1,0 +1,345 @@
+*, *:before, *:after{
+    margin: 0;
+    padding: 0;
+    outline:none;
+    --mainColorHover:#f3abe1;
+    --mainColorClick: #ee4fc6;
+    --viewPort:280px;
+    --fontColor:white;
+    --mainColor:white;
+    --bgColor: none;
+
+}
+/* body {
+font-family: sans-serif;
+} */
+main{
+height:100%;
+width: 100%;
+margin:0;
+color: var(--mainColor)
+}
+a{
+    text-decoration: none;
+    color:var(--fontColor);
+}
+.wrapper {
+    width: var(--viewPort);
+    margin: 0 auto;
+    display: flex;
+    
+}
+button {
+    background: white;
+    border:solid white;
+    padding: 12px 12px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--fontColor);
+    font-size: 10px;
+}
+button:hover {
+    background: var(--mainColorHover);
+    color: white; 
+}
+button:focus {
+    outline: var(--mainColorClick);
+}
+button:active {
+    background: var(--mainColorClick);
+}
+input  {
+    background: var(--bgColor);
+    border:solid black 1px;
+    padding: 12px 6px;
+    border-radius: 6px;
+    font-weight: bold;
+    color: var(--fontColor);
+    font-size: 15px;
+    margin-right: 5px;
+    width: 35%;
+}
+/* main > section:nth-child(even) {
+    background: #e0e0f1;
+}
+main > section:nth-child(odd) {
+    background: #d8d8df
+} */
+/******************************* Menú Hamburguesa**********************************/
+
+.menu {
+background:none;
+width: 100vw;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+/* #logodashb {
+width: 15%;
+margin-left: 10px;
+} */
+.menu_items {
+display: flex;
+list-style: none;
+margin-right: 30px;
+align-items: center;
+}
+.menu_items li {
+margin: 0 10px;
+}
+
+.menu_items li a {
+padding: 7px 15px;
+text-decoration: none;
+font-size: 18px;
+display: inline-block; /* para que los links ocupen todo su espacio*/
+text-transform: uppercase;
+color: white;
+transition:3s;
+
+
+}
+.menu_items li:hover, li:active{
+background: rgba(0, 0, 0,.8);
+
+
+}
+nav > span.material-icons {
+margin-right: 30px;
+font-size: 25px;
+color:white;
+cursor: pointer;
+display: none;
+}
+ul.show {
+top:50px; /* tamaño que le vamos a colocar al nav para adaptarle al movil, para que con el js podamos esconder el icono*/
+}
+.logoD {
+width: 40px;
+border-radius: 15px;
+border: 1px solid white;
+
+}
+@media screen and (max-width: 952px){
+	.logo {
+		font-size: 30px;
+		padding-left: 35px;
+	}
+	.menu_items li a {
+		font-size: 16px;
+	}
+}
+
+@media screen and (max-width:858px) {
+    
+	.menu {
+		height:50px;
+	}
+	nav > span.material-icons{
+        display: inline-flex;
+        margin-left: 90%; 
+	}
+	.menu_items {
+		position:fixed;
+		width: 100vw; /* ocupa el ancho del viewport*/
+		height: calc(100% - 50px);/*navevgador calcula el alto que debe dar*/
+        background: linear-gradient(#374f6f, #bfd5f0);   
+		top:-100vh;/*sacamos el desplegable fuera de la pantalla*/
+		text-align: center;
+		transition:all .3s;
+		flex-direction: column;
+    }
+	.menu_items li {
+		margin:30px 0 0 0;
+
+	}
+	.menu_items li:hover li:active {
+        background: #92aed2;
+	}
+	.menu_items li a {
+		font-size: 25px;
+		color:white;
+		/* font-weight: bold; */
+
+	}
+	.menu_items li a:hover {
+		color:white;
+	}
+	/* #logodashb {
+        width: 20%;
+        margin-top: 45px;
+        
+	} */
+}
+@media screen and (max-width:858px) and (orientation: landscape) {
+	.menu_items li {
+		margin: 5px 0 0 0;
+	}
+	.menu_items {
+		overflow: scroll;
+		height: calc(100% - 50px);
+	} 
+}
+/***********************Login*************************/
+#deadpool {
+	background-image: url(/img/fondosPantalla/deadpool360x640.jpg); 
+	background-position: center;
+	background-attachment: fixed;
+	background-size:cover; 	
+	background-repeat: no-repeat;
+}
+#big{
+	background-image: url(/img/fondosPantalla/big360x640.jpg); 
+	background-position: center;
+	background-attachment: fixed;
+	background-size: cover; 	
+	background-repeat: no-repeat;
+	background-blend-mode: luminosity;
+	background-color: rgba(2, 34, 58, 1);
+}
+img.logobrand{
+	width: 35%;
+	margin-top: 10px;
+    margin-right: 17px;
+    margin-left: 280px; 
+    position: relative;
+}
+form#formulario {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center ;
+    margin-top: 250px;
+    width: 100%;
+ 
+}
+section#login_facebook {
+    display:flex; 
+   flex-direction: column;
+   width: 20%;
+   margin-left: 85%;
+   
+}
+/* img#face, img#google, img#twitter {
+    width:20%;
+    margin-inline: 30px; 
+   
+} */
+input#boton_login {
+    background: black;
+    color: white;
+    border:solid 1px white;
+    margin-top: 6px;
+    font-size: 20px;
+    padding: 12px 12px;
+    margin-bottom: 70px;
+}
+section.barra {
+    height: 5px;
+    position: fixed;
+    left: 32%;
+    right: 32%;
+    background:white;
+    border-radius: 10px;
+    Width:40%;   
+}
+/****************** Dashboard********************/
+div.buscador {
+    margin:20px 6px
+}
+input#peli {
+    background: var(--bgColor);
+    border:solid white 1px;
+    padding: 3px 3px;
+    border-radius: 6px;
+    font-weight: bold;
+    color: var(--fontColor);
+    font-size: 15px;
+    margin-right: 8px;
+    width: 35%;
+}
+input#buscador {
+    border:none;
+    color:transparent;
+}
+.material-icons {
+    color:black;
+    font-weight: bolder;
+}
+#movies {
+    border:none;
+    background: none;
+}
+.logout {
+    border: none;
+    color:transparent;
+    margin-left: 15px;
+}
+#logout {
+    border: none;
+    color:transparent;
+}
+h2 {
+	font-size: 30px;
+	margin-top: -15px;
+	margin-bottom: 15px;
+	text-align: center;
+	color:black;
+}
+div.container{
+    padding-left: 0px;
+    margin-top: 50px;
+}
+.carousel{
+	margin-top: 10px;
+	height: 335px;
+	/* border: solid black; */
+	border-radius: 10px;
+    background-color: rgb(239, 239, 239);
+  
+}
+.carousel .carousel-item{
+	margin-top:-35px;
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	user-select: none;
+	width: 80%;
+}
+.carousel .carousel-item img{
+	width: 80%;
+	object-fit: cover;
+	border-radius: 15px;
+	margin-bottom: -10px;
+}
+.carousel .indicators .indicator-item{
+	border-radius: 0;
+	transform: rotate(45deg);
+	margin: 5px 10px;
+	background: black;
+}
+.carousel-item p {
+	/* font-family: 'Comic Sans'; */
+	font-size: 20px;
+	margin-bottom: 5px;
+	margin-top: 30px
+}
+/************************ Search***************************/
+#malef {
+	background-image: url(/img/fondosPantalla/malef360x640.jpg); 
+	background-position: center;
+	background-attachment: fixed;
+	background-size:cover; 	
+    background-repeat: no-repeat;
+    background-blend-mode: luminosity;
+	background-color: rgba(2, 34, 58, 1);
+}
+
+div#peliculas_search {
+    width: 20%;
+}
+#Poster{
+    width: 20%;
+    margin:2px 10px
+    }
