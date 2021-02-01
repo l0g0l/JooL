@@ -11,7 +11,7 @@ html(lang='en')
         main(id="dashboard")
             div(class="buscador")
                 button(id='movies' onclick="location.href='./movies'") Mis Películas
-                form(class='formularioS' action='./search', method='POST')
+                form(class='formularioS' action='./search', method='POST', id="buscando")
                     input(id='peli' class='cuadro' type='text' name='pelicula' placeholder='Introducir Película')
                     input(id='buscador' class='cuadro' type='submit', value=' Buscar ')
             form(action='/logout', method='POST', class="logout")

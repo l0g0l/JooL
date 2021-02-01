@@ -7,7 +7,7 @@ html(lang='en')
         link(rel='stylesheet' href='/css/normalize.css')
         link(rel='stylesheet' href='/css/style.css')
     body
-        form(action=`/editmovie/${identificador}?_method=PUT`, method="POST" id="editform"))
+        form(action=`/editmovie/${identificador}?_method=PUT`, method="POST" id="editform")
             label(for="titulo") Título: 
             input(type="text", name="titulo", id="editartitulo", value=Resultados[0].Title)
             br
