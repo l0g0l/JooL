@@ -12,7 +12,6 @@ html(lang='en')
         main(id="malef")
             header
                 nav.menu
-                    //- img(src="/img/logos/JooL(2).png" id="logodashb")
                     ul.menu_items
                         li.active
                             a(href='/dashboard') Home
@@ -23,6 +22,7 @@ html(lang='en')
                         li
                             img(src="/img/avatar/mujerAvatar.png" class="logoD")
                     span.btn_menu.material-icons menu
+
             //- section              
             //-     form(class='formularioS' action='./search', method='POST') 
             //-         input(id='peli' class='cuadro' type='text' name='pelicula' placeholder='Introducir Película')
@@ -31,8 +31,8 @@ html(lang='en')
                 div(id='peliculas_search')
                     - let i = 0;
                     while i < Longitud
-                            h1=Resultados[i].Title
-                            h2=Resultados[i].Year
+                            p(class="p")=Resultados[i].Title
+                            h4(class="h4")=Resultados[i].Year
                             - let imbd= Resultados[i].imdbID
                             - let id= Resultados[i]._id
                             img(src=Resultados[i++].Poster, alt='Imagen de la Película' id="Poster")
@@ -40,20 +40,46 @@ html(lang='en')
                 div(id="btn_detalles")
                     if(imbd == null) 
                         form(action=`/searchdetails/${id}` , method="GET", id="detallesMongo") 
-                            input(type="submit", value="Detalles")
+                           input(type="submit", value="Detalles")
                     if(imbd != null)
                         form(action=`/searchdetails/${imbd}` , method="GET", id="detallesApi")
                             input(type="submit", value="Detalles")
-                    br
-                    form(action="", method="POST" id="favoritos")
-                        input(type="submit" value="Añadir a Favoritos")
-                    h1=Nofound   
+                        br
+                        form(action="", method="POST" id="favoritos")
+                            input(type="submit" value="Añadir a Favoritos")
+                    h1=Nofound 
+            //- table
+            //-     tr<
+            //-         th
+            //-             img(src=Resultados[i++].Poster, alt='Imagen de la Película' class="Poster")
+            //-         th
+            //-             img(src=Resultados[i++].Poster, alt='Imagen de la Película' class="Poster")
+            //-         th
+            //-             img(src=Resultados[i++].Poster, alt='Imagen de la Película' class="Poster")
+            //-     tr
+            //-         td=Resultados[i].Title
+            //-         td=Resultados[i].Title
+            //-         td=Resultados[i].Title
+            //-     tr
+            //-         td(colspan="2")=Resultados[i].Year
+            //-         td(colspan="2")=Resultados[i].Year
+            //-         td(colspan="2")=Resultados[i].Year
+            //-     tr
+            //-         td
+            //-             button(type="submit" value="Detalles" class="btn_detalles")
+            //-             button(type="submit" value="Favoritos" class="btn_favorita")
+            //-         td  
+            //-             button(type="submit" value="Detalles" class="btn_detalles")
+            //-             button(type="submit" value="Favoritos" class="btn_favorita")
+            //-         td  
+            //-             button(type="submit" value="Detalles" class="btn_detalles")
+            //-             button(type="submit" value="Favoritos" class="btn_favorita")
+                   
     script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js')
     script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js')
     script(src='https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js')
     script(src='/js/autenticacion.js')
     script(defer, src='/js/script.js')
 
-        
-   
 
+   

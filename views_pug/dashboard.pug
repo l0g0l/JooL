@@ -16,8 +16,9 @@ html(lang='en')
                     input(id='peli' class='cuadro' type='text' name='pelicula' placeholder='Introducir Película')
                     span(class="material-icons") search
                         input(id='buscador' class='cuadro' type='submit', value=' Buscar ')
-                button(id='movies' onclick="location.href='./movies'") 
-                    span(class="material-icons") favorite
+                button(id='movies' onclick="location.href='./movies'") Mis pelis Favritas
+                    //- span(class="material-icons") favorite
+                br
                 form(action='/logout', method='POST', class="logout")
                     span(class="material-icons") logout
                         input(type='submit' id='logout')     

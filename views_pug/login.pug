@@ -8,25 +8,22 @@ html(lang='en')
         link(rel='stylesheet' href='/css/normalize.css')
         link(rel='stylesheet' href='/css/style2.css')
     body(id="deadpool")
-        main
-            header
-                div(class="ubicando")
-                    img(src="/img/logos/JooL(2).png", alt="Logo", class="logobrand")
-            //- section(id='login_facebook')
-            //-     img(src="/img/RRSS/blancas/gordas/facebook.png" id="face" )
-            //-     img(src="/img/RRSS//blancas/gordas/google.png" id="google" )
-            //-     img(src="/img/RRSS/blancas/gordas/twitter.png" id="twitter" )
-            section(id='form_login')
-                form(action='/dashboard', method='GET', id='formulario')
-                    //- label(for='email', class="cajas") Email 
-                    input(type='email', name='email', id='email' placeholder='Introducir email')
-                    //- label(for='password', class="cajas") Password 
-                    input(type='password', name='password', id='password' placeholder='Introducir contraseña')
-                    //- button(type="button", class="btn_psw", onclick="mostrarContraseña()")
-                        //- img(src="/img/mostrarContraseña/visible.png" id="visible")
-                    br
-                    input(type='submit', value='Log In', id="boton_login")
-            section(class="barra")
+        header
+            div(class="ubicando")
+                img(src="/img/logos/JooL(2).png", alt="Logo", class="logobrand")
+        section(id='form_login')
+            form(action='/dashboard', method='GET', id='formulario')
+                //- label(for='email', class="cajas") Email 
+                input(type='email', name='email', id='email' placeholder='Introducir email')
+                //- label(for='password', class="cajas") Password 
+                input(type='password', name='password', id='password' placeholder='Introducir contraseña')
+                br
+                input(type='submit', value='Log In', id="boton_login")
+        //- section(id='login_facebook')
+        //-     img(src="/img/RRSS/blancas/facebook.png" id="face" )
+        //-     img(src="/img/RRSS//blancas/google.png" id="google" )
+        //-     img(src="/img/RRSS/blancas/github.png" id="twitter" )
+        section(class="barra")
     script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js')
     script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js')
     script(src='https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js')

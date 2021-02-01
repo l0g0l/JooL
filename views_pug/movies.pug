@@ -5,24 +5,24 @@ html(lang='en')
         meta(name='viewport', content='width=device-width', initial-scale='1.0')
         title JooL
         link(rel="shortcut icon" href="/img/favicon/pelicula.ico")
-        link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet')
+        link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
         link(rel='stylesheet' href='/css/normalize.css')
         link(rel='stylesheet' href='/css/style2.css')
     body
-        header
-            nav.menu
-                label.logo MoviApp
-                ul.menu_items
-                    li
-                        a(href='/dashboard') Home
-                    li
-                        a(href='/movies') Mis Pelis
-                    li
-                        a(href='#') Logout
-                    li
-                        img(src="/img/avatar/mujerAvatar.png" class="logoD")
-                span.btn_menu.material-icons menu
-            input(type="submit", value="Crear nueva película")
+        main(id="")
+            header
+                nav.menu
+                    ul.menu_items
+                        li.active
+                            a(href='/dashboard') Home
+                        li
+                            a(href='/movies') Mis Pelis
+                        li
+                            a(href='#') Logout
+                        li
+                            img(src="/img/avatar/mujerAvatar.png" class="logoD")
+                    span.btn_menu.material-icons menu
+            input(type="submit", value="Crear nueva película" id="btn_movies")
         h1 Películas Almacenadas Localmente:
         - let i = 0;
                 while i < Longitud
