@@ -29,8 +29,8 @@ let regexp_genero = /^[a-z\sÀ-ÿ\u00f1\u00d1\-\/]{2,25}$/gi //El género debe t
 let regexp_duracion = /^[a-z\s0-9\:]{4,15}$/gi // 2 horas, 02:45
 let regexp_url = /^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/
 
-function checkRegexp(cadena, redexp) {
-  if (redexp.test(cadena)) {
+function checkRegexp(cadena, redgxp) {
+  if (redgxp.test(cadena)) {
       return true
   } else {
       return false

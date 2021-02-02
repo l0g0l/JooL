@@ -9,7 +9,7 @@ html(lang='en')
         link(rel='stylesheet' href='/css/normalize.css')
         link(rel='stylesheet' href='/css/style2.css')
     body
-        main(id="malef")
+        main(id="fondo")
             header
                 nav.menu
                     ul.menu_items
@@ -22,11 +22,6 @@ html(lang='en')
                         li
                             img(src="/img/avatar/mujerAvatar.png" class="logoD")
                     span.btn_menu.material-icons menu
-
-            //- section              
-            //-     form(class='formularioS' action='./search', method='POST') 
-            //-         input(id='peli' class='cuadro' type='text' name='pelicula' placeholder='Introducir Película')
-            //-         input(id='buscador' class='cuadro' type='submit', value=' Buscar ')
             section
                 div(id='peliculas_search')
                     - let i = 0;
