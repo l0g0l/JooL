@@ -9,7 +9,7 @@ html(lang='en')
         link(rel='stylesheet' href='/css/normalize.css')
         link(rel='stylesheet' href='/css/style2.css')
     body
-        main(id="")
+        main
             header
                 nav.menu
                     ul.menu_items
@@ -22,7 +22,8 @@ html(lang='en')
                         li
                             img(src="/img/avatar/mujerAvatar.png" class="logoD")
                     span.btn_menu.material-icons menu
-            input(type="submit", value="Crear nueva película" id="btn_movies")
+            form(action='/createmovie' method="GET")
+                input(type="submit", value="Crear nueva película" id="btn_movies")
         h1 Películas Almacenadas Localmente:
         - let i = 0;
                 while i < Longitud
