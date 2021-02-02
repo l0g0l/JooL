@@ -4,12 +4,14 @@ html(lang='en')
         meta(charset='UTF-8')
         meta(name='viewport', content='width=device-width', initial-scale='1.0')
         title JooL
+        link(href='https://fonts.googleapis.com/css?family=Capriola' rel='stylesheet')
+        //- link(href='https://fonts.googleapis.com/css?family=Gruppo' rel='stylesheet')
         link(rel="shortcut icon" href="/img/favicon/pelicula.ico")
         link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
         link(rel='stylesheet' href='/css/normalize.css')
         link(rel='stylesheet' href='/css/style2.css')
-    body
-        main(id="malef")
+    body(class="font")
+        main(id="fondo")
             header
                 nav.menu
                     ul.menu_items
@@ -22,32 +24,27 @@ html(lang='en')
                         li
                             img(src="/img/avatar/mujerAvatar.png" class="logoD")
                     span.btn_menu.material-icons menu
-
-            //- section              
-            //-     form(class='formularioS' action='./search', method='POST') 
-            //-         input(id='peli' class='cuadro' type='text' name='pelicula' placeholder='Introducir Película')
-            //-         input(id='buscador' class='cuadro' type='submit', value=' Buscar ')
             section
                 div(id='peliculas_search')
                     - let i = 0;
                     while i < Longitud
                             p(class="p")=Resultados[i].Title
-                            h4(class="h4")=Resultados[i].Year
+                            p(class="p_año")=Resultados[i].Year
                             - let imbd= Resultados[i].imdbID
                             - let id= Resultados[i]._id
                             img(src=Resultados[i++].Poster, alt='Imagen de la Película' id="Poster")
-                            br
-                div(id="btn_detalles")
-                    if(imbd == null) 
-                        form(action=`/searchdetails/${id}` , method="GET", id="detallesMongo") 
-                           input(type="submit", value="Detalles")
-                    if(imbd != null)
-                        form(action=`/searchdetails/${imbd}` , method="GET", id="detallesApi")
-                            input(type="submit", value="Detalles")
-                        br
-                        form(action="", method="POST" id="favoritos")
-                            input(type="submit" value="Añadir a Favoritos")
-                    h1=Nofound 
+                            div(id="btn_detalles")
+                                if(imbd == null) 
+                                    form(action=`/searchdetails/${id}` , method="GET", id="detallesMongo") 
+                                    input(type="submit", value="Detalles")
+                                if(imbd != null)
+                                    form(action=`/searchdetails/${imbd}` , method="GET", id="detallesApi")
+                                        input(type="submit", value="Saber más" id="detalles")
+                                    br
+                                    form(action="", method="POST" id="favoritos")
+                                        button(type="submit" value="Añadir a Favoritos" id="btn_fav")
+                                            img(src="/img/iconosVarios/favorito.png" id="fav")
+                                h1=Nofound 
             //- table
             //-     tr<
             //-         th
