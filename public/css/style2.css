@@ -13,7 +13,8 @@
  
 }
 body {
-    font-family: 'Gruppo';font-size: 23px;
+    
+font-family: 'Gruppo';font-size: 22px;
 }
 main{
 height:100%;
@@ -71,16 +72,12 @@ main > section:nth-child(odd) {
 /******************************* Menú Hamburguesa**********************************/
 
 .menu {
-background:none;
+
 width: 100vw;
 display: flex;
 justify-content: space-between;
 align-items: center;
 }
-/* #logodashb {
-width: 15%;
-margin-left: 10px;
-} */
 .menu_items {
 display: flex;
 list-style: none;
@@ -99,7 +96,6 @@ display: inline-block; /* para que los links ocupen todo su espacio*/
 text-transform: uppercase;
 color: white;
 transition:3s;
-
 
 }
 .menu_items li:hover, li:active{
@@ -136,17 +132,19 @@ border: 1px solid white;
 @media screen and (max-width:858px) {
     
 	.menu {
-		height:50px;
+        height:50px;
 	}
 	nav > span.material-icons{
         display: inline-flex;
         margin-left: 90%; 
+        position: fixed;
+        
 	}
 	.menu_items {
-		position:fixed;
+		position: absolute;
 		width: 100vw; /* ocupa el ancho del viewport*/
 		height: calc(100% - 50px);/*navevgador calcula el alto que debe dar*/
-        background: linear-gradient(#374f6f, #bfd5f0);   
+        background:black; 
 		top:-100vh;/*sacamos el desplegable fuera de la pantalla*/
 		text-align: center;
 		transition:all .3s;
@@ -156,9 +154,7 @@ border: 1px solid white;
 		margin:30px 0 0 0;
 
 	}
-	.menu_items li:hover li:active {
-        background: #92aed2;
-	}
+
 	.menu_items li a {
 		font-size: 25px;
 		color:white;
@@ -214,11 +210,12 @@ form#formulario {
     margin-top: 300px;
     width: 100%;
     margin-left: 13%;
-    border: white 3px solid;
+    /* border:rgba(212, 29, 29, 0.8) 5px solid; */
     padding-top: 12px;
 }
 input#email, #password {
     border: black 3px solid;
+    background: white;
 }
 input#boton_login {
     background: black;
@@ -229,7 +226,7 @@ input#boton_login {
     padding: 12px 12px;
     margin-bottom: 150px;
 }
-/* section.barra {
+section.barra {
     height: 5px;
     position: fixed;
     left: 32%;
@@ -237,72 +234,82 @@ input#boton_login {
     background:white;
     border-radius: 10px;
     Width:30%;   
-} */
+}
 /****************** Dashboard********************/
 div.buscador {
     margin:17px 6px
 }
 input#peli {
-    background: var(--bgColor);
-    border:solid white 1px;
-    padding: 1px 3px;
-    border-radius: 6px;
-    font-weight: bold;
-    color: var(--fontColor);
-    font-size: 10px;
-    margin-right: 8px;
+    border-bottom: black 3px solid;
+    width: 55%;
+    margin-left: 5px;
+    background: transparent;
+}
+#lupa {
     width: 35%;
 }
-input#buscador {
+button#buscador {
     border:none;
-    color:transparent;
+    background-color:transparent;
+    text-align:center;
+    width: 30%;
+    padding: 0;
+    margin-bottom: 5px;
 }
-.material-icons {
-    color:black;
-    font-weight: bolder;
-
+.formularioS {
+    display: flex;
+    flex-direction: row;
 }
-#movies {
-    border:white 1px solid;
-    padding: 3px 6px;
-    background: none;
- 
+button#movies {
+    border:none;
+    background-color:transparent;
+    text-align: left;
+    padding: 0;
+    margin-left: 5px;
 }
-.logout {
-    border: none;
-    color:transparent;
-    margin-left: 15px;
+#folder {
+    width: 20%; 
 }
-#logout {
-    border: none;
-    color:transparent;
+button#logout {
+    border:none;
+    background-color:transparent;
+    text-align: left;
+    padding: 0;
+    margin-left: 5px;
 }
-h2 {
+#salida {
+    width: 10%; 
+}
+p {
 	font-size: 30px;
-	margin-top: -12px;
+	margin-top: -10px;
 	margin-bottom: 12px;
 	text-align: center;
-	color:black;
+    color:black;
+    font-weight: bold;
 }
+/************************************Carrusel**************************************************/
 div.container{
     padding-left: 0px;
-    margin-top: 40px;
+    margin-top: 10px;
 }
 p.p {
     color:black;
    
 }
 p.center-align {
-   font-weight: bold; 
+   font-weight: 900; 
    color:black;
+   margin: 0;
+   color:black;
+   font-size: 32px;
+   text-align: right;
 }
 .carousel{
-	margin-top:10px;
-	height: 325px;
-	/* border: solid black; */
+	margin-top:0px;
+	height: 315px;
 	border-radius: 10px;
-    background-color:transparent;
-  
+    background-color:transparent; 
 }
 .carousel .carousel-item{
 	margin-top:-15px;
@@ -325,11 +332,7 @@ p.center-align {
 	margin: 5px 10px;
 	background: black;
 }
-/* .carousel-item p {
-	font-size: 20px;
-	margin-bottom: 5px;
-	margin-top: 20px
-} */
+
 /************************ Search***************************/
 /* #malef {
 	background-image: url(/img/fondosPantalla/malef360x640.jpg); 
@@ -340,23 +343,53 @@ p.center-align {
     background-blend-mode: luminosity;
 	background-color: rgba(2, 34, 58, 1);
 } */
+body#font {
+
+font-family: 'Capriola';font-size: 22px;
+}
 #fondo {
-    background-color: black;
+    background-color:#117A65
 }
 div#peliculas_search {
-   border: 2px white solid;
-   text-align:center;
-   width:100%;
-   
+   border: 5px white solid;
+   text-align: center;
+   width:76%;
+   margin-left: 29px;
+   margin-top: 5px;
+   padding-top: 10px;
 }
-
-p {
-   font-size: 30px;  
-
+p.p {
+    font-size: 30px;  
+    color: white;
+    height: 80;
+    margin-top: 15px;
+}
+p.p_año {
+    font-size: 17px;  
+    color: white; 
+    margin-bottom: 15px;
 }
 #Poster{
-    width: 120%;
+    width:200px;
     margin:5px 10px;
+}
+#btn_detalles {
+    display: flex;
+    border-bottom: solid white 1px; 
+}
+#btn_fav {
+   background-color: black;
+    border: none;
+    text-align: right;
+    width: 50%;  
+}
+#fav {
+ width: 80%;
+}
+#detalles {
+    width: 85%;
+    margin-left: 30px;
+    border:none;
 }
 
 /******************************** CreateMovie*************************************/
