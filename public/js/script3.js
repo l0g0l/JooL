@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return false
     }
   }
-  function checkAno(ano) {
+  function checkYear(year) {
     let expReg = /^(1[8-9][0-9][0-9]|20[0-9][0-9]|2100)$/ // desde 1800 a 1999 o desde 2000 a 2099 o 2100
     if (expReg.test(ano)) {
       return true
@@ -113,15 +113,15 @@ document.addEventListener('DOMContentLoaded', () => {
     createform.addEventListener("submit", function (event) {
       event.preventDefault();
       let titulo = document.getElementById("createtitulo").value;
-      let ano = document.getElementById("createano").value;
+      let year = document.getElementById("createyear").value;
       let director = document.getElementById("createdirector").value;
       let genero = document.getElementById("creategenero").value;
       let duracion = document.getElementById("createduracion").value;
       let url = document.getElementById("createurl").value;
       let resTitulo = checkTitulo(titulo);
       if (resTitulo) {
-        let resAno = checkAno(ano);
-        if (resAno) {
+        let resyear = checkYear(year);
+        if (resyear) {
           let resDirector = checkDirector(director);
           if (resDirector) {
             let resGenero = checkGenero(genero);
@@ -182,15 +182,15 @@ document.addEventListener('DOMContentLoaded', () => {
     edit.addEventListener("submit", function (event) {
       event.preventDefault();
       let titulo = document.getElementById("editartitulo").value;
-      let ano = document.getElementById("editaraño").value;
+      let year = document.getElementById("editaryear").value;
       let director = document.getElementById("editardirector").value;
       let genero = document.getElementById("editargenero").value;
       let duracion = document.getElementById("editarduracion").value;
       let url = document.getElementById("editarurl").value;
       let resTitulo = checkTitulo(titulo);
       if (resTitulo) {
-        let resAno = checkAno(ano);
-        if (resAno) {
+        let resYear = checkYear(year);
+        if (resYear) {
           let resDirector = checkDirector(director);
           if (resDirector) {
             let resGenero = checkGenero(genero);

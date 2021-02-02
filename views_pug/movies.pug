@@ -7,6 +7,7 @@ html(lang='en')
         link(rel="shortcut icon" href="/img/favicon/pelicula.ico")
         link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
         link(rel='stylesheet' href='/css/normalize.css')
+        link(href='https://fonts.googleapis.com/css?family=Gruppo' rel='stylesheet')
         link(rel='stylesheet' href='/css/style2.css')
     body
         main(id="")
@@ -22,7 +23,8 @@ html(lang='en')
                         li
                             img(src="/img/avatar/mujerAvatar.png" class="logoD")
                     span.btn_menu.material-icons menu
-            input(type="submit", value="Crear nueva película" id="btn_movies")
+            form(action='/createmovie/' method="GET")   
+                input(type="submit", value="Crear nueva película" id="btn_movies")
         h1 Películas Almacenadas Localmente:
         - let i = 0;
                 while i < Longitud

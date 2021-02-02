@@ -4,33 +4,35 @@ html(lang='en')
         meta(charset='UTF-8')
         meta(name='viewport', content='width=device-width', initial-scale='1.0')
         title JooL
+        link(href='https://fonts.googleapis.com/css?family=Capriola' rel='stylesheet')
         link(rel="shortcut icon" href="/img/favicon/pelicula.ico")
         link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
         link(rel='stylesheet' href='/css/normalize.css')
         link(rel='stylesheet' href='/css/style2.css')
     body
-        header
-            nav.menu
-                label.logo MoviApp
-                ul.menu_items
-                    li.active
-                        a(href='/dashboard') Home
-                    li
-                        a(href='/movies') Mis Pelis
-                    li
-                        a(href='#') Logout
-                    li
-                        img(src="/img/avatar/mujerAvatar.png" class="logoD")
-                span.btn_menu.material-icons menu
+        main(id="fondo")
+            header
+                nav.menu
+                    ul.menu_items
+                        li.active
+                            a(href='/dashboard') Home
+                        li
+                            a(href='/movies') Mis Pelis
+                        li
+                            a(href='#') Logout
+                        li
+                            img(src="/img/avatar/mujerAvatar.png" class="logoD")
+                    span.btn_menu.material-icons menu
         button(onclick="window.history.go(-1)") Atrás
-        h1=Details.Title
-        h2=Details.Year
-        h3=Details.Runtime  
-        h3=Details.Director
-        h3=Details.Actors
-        h3=Details.Plot
-        h3=Details.Awards
-        img(src=Details.Poster, alt='Imagen de la Película específica')                     
+        p=Details.Title
+        p=Details.Director
+        p=Details.Year
+        p=Details.Actors
+        p=Details.Plot
+        p=Details.Runtime 
+        p=Details.Awards
+        div(class="poster_detall")
+            img(src=Details.Poster, alt='Imagen de la Película específica')                     
     script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js')
     script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js')
     script(src='https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js')
