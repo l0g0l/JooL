@@ -222,10 +222,10 @@ if (edit) {
     let director = document.getElementById("editardirector").value;
     let genero = document.getElementById("editargenero").value;
     let duracion = document.getElementById("editarduracion").value;
-    let escritor = document.getElementById("createescritor").value;
-    let actores = document.getElementById("createactores").value;
-    let resumen = document.getElementById("createresumen").value;
-    let premios = document.getElementById("createpremios").value;
+    let escritor = document.getElementById("editarescritor").value;
+    let actores = document.getElementById("editaractores").value;
+    let resumen = document.getElementById("editarresumen").value;
+    let premios = document.getElementById("editarpremios").value;
     let resTitulo = checkTitulo(titulo);
     if (resTitulo) {
       let resyear = checkYear(year);
