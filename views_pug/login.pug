@@ -13,13 +13,14 @@ html(lang='en')
             div(class="ubicando")
                 img(src="/img/logos/JooL(2).png", alt="Logo", class="logobrand")
         section(id='form_login')
-            form(action='/dashboard', method='GET', id='formulario')
+            form(action='/', method='POST', id='formulario')
                 //- label(for='email', class="cajas") Email 
                 input(type='email', name='email', id='email' placeholder='Introducir email')
                 //- label(for='password', class="cajas") Password 
                 input(type='password', name='password', id='password' placeholder='Introducir contraseña')
                 br
                 input(type='submit', value='Log In', id="boton_login")
+        p(id='incorrecto')=value
         //- section(id='login_facebook')
         //-     img(src="/img/RRSS/blancas/facebook.png" id="face" )
         //-     img(src="/img/RRSS//blancas/google.png" id="google" )

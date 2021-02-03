@@ -180,6 +180,12 @@ border: 1px solid white;
 	} 
 }
 /***********************Login*************************/
+p#incorrecto{
+    color: red;
+    margin-top:-150px;
+    margin-left: 50px;
+}
+
 #deadpool {
 	background-image: url(/img/fondosPantalla/deadpool360x640.jpg); 
 	background-position: left;

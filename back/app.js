@@ -1,10 +1,9 @@
 const express = require ('express');
 const app = express();
-const movies = require ('./modules/movies') // Para poder usar movies.js
+const movies = require ('./modules/movies')
 let methodOverride = require("method-override");
 app.use(methodOverride("_method"));
 const port = 3000;
-
 const firebase = require ('firebase/app');
 const autenticacion = require ('./modules/autenticacion')
 require ('firebase/auth');
@@ -25,6 +24,7 @@ let urlencodedParser = bodyParser.urlencoded({ extended: false })
 app.set('view engine', 'pug'); // Para poder usar pug
 app.set('views','./views_pug'); // Para poder usar pug
 
+app.post('/', urlencodedParser, movies.autenticarjwt);
 app.get('/', movies.getLogin);
 app.get('/search', movies.getSearch);
 app.get('/dashboard', movies.getDashboard);
