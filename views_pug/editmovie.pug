@@ -8,27 +8,28 @@ html(lang='en')
         link(rel='stylesheet' href='/css/normalize.css')
         link(href='https://fonts.googleapis.com/css?family=Gruppo' rel='stylesheet')
         link(rel='stylesheet' href='/css/style2.css')
-    body
+    body(class="fondo_e")
         form(action=`/editmovie/${identificador}?_method=PUT`, method="POST" id="editform")
             label(for="titulo") Título: 
             input(type="text", name="titulo", id="editartitulo", value=Resultados[0].Title)
-            br
             label(for="year") Año: 
             input(type="text", name="year", id="editaryear", value=Resultados[0].Year)
-            br
             label(for="director") Director: 
             input(type="text", name="director", id="editardirector", value=Resultados[0].Director)
-            br
             label(for="genero") Género: 
             input(type="text", name="genero", id="editargenero", value=Resultados[0].Genre)
-            br
             label(for="duracion") Duración: 
             input(type="text", name="duracion", id="editarduracion", value=Resultados[0].Runtime)
-            br
-            img(src=Resultados[0].Poster, alt="Poster de la película" id="editarurl") 
-            br                                                     
-            input(type="submit", value="Guardar")
-        button(onclick="window.history.go(-1)") Cancelar
+            label(for="actores") Actores Ppales: 
+            input(type="text", name="actores", id="editaractores", value=Resultados[0].Actors)
+            label(for="resumen") Resumen: 
+            input(type="text", name="resumen", id="editarresumen", value=Resultados[0].Plot)
+            label(for="premios") Premios: 
+            input(type="text", name="premios", id="editarpremios", value=Resultados[0].Awards)
+            img(src=Resultados[0].Poster, alt="Poster de la película" id="editarurl")   
+        form(action=`/movies`, method="GET" id="edit")
+            button(type="submit", value="Guardar" id="guardar" placeholder="Guardar")
+            button(onclick="window.history.go(-1)" id="cancelar" placeholder="Cancelar") 
         script(src="/js/script.js")
         
 

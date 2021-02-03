@@ -7,7 +7,7 @@ html(lang='en')
         link(rel="shortcut icon" href="/img/favicon/pelicula.ico")
         link(rel='stylesheet' href='/css/normalize.css')
         link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css")
-        link(href='https://fonts.googleapis.com/css?family=Gruppo' rel='stylesheet')
+        link(href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet')   
         link(rel='stylesheet' href='/css/style2.css')
     body(id="big")
         main(id="dashboard")
@@ -16,8 +16,10 @@ html(lang='en')
                     input(id='peli' class='cuadro' type='text' name='pelicula' placeholder='Introducir Película' autocomplete="off")
                     button(id='buscador' class='cuadro' type='submit', value=' Buscar ')
                         img(src="/img/iconosVarios/lupa.png" id="lupa")
-                button(id='movies' onclick="location.href='./movies'")
-                    img(src="/img/iconosVarios/FolderF.png" id="folder")
+                div(class="btn_icono")
+                    button(id='movies' onclick="location.href='./movies'")
+                        img(src="/img/iconosVarios/FolderF.png" id="folder")
+                    span(id="txt") Mis pelis
                 form(action='/logout', method='POST', class="logout")
                     button(type='submit' id='logout')
                         img(src="/img/iconosVarios/salidaB.png" id="salida")
@@ -27,14 +29,11 @@ html(lang='en')
                         p(class="center-align") Estrenos 2021
                         div(class="carousel center-align")
                             div(class="carousel-item")
-                                //- p(class="p") Venom: Habrá Matanza
-                                img(src="./img/pelisCarrusel/estreno1.jpg", alt="Próximos estrenos de películas")
-                            div(class="carousel-item")
-                                //- p(class="p") Viuda Negra
-                                img(src="./img/pelisCarrusel/estreno2.jpg", alt="Próximos estrenos de películas")
+                                //- p(class="p") Expediente Warren
+                                img(src="./img/pelisCarrusel/warren.jpg", alt="Próximos estrenos de películas")
                             div(class="carousel-item")
                                 //- p(class="p") Noticias del Gran Mundo
-                                img(src="./img/pelisCarrusel/estreno3.jpg", alt="Próximos estrenos de películas")
+                                img(src="./img/pelisCarrusel/newsw.jpg", alt="Próximos estrenos de películas")
                             div(class="carousel-item")
                                 //- p(class="p") Inmune
                                 img(src="./img/pelisCarrusel/estreno4.jpg", alt="Próximos estrenos de películas")
@@ -42,14 +41,14 @@ html(lang='en')
                                 //- p(class="p") Fast & Furious 9
                                 img(src="./img/pelisCarrusel/fast.jpg", alt="Próximos estrenos de películas")
                             div(class="carousel-item")
-                                //- p(class="p") Los Eternos
-                                img(src="./img/pelisCarrusel/eternals.jpg", alt="Próximos estrenos de películas")
+                                //- p(class="p")Shang-Chi and the Legend of the Ten Rings
+                                img(src="./img/pelisCarrusel/shan.jpg", alt="Próximos estrenos de películas")
                             div(class="carousel-item")
-                                //- p(class="p") Misión Imposible 7
-                                img(src="./img/pelisCarrusel/mision.jpg", alt="Próximos estrenos de películas")
+                                //- p(class="p") Jungle Cruise
+                                img(src="./img/pelisCarrusel/jungle.jpeg", alt="Próximos estrenos de películas")
                             div(class="carousel-item")
-                                //- p(class="p") Cazafantasmas: Más allá
-                                img(src="./img/pelisCarrusel/ghostbusters.jpg", alt="Próximos estrenos de películas")
+                                //- p(class="p") Peter Rabbit
+                                img(src="./img/pelisCarrusel/rabbit.jpg", alt="Próximos estrenos de películas")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js")
     script(src='/js/script.js')  
             
