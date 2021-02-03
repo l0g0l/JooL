@@ -1,3 +1,5 @@
+// const { formcreateMovie } = require("../../back/modules/movies")
+
 //El evento DOMContentLoaded es disparado cuando el documento HTML ha sido completamente cargado y parseado, sin esperar hojas de estilo, images y subframes para  finalizar la carga
 document.addEventListener('DOMContentLoaded', () => {
   const btn_menu = document.querySelector(".btn_menu")
@@ -97,7 +99,7 @@ let eliminar = document.querySelectorAll('.eliminar');
 let search = document.querySelector('.formularioS'); // he añadido una S de serach para diferenciarlo del otro formulario
 let edit = document.getElementById("editform");
 let dashboard = document.getElementById("dashboard");
-let favorite = document.getElementById("favoritos");
+let favorite = document.getElementsByClassName("culo");
 
 
 if (formulario) {
@@ -222,10 +224,10 @@ if (edit) {
     let director = document.getElementById("editardirector").value;
     let genero = document.getElementById("editargenero").value;
     let duracion = document.getElementById("editarduracion").value;
-    let escritor = document.getElementById("createescritor").value;
-    let actores = document.getElementById("createactores").value;
-    let resumen = document.getElementById("createresumen").value;
-    let premios = document.getElementById("createpremios").value;
+    let escritor = document.getElementById("editarescritor").value;
+    let actores = document.getElementById("editaractores").value;
+    let resumen = document.getElementById("editarresumen").value;
+    let premios = document.getElementById("editarpremios").value;
     let resTitulo = checkTitulo(titulo);
     if (resTitulo) {
       let resyear = checkYear(year);
@@ -244,7 +246,7 @@ if (edit) {
                   if (resResumen) {
                     let resPremios = checkTitulo(premios)
                     if (resPremios) {
-                        event.target.submit(); 
+                      event.target.submit();
                     } else {
                       alert("Por favor introduce correctamente los premios de la película")
                     }
@@ -285,14 +287,13 @@ if (dashboard)
     })
   });
 if (favorite) {
-  favorite.addEventListener('submit', function (event) {
-    event.preventDefault()
-    document.getElementById("btn_fav")
-    if (pregunta) {
-      console.log("Aceptada")
-      event.target.submit();
-    } else { alert("No borrada") }
+  console.log(favorite)
+  Array.from(favorite).forEach(element => { // Array. from es neecsario para convertir getelement a un array normal (sale un html colletion, y no tiene el método foreach)
+    element.addEventListener('click', function (event) {
+      element.style.backgroundColor = "red"
+    });
 
 
   })
 }
+
