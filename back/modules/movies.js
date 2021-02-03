@@ -113,6 +113,8 @@ exports.createMovie = async (req, res) => {
         "Awards": req.body.premios,
         "Poster": req.body.imagen
     }
+    let pelicula = req.body.titulo;
+
     fetch(`http://www.omdbapi.com/?s=${pelicula}&apikey=${APIKEY}`)
     .then(peli => peli.json())
     .then(async data => {

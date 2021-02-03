@@ -6,7 +6,7 @@ html(lang='en')
         title JooL
         link(rel="shortcut icon" href="/img/favicon/pelicula.ico")
         link(rel='stylesheet' href='/css/normalize.css')
-        link(href='https://fonts.googleapis.com/css?family=Gruppo' rel='stylesheet')
+        link(href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet')
         link(rel='stylesheet' href='/css/style2.css')
     body(class="fondo_e")
         form(action=`/editmovie/${identificador}?_method=PUT`, method="POST" id="editform")
@@ -25,9 +25,9 @@ html(lang='en')
             label(for="resumen") Resumen: 
             input(type="text", name="resumen", id="editarresumen", value=Resultados[0].Plot)
             label(for="premios") Premios: 
-            input(type="text", name="premios", id="editarpremios", value=Resultados[0].Awards)  
-            button(type="submit", value="Guardar" id="guardar" placeholder="Guardar")
-        button(onclick="window.history.go(-1)" id="cancelar" placeholder="Cancelar") 
+            input(type="text", name="premios", id="editarpremios", value=Resultados[0].Awards)
+            button(type="submit", value="Guardar" id="guardar") Guardar
+        button(onclick="window.history.go(-1)" id="cancelar") Cancelar
         script(src="/js/script.js")
         
 

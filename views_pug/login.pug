@@ -20,11 +20,11 @@ html(lang='en')
                 input(type='password', name='password', id='password' placeholder='Introducir contraseña')
                 br
                 input(type='submit', value='Log In', id="boton_login")
-        p(id='incorrecto')=value
-                div(id='login_rrss')
-                    img(src="/img/RRSS/blancas/facebook.png" id="face")
-                    img(src="/img/RRSS//blancas/google.png" id="google")
-
+        div(id='login_rrss')
+            img(src="/img/RRSS/blancas/facebook.png" id="face")
+            img(src="/img/RRSS//blancas/google.png" id="google")
+        div(class="error")  
+            p(id='incorrecto')=value  
         section(class="barra")
     script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js')
     script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js')
