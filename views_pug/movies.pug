@@ -11,32 +11,35 @@ html(lang='en')
         link(rel='stylesheet' href='/css/style2.css')
     body
         main(id="malef")
-            header
-                nav.menu
-                    ul.menu_items
-                        li.active
-                            a(href='/dashboard') Home
-                        li
-                            a(href='/movies') Mis Pelis
-                        li
-                            a(href='#') Logout
-                        li
-                            img(src="/img/avatar/mujerAvatar.png" class="logoD")
-                    span.btn_menu.material-icons menu
-            form(action='/createmovie/' method="GET")   
-                button(type="submit", value="Crear nueva película" id="crear") Crear nueva película
-            div(class="favoritas")
-                h1 Mis Pelis Favoritas
-                - let i = 0;
-                        while i < Longitud
-                            div(class=`pelicula`)
-                                - let id = identificador[i]
-                                h6=Resultados[i++].Title
-                                div(class="btn_form_m")
-                                    form(action=`/editmovie/${id}` , method="GET", id=`editar${i}`)
-                                        button(type="submit", value="Editar" class="btn_movies") E
-                                    form(action=`/removeMovie/${id}?_method=DELETE`, method="POST", id=`eliminar${i}`, class="eliminar")
-                                        button(type="submit", value="X" class="btn_movies") X                  
+            - let i = 0; // Sacar el valor de la cookie que indique si eres admin o no
+            if(i==0)
+                header
+                    nav.menu
+                        ul.menu_items
+                            li.active
+                                a(href='/dashboard') Home
+                            li
+                                a(href='/movies') Mis Pelis
+                            li
+                                a(href='#') Logout
+                            li
+                                img(src="/img/avatar/mujerAvatar.png" class="logoD")
+                        span.btn_menu.material-icons menu
+            else
+                form(action='/createmovie/' method="GET")   
+                    button(type="submit", value="Crear nueva película" id="crear") Crear nueva película
+                div(class="favoritas")
+                    h1 Mis Pelis Almacenadas
+                    - let i = 0;
+                            while i < Longitud
+                                div(class=`pelicula`)
+                                    - let id = identificador[i]
+                                    h6=Resultados[i++].Title
+                                    div(class="btn_form_m")
+                                        form(action=`/editmovie/${id}` , method="GET", id=`editar${i}`)
+                                            button(type="submit", value="Editar" class="btn_movies") E
+                                        form(action=`/removeMovie/${id}?_method=DELETE`, method="POST", id=`eliminar${i}`, class="eliminar")
+                                            button(type="submit", value="X" class="btn_movies") X                  
     script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js')
     script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js')
     script(src='https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js')

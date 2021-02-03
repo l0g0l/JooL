@@ -5,7 +5,9 @@ let methodOverride = require("method-override");
 app.use(methodOverride("_method"));
 const port = 3000;
 const firebase = require ('firebase/app');
-const autenticacion = require ('./modules/autenticacion')
+const autenticacion = require ('./modules/autenticacion');
+const cookieParser = require ('cookie-parser');
+app.use(cookieParser());
 require ('firebase/auth');
 require ('firebase/firestore');
 
@@ -14,6 +16,7 @@ firebase.initializeApp(autenticacion.firebaseConfig)
 
 
 app.use (express.static('public')); // Hacemos public que se pueda ver
+
 // Para Poder leer el process.env
 
  // console.log(process.env.APIKEY) Para acceder a la apiKey hay que poner process.env.NOMBREVARIABLE
@@ -36,6 +39,7 @@ app.put('/editmovie/:id', urlencodedParser, movies.updateMovie);
 app.get('/createmovie', movies.formcreateMovie);
 app.post('/createmovie', urlencodedParser, movies.createMovie);
 app.delete('/removeMovie/:id', urlencodedParser, movies.deleteMovie)
+app.post('logout', movies.borrarCookies)
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)

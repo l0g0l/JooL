@@ -157,17 +157,25 @@ exports.autenticarjwt = async (req, res) => {
                     expiresIn: 1440
                 });
             }
-        }
+        } 
     })
+    const CookieOptions = {
+        expires: new Date (
+            Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000
+        ),
+        httpOnly: true
+    }
+    res.cookie('jwt', token, CookieOptions );
     if (resultado){
         console.log(token)
-        res.status(200).render('dashboard', {token: token});
+        res.status(200).redirect('dashboard');
     } else {
-        res.status(200).render('login', {value: 'Contraseña o Usuario Incorrecto'});
+        res.status(401).render('login', {value: 'Contraseña o Usuario Incorrecto'});
     }
 }
 const rutasProtegidas = express.Router(); 
 rutasProtegidas.use((req, res, next) => {
+    // Tenemos que acceder aquí a la cookie y meter el valor en el token, ahí ya lo verifica, luego meter rutasProtegidas a cada ruta
     const token = req.headers['access-token'];
     if (token) {
       jwt.verify(token, app.get('llave'), (err, decoded) => {      
@@ -182,3 +190,9 @@ rutasProtegidas.use((req, res, next) => {
         res.status(200).render('login', {value: 'Vuelva a Logearse'});
     }
  });
+
+ exports.borrarCookies = (req, res) => {
+    console.log("borrada")
+    document.cookie = "jwt =;expires = Thu, 01 Jan 1970 00:00:00"
+    res.status(200).redirect('/login');
+}
