@@ -35,42 +35,19 @@ html(lang='en')
                             div(id="btn_detalles")
                                 if(imbd == null) 
                                     form(action=`/searchdetails/${id}` , method="GET", id="detallesMongo") 
-                                        input(type="submit", value="Detalles")
+                                        input(type="submit", value="Saber más" class="detalles")
                                 if(imbd != null)
                                     form(action=`/searchdetails/${imbd}` , method="GET", id="detallesApi")
-                                        input(type="submit", value="Saber más" id="detalles")
-                                    br
+                                        input(type="submit", value="Saber más" class="detalles")
                                     form(action="", method="POST" id="favoritos")
-                                        button(type="submit" value="Añadir a Favoritos" id="btn_fav")
+                                        button(type="button" value="Añadir a Favoritos" id="btn_fav" class="culo")
                                             img(src="/img/iconosVarios/favorito.png" id="fav")
-                                h1=Nofound 
-            //- table
-            //-     tr<
-            //-         th
-            //-             img(src=Resultados[i++].Poster, alt='Imagen de la Película' class="Poster")
-            //-         th
-            //-             img(src=Resultados[i++].Poster, alt='Imagen de la Película' class="Poster")
-            //-         th
-            //-             img(src=Resultados[i++].Poster, alt='Imagen de la Película' class="Poster")
-            //-     tr
-            //-         td=Resultados[i].Title
-            //-         td=Resultados[i].Title
-            //-         td=Resultados[i].Title
-            //-     tr
-            //-         td(colspan="2")=Resultados[i].Year
-            //-         td(colspan="2")=Resultados[i].Year
-            //-         td(colspan="2")=Resultados[i].Year
-            //-     tr
-            //-         td
-            //-             button(type="submit" value="Detalles" class="btn_detalles")
-            //-             button(type="submit" value="Favoritos" class="btn_favorita")
-            //-         td  
-            //-             button(type="submit" value="Detalles" class="btn_detalles")
-            //-             button(type="submit" value="Favoritos" class="btn_favorita")
-            //-         td  
-            //-             button(type="submit" value="Detalles" class="btn_detalles")
-            //-             button(type="submit" value="Favoritos" class="btn_favorita")
+                    if(Nofound != null)
+                        h1=Nofound
+                        img(src="/img/iconosVarios/unicornio.png")
+                                           
                    
+
     script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js')
     script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js')
     script(src='https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js')
@@ -78,4 +55,4 @@ html(lang='en')
     script(defer, src='/js/script.js')
 
 
-   
+
