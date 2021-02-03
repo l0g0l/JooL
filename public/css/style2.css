@@ -248,6 +248,20 @@ input#peli {
     margin-left: 5px;
     background: transparent;
 }
+.btn_icono {
+display: flex;
+justify-content: flex-start;
+flex-direction: row;
+padding-left: 5px;
+font-size: 17px;
+}
+
+#txt {
+    text-transform: capitalize;
+    text-align: left;
+    margin-top: 7px
+}
+
 #lupa {
     width: 35%;
 }
@@ -262,26 +276,23 @@ button#buscador {
 .formularioS {
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
 }
 button#movies {
     border:none;
     background-color:transparent;
-    text-align: left;
     padding: 0;
-    margin-left: 5px;
-    transform: scale();
+
 }
 div.folder {
     display: flex
 }
 #folder {
-    width: 15%; 
+    width: 30px;
     margin-top: 3px;
+    margin-right: 10px;
 }
-#txt {
-    margin-left: 2px;
-    text-transform: capitalize;
-}
+
 button#logout {
     border:none;
     background-color:transparent;
@@ -303,7 +314,7 @@ p {
 /************************************Carrusel**************************************************/
 div.container{
     padding-left: 0px;
-    margin-top: 10px;
+    margin-top: 60px;
 }
 p.p {
     color:black; 
@@ -400,14 +411,70 @@ p.p_año {
     border:none
 }
 /**************************SearchDetalis**********************************/
-.txt_de {
-    font-size: 20px;
+#fondo_ser {
+    background-color:#213e3b;
 }
 
 .img_de {
-    width: 80%;
-    margin-left: 20px;
+    width: 50%;
+    display: block;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 12px;
+    color: white;
+
 }
+
+.txt_de {
+    font-size: 50px;
+    color: white;
+}
+
+.p_dir{
+    font-size: 18px;
+    color: white;
+}
+
+.txt_di {
+    font-size: 18px;
+    color: white;
+}
+
+.div_de{
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+.info{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.p_encabezado {
+    margin-left: 5px;
+    font-size: 15px;
+    color: white;
+    width: 30%;
+    text-align: left;
+    padding-top: 10px;
+}
+.p_contenido {
+    font-size: 15px;
+    color: white;
+    width: 70%;
+    text-align: left;
+    padding-top: 10px;
+}
+
+.button-go{
+    background-color: transparent;
+    border-color: transparent;
+}
+
+
+
 
 #flecha {
     width: 10%;

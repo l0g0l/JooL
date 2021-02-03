@@ -9,10 +9,10 @@ html(lang='en')
         link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
         link(rel='stylesheet' href='/css/normalize.css')
         link(rel='stylesheet' href='/css/style2.css')
-    body
-        main(id="fondo")
+    body(id="fondo_ser")
+        main
             header
-                nav.menu.details
+                nav.menu
                     ul.menu_items
                         li.active
                             a(href='/dashboard') Home
@@ -26,17 +26,26 @@ html(lang='en')
         div(class="div-img")
             img(class="img_de" src=Details.Poster, alt='Imagen de la Película específica') 
             div(class="text")
-                p Título:
+                
                 p(class="txt_de")=Details.Title
-                p Director:
-                    p(class="txt_de")=Details.Director
-        div(class="div_de")            
-            p(class="txt_de")=Details.Year
-            p(class="txt_de")=Details.Actors
-            p(class="txt_de")=Details.Plot
-            p(class="txt_de")=Details.Runtime 
-            p(class="txt_de")=Details.Awards
-        button(onclick="window.history.go(-1)")
+                p(class="p_dir") Director:
+                p(class="txt_di")=Details.Director
+            div(class="div_de")
+                    div(class="info")
+                        p(class="p_encabezado") Año
+                        p(class="p_contenido")=Details.Year
+                    div(class="info")
+                        p(class="p_encabezado") Actores
+                        p(class="p_contenido")=Details.Actors
+                    div(class="info")
+                        p(class="p_encabezado") Duración
+                        p(class="p_contenido")=Details.Runtime
+                    div(class="info") 
+                        p(class="p_encabezado") Sinopsis
+                        p(class="p_contenido")=Details.Plot
+                    //p(class="p_dir") Premios           
+                    //p(class="p_dir")=Details.Awards
+        button(onclick="window.history.go(-1)" class="button-go")
             img(src="/img/iconosVarios/flecha.png" id="flecha")                         
     script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js')
     script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js')
