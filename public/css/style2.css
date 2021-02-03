@@ -14,13 +14,13 @@
 }
 body {
     
-font-family: 'Gruppo';font-size: 22px;
+    font-family: 'Montserrat';font-size: 22px;
 }
 main{
-height:100%;
-width: 100%;
-margin:0 auto;
-color: var(--mainColor) 
+    height:100%;
+    width: 100%;
+    margin:0 auto;
+    color: var(--mainColor) 
 } 
 a{
     text-decoration: none;
@@ -29,8 +29,7 @@ a{
 .wrapper {
     width: var(--viewPort);
     margin: 0 auto;
-    display: flex;
-    
+    display: flex;   
 }
 button {
     background: white;
@@ -72,7 +71,6 @@ main > section:nth-child(odd) {
 /******************************* Menú Hamburguesa**********************************/
 
 .menu {
-
 width: 100vw;
 display: flex;
 justify-content: space-between;
@@ -222,6 +220,7 @@ form#formulario {
 input#email, #password {
     border: black 3px solid;
     background: white;
+    color: black;
 }
 input#boton_login {
     background: black;
@@ -230,7 +229,11 @@ input#boton_login {
     margin-top: 6px;
     font-size: 23px;
     padding: 12px 12px;
-    margin-bottom: 150px;
+    margin-bottom: 15px;
+}
+#face, #google {
+    width: 40%;
+    margin-left: 25px;
 }
 section.barra {
     height: 5px;
@@ -251,6 +254,20 @@ input#peli {
     margin-left: 5px;
     background: transparent;
 }
+.btn_icono {
+display: flex;
+justify-content: flex-start;
+flex-direction: row;
+padding-left: 5px;
+font-size: 17px;
+}
+
+#txt {
+    text-transform: capitalize;
+    text-align: left;
+    margin-top: 7px
+}
+
 #lupa {
     width: 35%;
 }
@@ -265,23 +282,29 @@ button#buscador {
 .formularioS {
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
 }
 button#movies {
     border:none;
     background-color:transparent;
-    text-align: left;
     padding: 0;
-    margin-left: 5px;
+
+}
+div.folder {
+    display: flex
 }
 #folder {
-    width: 20%; 
+    width: 30px;
+    margin-top: 3px;
+    margin-right: 10px;
 }
+
 button#logout {
     border:none;
     background-color:transparent;
     text-align: left;
     padding: 0;
-    margin-left: 5px;
+    margin-left: 6px;
 }
 #salida {
     width: 10%; 
@@ -297,18 +320,17 @@ p {
 /************************************Carrusel**************************************************/
 div.container{
     padding-left: 0px;
-    margin-top: 10px;
+    margin-top: 60px;
 }
 p.p {
-    color:black;
-   
+    color:black; 
 }
 p.center-align {
    font-weight: 900; 
    color:black;
    margin: 0;
    color:black;
-   font-size: 32px;
+   font-size: 29px;
    text-align: right;
 }
 .carousel{
@@ -349,12 +371,8 @@ p.center-align {
     background-blend-mode: luminosity;
 	background-color: rgba(2, 34, 58, 1);
 } */
-body#font {
-
-font-family: 'Capriola';font-size: 22px;
-}
 #fondo {
-    background-color:#117A65
+    background-color:#213e3b
 }
 div#peliculas_search {
    border: 5px white solid;
@@ -378,13 +396,14 @@ p.p_año {
 #Poster{
     width:200px;
     margin:5px 10px;
+    box-shadow: 5px 10px 15px black;
 }
 #btn_detalles {
     display: flex;
     border-bottom: solid white 1px; 
 }
 #btn_fav {
-   background-color: black;
+   background-color: transparent;
     border: none;
     text-align: right;
     width: 50%;  
@@ -395,32 +414,192 @@ p.p_año {
 #detalles {
     width: 85%;
     margin-left: 30px;
-    border:none;
+    border:none
 }
+/**************************SearchDetalis**********************************/
+#fondo_ser {
+    background-color:#213e3b;
+}
+
+.img_de {
+    width: 50%;
+    display: block;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 12px;
+    color: white;
+
+}
+
+.txt_de {
+    font-size: 50px;
+    color: white;
+}
+
+.p_dir{
+    font-size: 18px;
+    color: white;
+}
+
+.txt_di {
+    font-size: 18px;
+    color: white;
+}
+
+.div_de{
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+.info{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.p_encabezado {
+    margin-left: 5px;
+    font-size: 15px;
+    color: white;
+    width: 30%;
+    text-align: left;
+    padding-top: 10px;
+}
+.p_contenido {
+    font-size: 15px;
+    color: white;
+    width: 70%;
+    text-align: left;
+    padding-top: 10px;
+}
+
+.button-go{
+    background-color: transparent;
+    border-color: transparent;
+}
+
+
+
+
+#flecha {
+    width: 10%;
+    background: none;
+}    
+ span.txt_de {
+     font-size: 10px;
+
+ }  
 
 /******************************** CreateMovie*************************************/
-
+label{
+    font-size: 15px;   
+}
+.fondo_c  {
+    background-color: #d8c292;
+}
+input#createtitulo, #createyear, #createdirector, #creategenero, #createduracion, #createescritor, #createactores, #createresumen, #createpremios, #createurl{
+    display: flex;
+    align-content: space-around;
+    width: 40%;
+    padding: 10px 12px;
+}
 form#createform > * {
     color: black;
-    margin: 5px 10px;
+    margin: 5px 20px;
     height: 10px;
 }
-
-#cancelar {
+#guardar, #cancelar{
+    width: 47%;
+    margin-left: 50px;
+    border: black solid 3px;
+    background: #d8c292;
     color: black;
+    padding: 10px 12px;
+
+}form#create {
+    display: flex;
+    flex-direction: row;
+    color:black;
+    margin: 5px 20px;
+
 }
+/******************************** EditMovie*************************************/
+label{
+    font-size: 15px;   
+}
+.fondo_e  {
+    background-color: #d8c292;
+}
+input#editartitulo, #editaryear, #editardirector, #editargenero, #editarduracion, #editarescritor, #editaractores, #editarresumen, #editarpremios, #editarurl{
+    display: flex;
+    align-content: space-around;
+    width: 40%;
+    padding: 10px 12px;
+}
+form#editform > * {
+    color: black;
+    margin: 5px 20px;
+    height: 10px;
+}
+#guardar, #cancelar{
+    width: 47%;
+    margin-left: 50px;
+    border: black solid 3px;
+    background: #d8c292;
+    color: black;
 
+}form#edit {
+    display: flex;
+    flex-direction: row;
+    color:black;
+    margin: 5px 5px;
 
-
-
-
-
-
+}
 
 /******************************Movies************************************************/
-
-#btn_movies {
+#malef {
+	background-image: url(/img/fondosPantalla/malef360x640.jpg); 
+    background-position: center;
+    height: 100vh;
+	background-attachment: fixed;
+	background-size:cover; 	
+    background-repeat: no-repeat;
+    background-blend-mode: soft-light;
+	background-color: rgba(2, 34, 58, 1);
+} 
+#crear {
+    width: 52%;
+    margin-left: 10px;
+    border: white solid 3px;
+    background: white;
     color: black;
 }
+h1 {
+    font-size: 30px;
+}
+h6 {
+    font-size: 12px;
+    width: 80%;
+}
+.pelicula {
+    margin-left: 5px;
+    display: flex;
+   align-items: baseline;
+   justify-content: space-between;
+}
+.btn_movies {
+    width: 10%;
+    margin:0;
+    border: white solid 1px;
+    background: white;
+    color: black;
+    height: 5vh;
+    margin-bottom: 3px;
 
+}
+.btn_form_m {
+display: flex;
+width: 20%;
+}
 

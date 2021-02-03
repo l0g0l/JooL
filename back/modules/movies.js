@@ -85,10 +85,14 @@ exports.updateMovie = async (req, res) => {
     let id2 = req.params.id;
     let actualizador = {
         "Title": req.body.titulo,
+        "Year": req.body.year,
+        "Director":req.body.director,
         "Genre": req.body.genero,
         "Runtime": req.body.duracion,
-        "Year": req.body.ano,
-        "Director": req.body.director
+        "Writer": req.body.escritor,
+        "Actors": req.body.actores,
+        "Plot": req.body.resumen,
+        "Awards": req.body.premios
     }
     let save = await db.actualizarOneMovies(id2, actualizador);
     res.status(200).redirect('/movies?Actualizada');
@@ -99,15 +103,15 @@ exports.formcreateMovie = async (req, res) => {
 exports.createMovie = async (req, res) => {
     let creador = {
         "Title": req.body.titulo,
+        "Year": req.body.year,
+        "Director": req.body.director,
         "Genre": req.body.genero,
         "Runtime": req.body.duracion,
-        "Year": req.body.ano,
-        "Director": req.body.director,
-        "Poster": req.body.poster,
-        "Writer": req.body.writer,
-        "Actors": req.body.actors,
-        "Plot": req.body.plot,
-        "Awards": req.body.awards
+        "Writer": req.body.escritor,
+        "Actors": req.body.actores,
+        "Plot": req.body.resumen,
+        "Awards": req.body.premios,
+        "Poster": req.body.imagen,
     }
     let pelicula = req.body.titulo;
     fetch(`http://www.omdbapi.com/?s=${pelicula}&apikey=${APIKEY}`)

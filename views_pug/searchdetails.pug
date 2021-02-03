@@ -4,13 +4,13 @@ html(lang='en')
         meta(charset='UTF-8')
         meta(name='viewport', content='width=device-width', initial-scale='1.0')
         title JooL
-        link(href='https://fonts.googleapis.com/css?family=Capriola' rel='stylesheet')
+        link(href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet')
         link(rel="shortcut icon" href="/img/favicon/pelicula.ico")
         link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
         link(rel='stylesheet' href='/css/normalize.css')
         link(rel='stylesheet' href='/css/style2.css')
-    body
-        main(id="fondo")
+    body(id="fondo_ser")
+        main
             header
                 nav.menu
                     ul.menu_items
@@ -23,16 +23,30 @@ html(lang='en')
                         li
                             img(src="/img/avatar/mujerAvatar.png" class="logoD")
                     span.btn_menu.material-icons menu
-        button(onclick="window.history.go(-1)") Atrás
-        p=Details.Title
-        p=Details.Director
-        p=Details.Year
-        p=Details.Actors
-        p=Details.Plot
-        p=Details.Runtime 
-        p=Details.Awards
-        div(class="poster_detall")
-            img(src=Details.Poster, alt='Imagen de la Película específica')                     
+        div(class="div-img")
+            img(class="img_de" src=Details.Poster, alt='Imagen de la Película específica') 
+            div(class="text")
+                
+                p(class="txt_de")=Details.Title
+                p(class="p_dir") Director:
+                p(class="txt_di")=Details.Director
+            div(class="div_de")
+                    div(class="info")
+                        p(class="p_encabezado") Año
+                        p(class="p_contenido")=Details.Year
+                    div(class="info")
+                        p(class="p_encabezado") Actores
+                        p(class="p_contenido")=Details.Actors
+                    div(class="info")
+                        p(class="p_encabezado") Duración
+                        p(class="p_contenido")=Details.Runtime
+                    div(class="info") 
+                        p(class="p_encabezado") Sinopsis
+                        p(class="p_contenido")=Details.Plot
+                    //p(class="p_dir") Premios           
+                    //p(class="p_dir")=Details.Awards
+        button(onclick="window.history.go(-1)" class="button-go")
+            img(src="/img/iconosVarios/flecha.png" id="flecha")                         
     script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js')
     script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js')
     script(src='https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js')

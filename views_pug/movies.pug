@@ -7,10 +7,10 @@ html(lang='en')
         link(rel="shortcut icon" href="/img/favicon/pelicula.ico")
         link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
         link(rel='stylesheet' href='/css/normalize.css')
-        link(href='https://fonts.googleapis.com/css?family=Gruppo' rel='stylesheet')
+        link(href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet')
         link(rel='stylesheet' href='/css/style2.css')
     body
-        main
+        main(id="malef")
             header
                 nav.menu
                     ul.menu_items
@@ -24,17 +24,19 @@ html(lang='en')
                             img(src="/img/avatar/mujerAvatar.png" class="logoD")
                     span.btn_menu.material-icons menu
             form(action='/createmovie/' method="GET")   
-                input(type="submit", value="Crear nueva película" id="btn_movies")
-        h1 Películas Almacenadas Localmente:
-        - let i = 0;
-                while i < Longitud
-                    div(class=`pelicula`)
-                        - let id = identificador[i]
-                        h2=Resultados[i++].Title
-                        form(action=`/editmovie/${id}` , method="GET", id=`editar${i}`)
-                            input(type="submit", value="Editar")
-                        form(action=`/removeMovie/${id}?_method=DELETE`, method="POST", id=`eliminar${i}`, class="eliminar")
-                            input(type="submit", value="X")                    
+                button(type="submit", value="Crear nueva película" id="crear") Crear nueva película
+            div(class="favoritas")
+                h1 Mis Pelis Favoritas
+                - let i = 0;
+                        while i < Longitud
+                            div(class=`pelicula`)
+                                - let id = identificador[i]
+                                h6=Resultados[i++].Title
+                                div(class="btn_form_m")
+                                    form(action=`/editmovie/${id}` , method="GET", id=`editar${i}`)
+                                        button(type="submit", value="Editar" class="btn_movies") E
+                                    form(action=`/removeMovie/${id}?_method=DELETE`, method="POST", id=`eliminar${i}`, class="eliminar")
+                                        button(type="submit", value="X" class="btn_movies") X                  
     script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js')
     script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js')
     script(src='https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js')
