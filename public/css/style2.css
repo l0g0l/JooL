@@ -363,17 +363,9 @@ p.center-align {
 }
 
 /************************ Search***************************/
-/* #malef {
-	background-image: url(/img/fondosPantalla/malef360x640.jpg); 
-	background-position: center;
-	background-attachment: fixed;
-	background-size:cover; 	
-    background-repeat: no-repeat;
-    background-blend-mode: luminosity;
-	background-color: rgba(2, 34, 58, 1);
-} */
 #fondo {
-    background-color:#213e3b
+    background-color:#213e3b;
+    height: 100vh;
 }
 div#peliculas_search {
    border: 5px white solid;
@@ -417,6 +409,10 @@ p.p_año {
     margin-left: 30px;
     border:none
 }
+#h1_search{
+    background: transparent;
+}
+
 /**************************SearchDetalis**********************************/
 #fondo_ser {
     background-color:#213e3b;
