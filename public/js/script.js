@@ -192,11 +192,11 @@ if (edit) {
   edit.addEventListener("submit", function (event) {
     event.preventDefault();
     let titulo = document.getElementById("editartitulo").value;
+    console.log(titulo)
     let year = document.getElementById("editaryear").value;
     let director = document.getElementById("editardirector").value;
     let genero = document.getElementById("editargenero").value;
     let duracion = document.getElementById("editarduracion").value;
-    let url = document.getElementById("editarurl").value;
     let resTitulo = checkTitulo(titulo);
     if (resTitulo) {
       let resYear = checkYear(year);
@@ -207,11 +207,7 @@ if (edit) {
           if (resGenero) {
             let resDuracion = checkDuracion(duracion);
             if (resDuracion) {
-              let resUrl = checkUrl(url);
-              if (resUrl) {
                 event.target.submit();
-              } else {
-                alert("Por favor introduce correctamente la url de la imagen de la película")
               }
             } else {
               alert("Por favor introduce correctamente la duración de la película")
