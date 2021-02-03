@@ -253,7 +253,7 @@ display: flex;
 justify-content: flex-start;
 flex-direction: row;
 padding-left: 5px;
-font-size: 17px;
+font-size: 15px;
 }
 
 #txt {
@@ -426,7 +426,7 @@ p.p_año {
 }
 
 .txt_de {
-    font-size: 50px;
+    font-size: 40px;
     color: white;
 }
 
