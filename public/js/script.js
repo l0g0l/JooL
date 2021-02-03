@@ -217,6 +217,7 @@ if (edit) {
   edit.addEventListener("submit", function (event) {
     event.preventDefault();
     let titulo = document.getElementById("editartitulo").value;
+    console.log(titulo)
     let year = document.getElementById("editaryear").value;
     let director = document.getElementById("editardirector").value;
     let genero = document.getElementById("editargenero").value;
