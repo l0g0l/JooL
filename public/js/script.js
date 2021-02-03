@@ -35,7 +35,7 @@ function checkPassword(password) {
   }
 }
 function checkTitulo(titulo) {
-  let expReg = /^[a-z0-9À-ÿ\u00f1\u00d1\:\!\@\#\$\%\&\-\s]{1,200}$/gi //El título debe tener al entre 1 y 100 caracteres, incluyendo cualquier letra acentuada o no, número, ñ Ñ, y esos caracteres especiales
+  let expReg = /^[a-z0-9À-ÿ\u00f1\u00d1\:\!\@\"\.\,\#\$\%\&\-\s]{1,500}$/gi //El título debe tener al entre 1 y 100 caracteres, incluyendo cualquier letra acentuada o no, número, ñ Ñ, y esos caracteres especiales
   if (expReg.test(titulo)) {
     return true
   } else {
@@ -129,6 +129,11 @@ if (createform) {
     let genero = document.getElementById("creategenero").value;
     let duracion = document.getElementById("createduracion").value;
     let url = document.getElementById("createurl").value;
+    let escritor = document.getElementById("createescritor").value;
+    let actores = document.getElementById("createactores").value;
+    let resumen = document.getElementById("createresumen").value;
+    let premios = document.getElementById("createpremios").value;
+
     let resTitulo = checkTitulo(titulo);
     if (resTitulo) {
       let resyear = checkYear(year);
@@ -139,11 +144,31 @@ if (createform) {
           if (resGenero) {
             let resDuracion = checkDuracion(duracion);
             if (resDuracion) {
-              let resUrl = checkUrl(url);
-              if (resUrl) {
-                event.target.submit();
+              let resEscritor = checkTitulo(escritor);
+              if (resEscritor) {
+                let resActores = checkTitulo(actores);
+                if (resActores) {
+                  let resResumen = checkTitulo(resumen)
+                  if (resResumen) {
+                    let resPremios = checkTitulo(premios)
+                    if (resPremios) {
+                      let resUrl = checkUrl(url);
+                      if (resUrl) {
+                        event.target.submit();
+                      } else {
+                        alert("Por favor introduce correctamente la url de la imagen de la película")
+                      }
+                    } else {
+                      alert("Por favor introduce correctamente los premios de la película")
+                    }
+                  } else {
+                    alert("Por favor introduce correctamente el resumen de la película")
+                  }
+                } else {
+                  alert("Por favor introduce correctamente los actores de la película")
+                }
               } else {
-                alert("Por favor introduce correctamente la url de la imagen de la película")
+                alert("Por favor introduce correctamente el escritor de la película")
               }
             } else {
               alert("Por favor introduce correctamente la duración de la película")
@@ -196,22 +221,40 @@ if (edit) {
     let director = document.getElementById("editardirector").value;
     let genero = document.getElementById("editargenero").value;
     let duracion = document.getElementById("editarduracion").value;
-    let url = document.getElementById("editarurl").value;
+    let escritor = document.getElementById("createescritor").value;
+    let actores = document.getElementById("createactores").value;
+    let resumen = document.getElementById("createresumen").value;
+    let premios = document.getElementById("createpremios").value;
     let resTitulo = checkTitulo(titulo);
     if (resTitulo) {
-      let resYear = checkYear(year);
-      if (resYear) {
+      let resyear = checkYear(year);
+      if (resyear) {
         let resDirector = checkDirector(director);
         if (resDirector) {
           let resGenero = checkGenero(genero);
           if (resGenero) {
             let resDuracion = checkDuracion(duracion);
             if (resDuracion) {
-              let resUrl = checkUrl(url);
-              if (resUrl) {
-                event.target.submit();
+              let resEscritor = checkTitulo(escritor);
+              if (resEscritor) {
+                let resActores = checkTitulo(actores);
+                if (resActores) {
+                  let resResumen = checkTitulo(resumen)
+                  if (resResumen) {
+                    let resPremios = checkTitulo(premios)
+                    if (resPremios) {
+                        event.target.submit(); 
+                    } else {
+                      alert("Por favor introduce correctamente los premios de la película")
+                    }
+                  } else {
+                    alert("Por favor introduce correctamente el resumen de la película")
+                  }
+                } else {
+                  alert("Por favor introduce correctamente los actores de la película")
+                }
               } else {
-                alert("Por favor introduce correctamente la url de la imagen de la película")
+                alert("Por favor introduce correctamente el escritor de la película")
               }
             } else {
               alert("Por favor introduce correctamente la duración de la película")

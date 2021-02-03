@@ -180,8 +180,6 @@ border: 1px solid white;
 /***********************Login*************************/
 p#incorrecto{
     color: red;
-    margin-top:-150px;
-    margin-left: 50px;
 }
 
 #deadpool {
@@ -191,15 +189,7 @@ p#incorrecto{
 	background-size:cover; 	
     background-repeat: no-repeat;
 }
-#big{
-	background-image: url(/img/fondosPantalla/big360x640.jpg); 
-	background-position: center;
-	background-attachment: fixed;
-	background-size: cover; 	
-	background-repeat: no-repeat;
-	background-blend-mode: luminosity;
-	background-color: rgba(2, 34, 58, 1);
-}
+
 img.logobrand{
 	width: 35%;
 	margin-top: 10px;
@@ -232,8 +222,10 @@ input#boton_login {
     margin-bottom: 15px;
 }
 #face, #google {
-    width: 40%;
-    margin-left: 25px;
+    width: 37%;
+}
+#login_rrss {
+    text-align: right;
 }
 section.barra {
     height: 5px;
@@ -245,6 +237,15 @@ section.barra {
     Width:30%;   
 }
 /****************** Dashboard********************/
+#big{
+	background-image: url(/img/fondosPantalla/big360x640.jpg); 
+	background-position: center;
+	background-attachment: fixed;
+	background-size: cover; 	
+	background-repeat: no-repeat;
+	background-blend-mode: luminosity;
+	background-color: rgba(2, 34, 58, 1);
+}
 div.buscador {
     margin:17px 6px
 }
