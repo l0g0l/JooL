@@ -1,10 +1,16 @@
 const fetch = require("node-fetch");
 const dotenv = require('dotenv');
 dotenv.config();
-
+const jwt = require('jsonwebtoken');
 const db = require('../model/db');
+const mysql = require('../model/dbmysql');
 ObjectID = require('mongodb').ObjectID;
 const APIKEY = process.env.APIKEY;
+// Ver si estas 6 líneas van aquí
+const express = require ('express');
+const Llave = process.env.LLAVE;
+const app = express();
+app.set('llave', Llave); // Llave solo en el servidor
 
 exports.getLogin = (req, res) => {
     res.status(200).render('login') // Aquí habría que hacer todo el post de ver si el formulario está bien
@@ -131,3 +137,47 @@ exports.deleteMovie = async (req, res) => {
     let eliminar = await db.eliminarMovie(id2);
     res.status(200).redirect('/movies?Borrada');
 }
+
+exports.autenticarjwt = async (req, res) => {
+    let token = "";
+    let email = req.body.email;
+    let password = req.body.password;
+    let resultado = null;
+    let autenticar = await mysql.autenticar(email,password);
+    autenticar.forEach(element=> {
+        if(email==element.email){
+            if(password==element.password){
+                resultado = true;
+                const payload = {
+                    usuario:  element.rol,
+                    name: element.email
+                };
+                token = jwt.sign(payload, app.get('llave'), { // Crea el Token, el nombre superlargo con puntos.
+                    expiresIn: 1440
+                });
+            }
+        }
+    })
+    if (resultado){
+        console.log(token)
+        res.status(200).render('dashboard', {token: token});
+    } else {
+        res.status(200).render('login', {value: 'Contraseña o Usuario Incorrecto'});
+    }
+}
+const rutasProtegidas = express.Router(); 
+rutasProtegidas.use((req, res, next) => {
+    const token = req.headers['access-token'];
+    if (token) {
+      jwt.verify(token, app.get('llave'), (err, decoded) => {      
+        if (err) {
+            res.status(403);    
+        } else {
+          req.decoded = decoded;    
+          next();
+        }
+      });
+    } else {
+        res.status(200).render('login', {value: 'Vuelva a Logearse'});
+    }
+ });
