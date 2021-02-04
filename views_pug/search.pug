@@ -23,7 +23,7 @@ html(lang='en')
                         li
                             img(src="/img/avatar/mujerAvatar.png" class="logoD")
                     span.btn_menu.material-icons menu
-            section
+            section(class="caja")
                 div(id='peliculas_search')
                     - let i = 0;
                     while i < Longitud
@@ -43,8 +43,9 @@ html(lang='en')
                                         button(type="button" value="Añadir a Favoritos" id="btn_fav" class="culo")
                                             img(src="/img/iconosVarios/favorito.png" id="fav")
                     if(Nofound != null)
-                        h1=Nofound
-                        img(src="/img/iconosVarios/unicornio.png")
+                        div(class="no_found")
+                            h1=Nofound
+                            img(src="/img/iconosVarios/unicornio.png" class="unicornio")
                                            
                    
 
