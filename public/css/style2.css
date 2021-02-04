@@ -62,12 +62,7 @@ input  {
     margin-right: 5px;
     width: 35%;
 }
-/* main > section:nth-child(even) {
-    background: #e0e0f1;
-}
-main > section:nth-child(odd) {
-    background: #d8d8df
-} */
+
 /******************************* Menú Hamburguesa**********************************/
 
 .menu {
@@ -94,11 +89,9 @@ display: inline-block; /* para que los links ocupen todo su espacio*/
 text-transform: uppercase;
 color: white;
 transition:3s;
-
 }
 .menu_items li:hover, li:active{
 background: #213e3b;
-
 
 }
 nav > span.material-icons {
@@ -162,11 +155,6 @@ border: 1px solid white;
 	.menu_items li a:hover {
 		color:white;
 	}
-	/* #logodashb {
-        width: 20%;
-        margin-top: 45px;
-        
-	} */
 }
 @media screen and (max-width:858px) and (orientation: landscape) {
 	.menu_items li {
@@ -177,11 +165,10 @@ border: 1px solid white;
 		height: calc(100% - 50px);
 	} 
 }
-/***********************Login*************************/
+/***********************Login NO TOCAR************************/
 p#incorrecto{
     color: red;
 }
-
 #deadpool {
 	background-image: url(/img/fondosPantalla/deadpool360x640.jpg); 
 	background-position: left;
@@ -189,7 +176,6 @@ p#incorrecto{
 	background-size:cover; 	
     background-repeat: no-repeat;
 }
-
 img.logobrand{
 	width: 35%;
 	margin-top: 10px;
@@ -204,7 +190,6 @@ form#formulario {
     margin-top: 300px;
     width: 100%;
     margin-left: 13%;
-    /* border:rgba(212, 29, 29, 0.8) 5px solid; */
     padding-top: 12px;
 }
 input#email, #password {
@@ -236,7 +221,12 @@ section.barra {
     border-radius: 10px;
     Width:30%;   
 }
-/****************** Dashboard********************/
+#logout_menhamb {
+    background: transparent;
+    font-size: 16px;
+    border: solid 1px white;
+}
+/****************** Dashboard NO TOCAR********************/
 #big{
 	background-image: url(/img/fondosPantalla/big360x640.jpg); 
 	background-position: center;
@@ -256,19 +246,17 @@ input#peli {
     background: transparent;
 }
 .btn_icono {
-display: flex;
-justify-content: flex-start;
-flex-direction: row;
-padding-left: 5px;
-font-size: 15px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    padding-left: 5px;
+    font-size: 15px;
 }
-
 #txt {
     text-transform: capitalize;
     text-align: left;
     margin-top: 7px
 }
-
 #lupa {
     width: 35%;
 }
@@ -365,8 +353,6 @@ p.center-align {
 /************************ Search***************************/
 #fondo {
     background-color:#213e3b;
-    
-
 }
 div#peliculas_search {
    border: 5px white solid;
@@ -413,7 +399,6 @@ p.p_año {
     margin-left: 30px;
     border:none
 }
-
 .unicornio {
     width: 100%;
     margin-top: 90px;
@@ -422,7 +407,6 @@ p.p_año {
     width: 100%;
     height: 83vh;
 }
-
 
 /**************************SearchDetalis**********************************/
 #fondo_ser {
@@ -436,36 +420,29 @@ p.p_año {
     margin-top: 0px;
     margin-bottom: 18px;
     color: white;
-
 }
-
 .txt_de {
     font-size: 40px;
     color: white;
 }
-
 .p_dir{
     font-size: 16px;
     color: white;
 }
-
 .txt_di {
     font-size: 18px;
     color: white;
 }
-
 .div_de{
     display: flex;
     flex-direction: column;
     padding-top: 10px;
 }
-
 .info{
     display: flex;
     align-items: baseline;
     justify-content: space-between;
 }
-
 .p_encabezado {
     margin-left: 10px;
     font-size: 12px;
@@ -473,7 +450,7 @@ p.p_año {
     width: 25%;
     text-align: left;
     padding-top: 10px;
-    justify-items: right;
+    text-align: right;
 }
 .p_contenido {
     font-size: 12px;
@@ -485,14 +462,12 @@ p.p_año {
     text-align: justify;
     line-height: 15px;
 }
-
 .button-go{
     background-color: transparent;
     border-color: transparent;
     text-align: left;
     margin-left: 8px;
 }
-
 #flecha {
     width: 10%;
     background: none;
@@ -500,14 +475,13 @@ p.p_año {
 }    
  span.txt_de {
      font-size: 10px;
+ }
 
- }  
-
-/******************************** CreateMovie*************************************/
-label{
+/******************************** CreateMovie NO TOCAR*************************************/
+label {
     font-size: 15px;   
 }
-.fondo_c  {
+.fondo_c {
     background-color: #d8c292;
 }
 input#createtitulo, #createyear, #createdirector, #creategenero, #createduracion, #createescritor, #createactores, #createresumen, #createpremios, #createurl{
@@ -521,29 +495,18 @@ form#createform > * {
     margin: 5px 20px;
     height: 10px;
 }
-#cancelar{
-    width: 47%;
-    border: black solid 3px;
-    background: #8c8a85;
-    color: black;
-    padding: 5px 12px;
-    margin-left: 70px;
-    
-
-}
-#guardar{
-    width: 47%;
-    border: black solid 3px;
-    background: #8c8a85;
-    color: black;
-    padding:12px 12px;
-    margin-left: 70px;
+#guardar_c, #cancelar_c {
+     margin-left: 20px;
+     border: black solid 3px;
+     background: #d8c292;
+     color: black;
 }
 form#create {
-display: flex;
-flex-direction: row;
+    display: flex;
+    flex-direction: row;
 }
-/******************************** EditMovie*************************************/
+
+/******************************** EditMovie* NO TOCAR************************************/
 label{
     font-size: 15px;   
 }
@@ -561,41 +524,54 @@ form#editform > * {
     margin: 5px 20px;
     height: 10px;
 }
-#guardar, #cancelar{
-    width: 47%;
-    margin-left: 50px;
-    border: black solid 3px;
-    background: #d8c292;
-    color: black;
-
-}form#edit {
+form#edit {
     display: flex;
     flex-direction: row;
     color:black;
     margin: 5px 5px;
 
 }
+#guardar_e, #cancelar_e{
+    margin-left: 20px;
+    border: black solid 3px;
+    background: #d8c292;
+    color: black;
+}
 
-/******************************MoviesAdmin************************************************/
-#malef {
-	background-image: url(/img/fondosPantalla/malef360x640.jpg); 
-    background-position: center;
+/******************************MoviesAdmin NO TOCAR************************************************/
+
+.fondo_admin {
+    background-color: #d8c292;
+    color:black;
     height: 100vh;
-	background-attachment: fixed;
-	background-size:cover; 	
-    background-repeat: no-repeat;
-    background-blend-mode: soft-light;
-	background-color: rgba(2, 34, 58, 1);
-} 
+}
 #crear {
     width: 52%;
     margin-left: 10px;
-    border: white solid 3px;
+    margin-top: 20px;
     background: white;
     color: black;
+    margin-left: 125px;
 }
-h1 {
-    font-size: 30px;
+.h1_admin {
+    margin-top: 40px;
+    font-size: 25px;
+    margin-left: 10px;
+}
+.favoritas {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+#logout_admin {
+    border:none;
+    background-color:transparent;
+    text-align: left;
+    padding: 0;
+    margin-left: 12px;
+    margin-top: 95px;
+}
+#salida_admin{
+    width: 20%; 
 }
 h6 {
     font-size: 12px;
@@ -623,10 +599,20 @@ width: 20%;
 }
 
 /****************{********************MoviesUser*************************************/
+#malef {
+    background-image: url(/img/fondosPantalla/malef360x640.jpg); 
+    background-position: center;
+    height: 100vh;
+    background-attachment: fixed;
+    background-size:cover; 	
+    background-repeat: no-repeat;
+    background-blend-mode: soft-light;
+    background-color: rgba(2, 34, 58, 1);
+}
 .h2_m_u {
-margin-top: 20px;
-margin-left: 15px;
-font-size: 28px;
+    margin-top: 8px;
+    margin-left: 15px;
+    font-size: 28px;
 
 }
 .campos {
@@ -644,7 +630,7 @@ font-size: 28px;
     width: 50%;
     margin-bottom: 10px;
     margin-top: 5px;
-    height: 5px;
+    height: 2px;
 
 }  
 .button_m_u {
@@ -665,6 +651,7 @@ color: black;
 }
 .foto {
     border: white 2px solid;
+    width: 150px;
 }
 #flechaM {
     width: 10%;

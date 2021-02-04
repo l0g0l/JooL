@@ -19,7 +19,8 @@ html(lang='en')
                         li
                             a(href='/movies') Mis Pelis
                         li
-                            a(href='#') Logout
+                            form(action='/logout', method='POST', class="logout")
+                                button(type='submit' id='logout_menhamb') Logout
                         li
                             img(src="/img/avatar/mujerAvatar.png" class="logoD")
                     span.btn_menu.material-icons menu

@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const db = require('../model/db');
 const mysql = require('../model/dbmysql');
 ObjectID = require('mongodb').ObjectID;
-const APIKEY = process.env.APIKEYS;
+const APIKEY = process.env.APIKEY;
 // Ver si estas 6 líneas van aquí
 const express = require ('express');
 const Llave = process.env.LLAVE;
@@ -44,6 +44,7 @@ exports.getFilm = (req, res) => {
     fetch(`https://www.omdbapi.com/?s=${pelicula}&apikey=${APIKEY}`)
     .then(peli => peli.json())
     .then(async data => {
+        console.log(data)
         if(data.Response=="False"){ // Si no hay nada en la API
             let movies = await db.readMovies();
             for (let i=0; i<movies.length; i++){

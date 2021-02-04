@@ -1,0 +1,27 @@
+﻿CREAR BBDD
+
+  CREATE TABLE movies.users
+  (
+  ID int NOT NULL AUTO_INCREMENT,
+  email varchar(255) NOT NULL,
+  password varchar(255) NOT NULL,
+  rol varchar(255) NOT NULL,
+  PRIMARY KEY (ID)
+)
+
+CREAR TABLA
+
+  CREATE TABLE userfilms
+  (
+  ID int NOT NULL AUTO_INCREMENT,
+  users_ID int NOT NULL,
+  fuente_datos varchar(255) NOT NULL,
+  PRIMARY KEY (ID),
+  CONSTRAINT FK_userfilms FOREIGN KEY (users_ID)
+  REFERENCES users(ID)
+)
+
+QUERY PARA METER UN PARAMETRO EN LA TABLA
+
+
+INSERT INTO `users` ( `email`, `password`, `rol`) VALUES ('lucia@gmail.com', 'TheBridge!!1', 'usuario');
