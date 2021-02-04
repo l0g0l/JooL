@@ -11,7 +11,7 @@ html(lang='en')
         link(rel='stylesheet' href='/css/style2.css')
     body
         main(id="malef")
-            - let j = 1; // Sacar el valor de la cookie que indique si eres admin o no
+            - let j = 0; // Sacar el valor de la cookie que indique si eres admin o no
             if(j==0)
                 header
                     nav.menu
@@ -51,6 +51,9 @@ html(lang='en')
             else
                 form(action='/createmovie/' method="GET")   
                     button(type="submit", value="Crear nueva película" id="crear") Crear nueva película
+                form(action='./logout', method='POST', class="logout")
+                    button(type='submit' id='logout')
+                        img(src="/img/iconosVarios/salidaB.png" id="salida")
                 div(class="favoritas")
                     h1 Mis Pelis Almacenadas
                     - let i = 0;
