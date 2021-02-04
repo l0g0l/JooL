@@ -28,18 +28,18 @@ app.set('view engine', 'pug'); // Para poder usar pug
 app.set('views','./views_pug'); // Para poder usar pug
 
 app.post('/', urlencodedParser, movies.autenticarjwt);
-app.get('/', movies.getLogin);
-app.get('/search', movies.getSearch);
-app.get('/dashboard', movies.getDashboard);
+app.get('/', movies.rutasProtegidas, movies.getLogin);
+app.get('/search', movies.rutasProtegidas, movies.getSearch);
+app.get('/dashboard', movies.rutasProtegidas, movies.getDashboard);
 app.post('/search', urlencodedParser, movies.getFilm);
-app.get('/searchdetails/:imbd', movies.getDetails);
-app.get('/movies', movies.getMovies);
-app.get('/editmovie/:id', movies.editMovie);
+app.get('/searchdetails/:imbd', movies.rutasProtegidas, movies.getDetails);
+app.get('/movies', movies.rutasProtegidas, movies.getMovies);
+app.get('/editmovie/:id', movies.rutasProtegidas, movies.editMovie);
 app.put('/editmovie/:id', urlencodedParser, movies.updateMovie);
-app.get('/createmovie', movies.formcreateMovie);
+app.get('/createmovie', movies.rutasProtegidas, movies.formcreateMovie);
 app.post('/createmovie', urlencodedParser, movies.createMovie);
+app.post('/logout', movies.logOutuser)
 app.delete('/removeMovie/:id', urlencodedParser, movies.deleteMovie)
-app.post('logout', movies.borrarCookies)
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
