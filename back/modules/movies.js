@@ -11,10 +11,24 @@ const express = require ('express');
 const Llave = process.env.LLAVE;
 
 exports.getLogin = (req, res) => {
+    let role = "";
     if (req.cookies.jwt) {
-            res.status(200).render('dashboard');
-      } else {
-            res.status(200).render('login') // Aquí habría que hacer todo el post de ver si el formulario está bien
+            const aCookie = req.cookies.jwt;
+            jwt.verify(aCookie, Llave, (err, data) => {
+              if (err) {
+                res.sendStatus(403);
+              } else {
+                role = data.rol;
+              }});
+        if(role=="usuario"){
+                res.status(200).redirect('/dashboard');
+        }else if (role=="admin") {
+                res.status(200).redirect('/movies') // Aquí habría que hacer todo el post de ver si el formulario está bien
+        }else {
+            res.status(200).render('login')
+        }
+        } else {
+            res.status(200).render('login')
       }
 }
 exports.getDashboard = (req, res) => {
@@ -152,7 +166,8 @@ exports.autenticarjwt = async (req, res) => {
                 resultado = true;
                 payload = {
                     rol:  element.rol,
-                    email: element.email
+                    email: element.email,
+                    id1: element.ID
                 };
                 }
             }
@@ -199,3 +214,25 @@ exports.rutasProtegidas = ((req, res, next) => {
           res.status(200).clearCookie("jwt").render('login');
         }  
       };
+exports.postFavoritos = async (req, res) => {
+    let idSQL = req.params.id;
+    let email = "";
+    let idUser = "";
+    if (req.cookies.jwt) {
+            const aCookie = req.cookies.jwt;
+            jwt.verify(aCookie, Llave, (err, data) => {
+              if (err) {
+                res.sendStatus(403);
+              } else {
+                email = data.email;
+                idUser = data.id1;
+              }});
+    let leerFavorito = await mysql.leerFavorito(idSQL,email);
+    console.log(leerFavorito);
+    if(leerFavorito){
+        let insertarFavorito = await mysql.insertFavorito(idSQL,email);
+        res.status(200).render('movies');
+    } else{
+        res.status(200).render('movies');
+    }    
+}}
