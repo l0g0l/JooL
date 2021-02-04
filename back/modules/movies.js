@@ -12,9 +12,9 @@ const Llave = process.env.LLAVE;
 
 exports.getLogin = (req, res) => {
     if (req.cookies.jwt) {
-        res.status(200).render('dashboard');
+            res.status(200).render('dashboard');
       } else {
-          res.status(200).render('login') // Aquí habría que hacer todo el post de ver si el formulario está bien
+            res.status(200).render('login') // Aquí habría que hacer todo el post de ver si el formulario está bien
       }
 }
 exports.getDashboard = (req, res) => {
@@ -150,8 +150,8 @@ exports.autenticarjwt = async (req, res) => {
             if(password==element.password){
                 resultado = true;
                 payload = {
-                    usuario:  element.rol,
-                    name: element.email
+                    rol:  element.rol,
+                    email: element.email
                 };
                 }
             }
@@ -165,9 +165,13 @@ exports.autenticarjwt = async (req, res) => {
         ),
         httpOnly: true
     }
-    res.cookie('jwt', token, CookieOptions );
+    res.cookie('jwt', token, CookieOptions);
     if (resultado){
-        res.status(200).redirect('dashboard');
+        if(payload.rol=='usuario'){
+            res.status(200).redirect('/dashboard');
+        } else {
+            res.status(200).redirect('/movies');
+        }
     } else {
         res.status(200).render('login', {value: 'Contraseña o Usuario Incorrecto'});
     }
