@@ -1,5 +1,4 @@
 
-
 //El evento DOMContentLoaded es disparado cuando el documento HTML ha sido completamente cargado y parseado, sin esperar hojas de estilo, images y subframes para  finalizar la carga
 document.addEventListener('DOMContentLoaded', () => {
   const btn_menu = document.querySelector(".btn_menu")

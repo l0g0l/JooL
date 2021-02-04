@@ -28,7 +28,7 @@ app.set('view engine', 'pug'); // Para poder usar pug
 app.set('views','./views_pug'); // Para poder usar pug
 
 app.post('/', urlencodedParser, movies.autenticarjwt);
-app.get('/', movies.rutasProtegidas, movies.getLogin);
+app.get('/', movies.getLogin);
 app.get('/search', movies.rutasProtegidas, movies.getSearch);
 app.get('/dashboard', movies.rutasProtegidas, movies.getDashboard);
 app.post('/search', urlencodedParser, movies.getFilm);
