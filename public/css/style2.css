@@ -62,12 +62,7 @@ input  {
     margin-right: 5px;
     width: 35%;
 }
-/* main > section:nth-child(even) {
-    background: #e0e0f1;
-}
-main > section:nth-child(odd) {
-    background: #d8d8df
-} */
+
 /******************************* Menú Hamburguesa**********************************/
 
 .menu {
@@ -94,11 +89,9 @@ display: inline-block; /* para que los links ocupen todo su espacio*/
 text-transform: uppercase;
 color: white;
 transition:3s;
-
 }
 .menu_items li:hover, li:active{
 background: #213e3b;
-
 
 }
 nav > span.material-icons {
@@ -162,11 +155,6 @@ border: 1px solid white;
 	.menu_items li a:hover {
 		color:white;
 	}
-	/* #logodashb {
-        width: 20%;
-        margin-top: 45px;
-        
-	} */
 }
 @media screen and (max-width:858px) and (orientation: landscape) {
 	.menu_items li {
@@ -177,11 +165,10 @@ border: 1px solid white;
 		height: calc(100% - 50px);
 	} 
 }
-/***********************Login*************************/
+/***********************Login NO TOCAR************************/
 p#incorrecto{
     color: red;
 }
-
 #deadpool {
 	background-image: url(/img/fondosPantalla/deadpool360x640.jpg); 
 	background-position: left;
@@ -189,7 +176,6 @@ p#incorrecto{
 	background-size:cover; 	
     background-repeat: no-repeat;
 }
-
 img.logobrand{
 	width: 35%;
 	margin-top: 10px;
@@ -204,7 +190,6 @@ form#formulario {
     margin-top: 300px;
     width: 100%;
     margin-left: 13%;
-    /* border:rgba(212, 29, 29, 0.8) 5px solid; */
     padding-top: 12px;
 }
 input#email, #password {
@@ -236,7 +221,7 @@ section.barra {
     border-radius: 10px;
     Width:30%;   
 }
-/****************** Dashboard********************/
+/****************** Dashboard NO TOCAR********************/
 #big{
 	background-image: url(/img/fondosPantalla/big360x640.jpg); 
 	background-position: center;
@@ -267,7 +252,6 @@ input#peli {
     text-align: left;
     margin-top: 7px
 }
-
 #lupa {
     width: 35%;
 }
@@ -364,8 +348,6 @@ p.center-align {
 /************************ Search***************************/
 #fondo {
     background-color:#213e3b;
-    
-
 }
 div#peliculas_search {
    border: 5px white solid;
@@ -412,7 +394,6 @@ p.p_año {
     margin-left: 30px;
     border:none
 }
-
 .unicornio {
     width: 100%;
     margin-top: 90px;
@@ -421,7 +402,6 @@ p.p_año {
     width: 100%;
     height: 83vh;
 }
-
 
 /**************************SearchDetalis**********************************/
 #fondo_ser {
@@ -435,36 +415,29 @@ p.p_año {
     margin-top: 0px;
     margin-bottom: 18px;
     color: white;
-
 }
-
 .txt_de {
     font-size: 40px;
     color: white;
 }
-
 .p_dir{
     font-size: 16px;
     color: white;
 }
-
 .txt_di {
     font-size: 18px;
     color: white;
 }
-
 .div_de{
     display: flex;
     flex-direction: column;
     padding-top: 10px;
 }
-
 .info{
     display: flex;
     align-items: baseline;
     justify-content: space-between;
 }
-
 .p_encabezado {
     margin-left: 10px;
     font-size: 12px;
@@ -472,7 +445,7 @@ p.p_año {
     width: 25%;
     text-align: left;
     padding-top: 10px;
-    justify-items: right;
+    text-align: right;
 }
 .p_contenido {
     font-size: 12px;
@@ -484,14 +457,12 @@ p.p_año {
     text-align: justify;
     line-height: 15px;
 }
-
 .button-go{
     background-color: transparent;
     border-color: transparent;
     text-align: left;
     margin-left: 8px;
 }
-
 #flecha {
     width: 10%;
     background: none;
