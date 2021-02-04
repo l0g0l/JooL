@@ -32,7 +32,7 @@ exports.autenticar = async(email,password) => {
       if (conn) conn.end();
     }
   }
-  exports.insertFavorito = async (idSQL,email) => {
+exports.insertFavorito = async (idSQL,email) => {
     let conn;
       try {
         console.log(email)
@@ -48,4 +48,30 @@ exports.autenticar = async(email,password) => {
       } finally {
       if (conn) return conn.end();
       }
+}
+exports.leerPerfil = async (idUser) => {
+  let conn;
+  try {
+    conn = await pool.getConnection(); // Conexión a la base de datos
+    let res = await conn.query("SELECT movies.users.rol FROM movies.users WHERE movies.users.ID=?",[idUser]);
+   // console.log(res)
+    return res;
+  } catch (err) {
+      return null;
+  } finally { // Tanto si se ejecuta el try como el catch, se ejecuta el finally, siempre se ejecuta
+    if (conn) conn.end();
+  }
+}
+exports.leerPelis = async (idUser) => {
+  let conn;
+  try {
+    conn = await pool.getConnection(); // Conexión a la base de datos
+    let res = await conn.query("SELECT movies.userfilm.fuente_datos FROM movies.userfilm INNER JOIN movies.users ON movies.userfilm.users_ID=movies.users.ID WHERE movies.userfilm.users_ID=?",[idUser]);
+   // console.log(res)
+    return res;
+  } catch (err) {
+      return null;
+  } finally { // Tanto si se ejecuta el try como el catch, se ejecuta el finally, siempre se ejecuta
+    if (conn) conn.end();
+  }
 }
