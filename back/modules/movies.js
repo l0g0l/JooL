@@ -11,10 +11,24 @@ const express = require ('express');
 const Llave = process.env.LLAVE;
 
 exports.getLogin = (req, res) => {
+    let role = "";
     if (req.cookies.jwt) {
-            res.status(200).render('dashboard');
-      } else {
-            res.status(200).render('login') // Aquí habría que hacer todo el post de ver si el formulario está bien
+            const aCookie = req.cookies.jwt;
+            jwt.verify(aCookie, Llave, (err, data) => {
+              if (err) {
+                res.sendStatus(403);
+              } else {
+                role = data.rol;
+              }});
+        if(role=="usuario"){
+                res.status(200).redirect('/dashboard');
+        }else if (role=="admin") {
+                res.status(200).redirect('/movies') // Aquí habría que hacer todo el post de ver si el formulario está bien
+        }else {
+            res.status(200).render('login')
+        }
+        } else {
+            res.status(200).render('login')
       }
 }
 exports.getDashboard = (req, res) => {

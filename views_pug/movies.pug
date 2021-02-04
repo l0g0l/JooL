@@ -51,6 +51,9 @@ html(lang='en')
             else
                 form(action='/createmovie/' method="GET")   
                     button(type="submit", value="Crear nueva película" id="crear") Crear nueva película
+                form(action='./logout', method='POST', class="logout")
+                    button(type='submit' id='logout')
+                        img(src="/img/iconosVarios/salidaB.png" id="salida")
                 div(class="favoritas")
                     h1 Mis Pelis Almacenadas
                     - let i = 0;
