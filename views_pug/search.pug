@@ -19,7 +19,8 @@ html(lang='en')
                         li
                             a(href='/movies') Mis Pelis
                         li
-                            a(href='#') Logout
+                            form(action='./logout', method='POST', class="logout")
+                                button(type='submit' id='logout_menhamb') Logout
                         li
                             img(src="/img/avatar/mujerAvatar.png" class="logoD")
                     span.btn_menu.material-icons menu
@@ -37,13 +38,13 @@ html(lang='en')
                                     form(action=`/searchdetails/${id}` , method="GET", id="detallesMongo") 
                                         input(type="submit", value="Saber más" class="detalles")
                                     form(action=`/favoritos/${id}`, method="POST" id="favoritos")
-                                        button(type="submit" value="Añadir a Favoritos" id="btn_fav" class="culo")
+                                        button(type="submit" value="Añadir a Favoritos" id="btn_fav")
                                             img(src="/img/iconosVarios/favorito.png" id="fav")
                                 if(imbd != null)
                                     form(action=`/searchdetails/${imbd}` , method="GET", id="detallesApi")
                                         input(type="submit", value="Saber más" class="detalles")
                                     form(action=`/favoritos/${imbd}`, method="POST" id="favoritos")
-                                        button(type="submit" value="Añadir a Favoritos" id="btn_fav" class="culo")
+                                        button(type="submit" value="Añadir a Favoritos" id="btn_fav")
                                             img(src="/img/iconosVarios/favorito.png" id="fav")
                     if(Nofound != null)
                         div(class="no_found")

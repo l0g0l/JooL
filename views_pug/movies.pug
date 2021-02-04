@@ -10,43 +10,45 @@ html(lang='en')
         link(href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet')
         link(rel='stylesheet' href='/css/style2.css')
     body
-        main(id="malef")
+       
             - let j = 0; // Sacar el valor de la cookie que indique si eres admin o no
             if(j==0)
-                header
-                    nav.menu
-                        ul.menu_items
-                            li.active
-                                a(href='/dashboard') Home
-                            li
-                                a(href='/movies') Mis Pelis
-                            li
-                                a(href='#') Logout
-                            li
-                                img(src="/img/avatar/mujerAvatar.png" class="logoD")
-                        span.btn_menu.material-icons menu
-                div(class="movies_user")
-                    h2(class="h2_m_u") Mis Pelis Favoritas
-                    div(class="campos")
-                        //- - let i = 0;
-                        //-  while i < Longitud
-                        //-     p(class="p")=Resultados[i].Title
-                        //-     p(class="p_año")=Resultados[i].Year
-                        //-     - let imbd= Resultados[i].imdbID
-                        //-     - let id= Resultados[i]._id
-                        //-     img(src=Resultados[i++].Poster, alt='Imagen de la Película' id="Poster")
-                        form(action="", method="GET" id="form_movies")
-                            div(class="xx")
-                                input(type="text" class="input_m_u" placeholder="Título" )
-                                input(type="text"  class="input_m_u" placeholder="Año")
-                                input(type="text" class="input_m_u" placeholder="Director")
-                                input(type="text" class="input_m_u" placeholder="Género")
-                                input(type="text" class="input_m_u" placeholder="Duración")
-                            div(class="boton_m_u")
-                                button(type="text", value="detalle_m_u" class="button_m_u") Saber más
-                                button(type="submit", value="quitar" class="quitar") Eliminar
-                    div(class="imagen_m_u")
-                        img(src="/img/fondosPantalla/starw360x640.jpg", alt="" class="foto")
+                main(id="malef")            
+                    header
+                        nav.menu
+                            ul.menu_items
+                                li.active
+                                    a(href='/dashboard') Home
+                                li
+                                    a(href='/movies') Mis Pelis
+                                li
+                                    form(action='/logout', method='POST', class="logout")
+                                        button(type='submit' id='logout_menhamb') Logout
+                                li
+                                    img(src="/img/avatar/mujerAvatar.png" class="logoD")
+                            span.btn_menu.material-icons menu
+                    div(class="movies_user")
+                        h2(class="h2_m_u") Mis Pelis Favoritas
+                        div(class="campos")
+                            //- - let i = 0;
+                            //-  while i < Longitud
+                            //-     p(class="p")=Resultados[i].Title
+                            //-     p(class="p_año")=Resultados[i].Year
+                            //-     - let imbd= Resultados[i].imdbID
+                            //-     - let id= Resultados[i]._id
+                            //-     img(src=Resultados[i++].Poster, alt='Imagen de la Película' id="Poster")
+                            form(action="", method="GET" id="form_movies")
+                                div(class="xx")
+                                    input(type="text" class="input_m_u" placeholder="Título" )
+                                    input(type="text"  class="input_m_u" placeholder="Año")
+                                    input(type="text" class="input_m_u" placeholder="Director")
+                                    input(type="text" class="input_m_u" placeholder="Género")
+                                    input(type="text" class="input_m_u" placeholder="Duración")
+                                div(class="boton_m_u")
+                                    button(type="text", value="detalle_m_u" class="button_m_u") Saber más
+                                    button(type="submit", value="quitar" class="quitar") Eliminar
+                        div(class="imagen_m_u")
+                            //- img(src="/img/fondosPantalla/starw360x640.jpg", alt="" class="foto")
                              
             else
             main(class="fondo_admin")
