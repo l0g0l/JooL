@@ -165,7 +165,8 @@ exports.autenticarjwt = async (req, res) => {
                 resultado = true;
                 payload = {
                     rol:  element.rol,
-                    email: element.email
+                    email: element.email,
+                    id1: element.ID
                 };
                 }
             }
@@ -212,3 +213,25 @@ exports.rutasProtegidas = ((req, res, next) => {
           res.status(200).clearCookie("jwt").render('login');
         }  
       };
+exports.postFavoritos = async (req, res) => {
+    let idSQL = req.params.id;
+    let email = "";
+    let idUser = "";
+    if (req.cookies.jwt) {
+            const aCookie = req.cookies.jwt;
+            jwt.verify(aCookie, Llave, (err, data) => {
+              if (err) {
+                res.sendStatus(403);
+              } else {
+                email = data.email;
+                idUser = data.id1;
+              }});
+    let leerFavorito = await mysql.leerFavorito(idSQL,email);
+    console.log(leerFavorito);
+    if(leerFavorito){
+        res.status(200).render('movies');
+    } else{
+        let insertarFavorito = await mysql.insertFavorito(idSQL,email);
+        res.status(200).render('movies');
+    }    
+}}

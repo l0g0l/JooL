@@ -39,6 +39,7 @@ app.put('/editmovie/:id', urlencodedParser, movies.updateMovie);
 app.get('/createmovie', movies.rutasProtegidas, movies.formcreateMovie);
 app.post('/createmovie', urlencodedParser, movies.createMovie);
 app.post('/logout', movies.logOutuser)
+app.post('/favoritos/:id', movies.postFavoritos)
 app.delete('/removeMovie/:id', urlencodedParser, movies.deleteMovie)
 
 app.listen(port, () => {
