@@ -5,15 +5,17 @@ const jwt = require('jsonwebtoken');
 const db = require('../model/db');
 const mysql = require('../model/dbmysql');
 ObjectID = require('mongodb').ObjectID;
-const APIKEY = process.env.APIKEY;
+const APIKEY = process.env.APIKEYS;
 // Ver si estas 6 líneas van aquí
 const express = require ('express');
 const Llave = process.env.LLAVE;
-const app = express();
-app.set('llave', Llave); // Llave solo en el servidor
 
 exports.getLogin = (req, res) => {
-    res.status(200).render('login') // Aquí habría que hacer todo el post de ver si el formulario está bien
+    if (req.cookies.jwt) {
+        res.status(200).render('dashboard');
+      } else {
+          res.status(200).render('login') // Aquí habría que hacer todo el post de ver si el formulario está bien
+      }
 }
 exports.getDashboard = (req, res) => {
     res.status(200).render('dashboard')
@@ -25,7 +27,7 @@ exports.getFilm = (req, res) => {
     let pelicula = req.body.pelicula;
     let check = null;
     let resultado = [];
-    fetch(`http://www.omdbapi.com/?s=${pelicula}&apikey=${APIKEY}`)
+    fetch(`https://www.omdbapi.com/?s=${pelicula}&apikey=${APIKEY}`)
     .then(peli => peli.json())
     .then(async data => {
         if(data.Response=="False"){ // Si no hay nada en la API
@@ -37,7 +39,6 @@ exports.getFilm = (req, res) => {
                 }
             }
             if (check!= null){
-                console.log(resultado)
                 res.status(200).render('search', {Resultados: resultado, Longitud: 1})
             } else {
                 res.status(200).render('search', {Nofound: "Película no encontrada"});
@@ -51,7 +52,7 @@ exports.getFilm = (req, res) => {
 exports.getDetails = async (req, res) => {
     let id = req.params.imbd;
     if (id.length<15){
-        fetch(`http://www.omdbapi.com/?i=${id}&apikey=${process.env.APIKEY}`)
+        fetch(`http://www.omdbapi.com/?i=${id}&apikey=${APIKEY}`)
         .then(peli => peli.json())
         .then(data => { 
             if(data.Response=="False"){
@@ -138,27 +139,26 @@ exports.deleteMovie = async (req, res) => {
     let eliminar = await db.eliminarMovie(id2);
     res.status(200).redirect('/movies?Borrada');
 }
-
 exports.autenticarjwt = async (req, res) => {
-    let token = "";
     let email = req.body.email;
     let password = req.body.password;
     let resultado = null;
+    let payload = {};
     let autenticar = await mysql.autenticar(email,password);
     autenticar.forEach(element=> {
         if(email==element.email){
             if(password==element.password){
                 resultado = true;
-                const payload = {
+                payload = {
                     usuario:  element.rol,
                     name: element.email
                 };
-                token = jwt.sign(payload, app.get('llave'), { // Crea el Token, el nombre superlargo con puntos.
-                    expiresIn: 1440
-                });
+                }
             }
-        } 
-    })
+            });
+            const token = jwt.sign(payload, Llave, { // Crea el Token, el nombre superlargo con puntos.
+                expiresIn: 1440
+            });
     const CookieOptions = {
         expires: new Date (
             Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000
@@ -167,18 +167,17 @@ exports.autenticarjwt = async (req, res) => {
     }
     res.cookie('jwt', token, CookieOptions );
     if (resultado){
-        console.log(token)
         res.status(200).redirect('dashboard');
     } else {
-        res.status(401).render('login', {value: 'Contraseña o Usuario Incorrecto'});
+        res.status(200).render('login', {value: 'Contraseña o Usuario Incorrecto'});
     }
 }
-const rutasProtegidas = express.Router(); 
-rutasProtegidas.use((req, res, next) => {
+
+exports.rutasProtegidas = ((req, res, next) => {
     // Tenemos que acceder aquí a la cookie y meter el valor en el token, ahí ya lo verifica, luego meter rutasProtegidas a cada ruta
-    const token = req.headers['access-token'];
+    const token = req.cookies.jwt;
     if (token) {
-      jwt.verify(token, app.get('llave'), (err, decoded) => {      
+      jwt.verify(token, Llave, (err, decoded) => {      
         if (err) {
             res.status(403);    
         } else {
@@ -190,9 +189,8 @@ rutasProtegidas.use((req, res, next) => {
         res.status(200).render('login', {value: 'Vuelva a Logearse'});
     }
  });
-
- exports.borrarCookies = (req, res) => {
-    console.log("borrada")
-    document.cookie = "jwt =;expires = Thu, 01 Jan 1970 00:00:00"
-    res.status(200).redirect('/login');
-}
+ exports.logOutuser = async (req, res) => {
+        if (req.cookies.jwt) {
+          res.status(200).clearCookie("jwt").render('login');
+        }  
+      };

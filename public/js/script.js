@@ -29,7 +29,7 @@ function checkEmail(email) {
   }
 }
 function checkPassword(password) {
-  let expReg = /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/ //La contraseña debe tener al menos entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un caracter no alfanumérico.
+  let expReg = /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{2,20}$/ //La contraseña debe tener al menos entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un caracter no alfanumérico.
   if (expReg.test(password)) {
     return true
   } else {
@@ -111,13 +111,12 @@ if (formulario) {
     let resEmail = checkEmail(email);
     console.log(email, resEmail)
     if (resEmail) {
-      let resPassword = checkPassword(password);
-      if (resPassword) {
+      //let resPassword = checkPassword(password);
+      //if (resPassword) {
         event.target.submit();
+      //} else {
+        //alert("Por favor introduce correctamente la contraseña");
       } else {
-        alert("Por favor introduce correctamente la contraseña");
-      }
-    } else {
       alert("Por favor introduce correctamente tu email");
     }
   })
@@ -189,7 +188,6 @@ if (createform) {
     }
   })
 }
-
 if (eliminar) {
   for (let i = 0; i < eliminar.length; i++) {
     eliminar[i].addEventListener("submit", function (event) {
