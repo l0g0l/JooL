@@ -1,4 +1,3 @@
-// const { formcreateMovie } = require("../../back/modules/movies")
 
 //El evento DOMContentLoaded es disparado cuando el documento HTML ha sido completamente cargado y parseado, sin esperar hojas de estilo, images y subframes para  finalizar la carga
 document.addEventListener('DOMContentLoaded', () => {
@@ -290,7 +289,7 @@ if (favorite) {
   console.log(favorite)
   Array.from(favorite).forEach(element => { // Array. from es neecsario para convertir getelement a un array normal (sale un html colletion, y no tiene el método foreach)
     element.addEventListener('click', function (event) {
-      element.style.backgroundColor = "red"
+      element.style.backgroundColor = "#aee1e1"
     });
 
 
