@@ -78,18 +78,46 @@ exports.getDetails = async (req, res) => {
         .catch(error => console.log(error))
     } else {
         let movies = await db.readOneMovie(id);
-        console.log(movies)
         res.status(200).render('searchdetails', {Details: movies[0]})
     }
 }
 exports.getMovies = async (req, res) => {
+    let Resultados = [];
+    let idUser = "";
+    const aCookie = req.cookies.jwt;
+        jwt.verify(aCookie, Llave, (err, data) => {
+              if (err) {
+                res.sendStatus(403);
+              } else {
+                idUser = data.id1;
+              }});
+    let perfil = await mysql.leerPerfil(idUser);
+    if (perfil[0].rol=="usuario"){
+        let result = await mysql.leerPelis(idUser);
+        let longitud = result.length - 1;
+        for (let k=0; k<longitud; k++){
+            if (result[k].fuente_datos.length<15){
+                fetch(`http://www.omdbapi.com/?i=${result[k].fuente_datos}&apikey=${APIKEY}`)
+                .then(peli => peli.json())
+                .then(data => {
+                    Resultados.push(data)
+                })
+                .catch(error => console.log(error))
+            } else {
+                let movies = await db.readOneMovie(idUser);
+                Resultados.push(movies);
+            }
+        }
+        console.log(Resultados)
+        res.status(200).render('movies', {Details: Resultados, Longitud: Resultados.length})
+    } else {
     let movies = await db.readMovies();
     let id = [];
     movies.forEach((element, index) => {
         id[index] = new ObjectID(element._id);
     });
-
     res.status(200).render('movies', {Resultados: movies, Longitud: movies.length, identificador:id})
+}
 }
 exports.editMovie = async (req, res) => {
     let id = req.params.id;
@@ -227,7 +255,6 @@ exports.postFavoritos = async (req, res) => {
                 idUser = data.id1;
               }});
     let leerFavorito = await mysql.leerFavorito(idSQL,email);
-    console.log(leerFavorito);
     if(leerFavorito){
         let insertarFavorito = await mysql.insertFavorito(idSQL,email);
         res.status(200).render('movies');
