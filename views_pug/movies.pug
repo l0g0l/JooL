@@ -49,10 +49,11 @@ html(lang='en')
                         img(src="", alt="" class="foto")
                              
             else
+            main(class="fondo_admin")
                 form(action='/createmovie/' method="GET")   
                     button(type="submit", value="Crear nueva película" id="crear") Crear nueva película
                 div(class="favoritas")
-                    h1 Mis Pelis Almacenadas
+                    h1(class="h1_admin") Mis Pelis Almacenadas
                     - let i = 0;
                             while i < Longitud
                                 div(class=`pelicula`)
@@ -63,7 +64,9 @@ html(lang='en')
                                             button(type="submit", value="Editar" class="btn_movies") E
                                         form(action=`/removeMovie/${id}?_method=DELETE`, method="POST", id=`eliminar${i}`, class="eliminar")
                                             button(type="submit", value="X" class="btn_movies") X   
-        button(onclick="window.history.go(-1)" class="button-go") BACK
+                form(action='./logout', method='POST')
+                    button(type='submit' id='logout_admin')
+                        img(src="/img/iconosVarios/salidaB.png" id="salida_admin")
     script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js')
     script(src='https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js')
     script(src='https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js')
