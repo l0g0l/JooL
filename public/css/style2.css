@@ -97,7 +97,7 @@ transition:3s;
 
 }
 .menu_items li:hover, li:active{
-background: rgba(0, 0, 0,.8);
+background: #213e3b;
 
 
 }
@@ -142,7 +142,7 @@ border: 1px solid white;
 		position: absolute;
 		width: 100vw; /* ocupa el ancho del viewport*/
 		height: calc(100% - 50px);/*navevgador calcula el alto que debe dar*/
-        background:black; 
+        background:#213e3b;
 		top:-100vh;/*sacamos el desplegable fuera de la pantalla*/
 		text-align: center;
 		transition:all .3s;
@@ -365,6 +365,7 @@ p.center-align {
 /************************ Search***************************/
 #fondo {
     background-color:#213e3b;
+    
 
 }
 div#peliculas_search {
@@ -388,7 +389,7 @@ p.p_año {
 }
 #Poster{
     width:200px;
-    margin:5px 10px;
+    margin:5px 10px 15px 10px;
     box-shadow: 5px 10px 15px black;
 }
 #btn_detalles {
@@ -400,6 +401,9 @@ p.p_año {
     border: none;
     text-align: right;
     width: 50%;  
+    padding-left: 3px;
+    padding-top: 2px;
+    padding-bottom: 1px;
 }
 #fav {
  width: 80%;
@@ -408,6 +412,15 @@ p.p_año {
     width: 85%;
     margin-left: 30px;
     border:none
+}
+
+.unicornio {
+    width: 100%;
+    margin-top: 90px;
+}
+.no_found {
+    width: 100%;
+    height: 83vh;
 }
 
 
@@ -420,8 +433,8 @@ p.p_año {
     width: 50%;
     display: block;
     margin: auto;
-    margin-top: 5px;
-    margin-bottom: 12px;
+    margin-top: 0px;
+    margin-bottom: 18px;
     color: white;
 
 }
@@ -432,7 +445,7 @@ p.p_año {
 }
 
 .p_dir{
-    font-size: 18px;
+    font-size: 16px;
     color: white;
 }
 
@@ -454,32 +467,36 @@ p.p_año {
 }
 
 .p_encabezado {
-    margin-left: 5px;
-    font-size: 15px;
+    margin-left: 10px;
+    font-size: 12px;
     color: white;
-    width: 30%;
+    width: 25%;
     text-align: left;
     padding-top: 10px;
+    justify-items: right;
 }
 .p_contenido {
-    font-size: 15px;
+    font-size: 12px;
     color: white;
-    width: 70%;
+    width: 75%;
     text-align: left;
     padding-top: 10px;
+    margin-right: 10px;
+    text-align: justify;
+    line-height: 15px;
 }
 
 .button-go{
     background-color: transparent;
     border-color: transparent;
+    text-align: left;
+    margin-left: 8px;
 }
-
-
-
 
 #flecha {
     width: 10%;
     background: none;
+    text-align: left;
 }    
  span.txt_de {
      font-size: 10px;
@@ -504,20 +521,27 @@ form#createform > * {
     margin: 5px 20px;
     height: 10px;
 }
-#guardar, #cancelar{
+#cancelar{
     width: 47%;
-    margin-left: 50px;
     border: black solid 3px;
-    background: #d8c292;
+    background: #8c8a85;
     color: black;
-    padding: 10px 12px;
+    padding: 5px 12px;
+    margin-left: 70px;
+    
 
-}form#create {
-    display: flex;
-    flex-direction: row;
-    color:black;
-    margin: 5px 20px;
-
+}
+#guardar{
+    width: 47%;
+    border: black solid 3px;
+    background: #8c8a85;
+    color: black;
+    padding:12px 12px;
+    margin-left: 70px;
+}
+form#create {
+display: flex;
+flex-direction: row;
 }
 /******************************** EditMovie*************************************/
 label{
@@ -552,7 +576,7 @@ form#editform > * {
 
 }
 
-/******************************Movies************************************************/
+/******************************MoviesAdmin************************************************/
 #malef {
 	background-image: url(/img/fondosPantalla/malef360x640.jpg); 
     background-position: center;
@@ -598,3 +622,62 @@ display: flex;
 width: 20%;
 }
 
+/****************{********************MoviesUser*************************************/
+.h2_m_u {
+margin-top: 20px;
+margin-left: 15px;
+font-size: 28px;
+
+}
+.campos {
+    margin-left: 10px; 
+    margin-top: 15px;
+}   
+.xx{
+    margin-left: 10px;
+    display: flex;
+    flex-direction:column;
+    height: 7px;
+}
+.input_m_u{
+    border: 2px solid white;
+    width: 50%;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    height: 5px;
+
+}  
+.button_m_u {
+color: black;
+
+}
+.quitar {
+    color: black;
+    margin-top: 10px;
+   
+}
+.boton_m_u {
+    display: flex;
+    flex-direction: column;
+   margin-left: 200px;
+    width: 30%;
+    color: white;
+}
+.foto {
+    border: white 2px solid;
+}
+#flechaM {
+    width: 10%;
+    text-align: left;
+} 
+/*
+.fondo_m_u {
+    position: absolute;
+		width: 100vw; /* ocupa el ancho del viewport
+		height: calc(100% - 50px);/*navevgador calcula el alto que debe dar
+        background:#0b2f58;
+		top:-100vh;/*sacamos el desplegable fuera de la pantalla
+		text-align: center;
+		transition:all .3s;
+		flex-direction: column;
+} */
