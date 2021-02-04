@@ -229,9 +229,9 @@ exports.postFavoritos = async (req, res) => {
     let leerFavorito = await mysql.leerFavorito(idSQL,email);
     console.log(leerFavorito);
     if(leerFavorito){
+        let insertarFavorito = await mysql.insertFavorito(idSQL,email);
         res.status(200).render('movies');
     } else{
-        let insertarFavorito = await mysql.insertFavorito(idSQL,email);
         res.status(200).render('movies');
     }    
 }}
