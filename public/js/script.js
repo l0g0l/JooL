@@ -98,7 +98,7 @@ let eliminar = document.querySelectorAll('.eliminar');
 let search = document.querySelector('.formularioS'); // he añadido una S de serach para diferenciarlo del otro formulario
 let edit = document.getElementById("editform");
 let dashboard = document.getElementById("dashboard");
-let favorite = document.getElementsByClassName("culo");
+let favorite = document.getElementsByClassName("btn_fav");
 
 
 if (formulario) {
@@ -283,11 +283,23 @@ if (dashboard)
       padding: -20
     })
   });
-if (favorite) {
-  Array.from(favorite).forEach(element => { // Array. from es neecsario para convertir getelement a un array normal (sale un html colletion, y no tiene el método foreach)
-    element.addEventListener('click', function (event) {
-      element.style.backgroundColor = "#aee1e1"
-    });
-  })
+// if (favorite) {
+//   Array.from(favorite).forEach(element => { // Array. from es neecsario para convertir get element a un array normal (sale un html colletion, y no tiene el método foreach)
+//     element.addEventListener('click', function (event) {
+//       console.log(event);
+//       event.srcElement.style.backgroundColor = "#aee1e1"
+//     });
+//   })
+// }
+function hazpost(id,url){
+  fetch(url + id, 
+  {method: "POST"
+  }).then(function(res){ console.log(res) })
+  .catch(function(res){ console.log(res) })
 }
-
+function hazdelete(id,url){
+  fetch(url + id, 
+  {method: "DELETE"
+  }).then(function(res){ console.log(res) })
+  .catch(function(res){ console.log(res) })
+}

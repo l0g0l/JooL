@@ -41,6 +41,7 @@ app.post('/createmovie', urlencodedParser, movies.createMovie);
 app.post('/logout', movies.logOutuser)
 app.post('/favoritos/:id', movies.postFavoritos)
 app.delete('/removeMovie/:id', urlencodedParser, movies.deleteMovie)
+app.delete('/delete_favorito/:id', movies.rutasProtegidas, movies.deleteFavoritos)
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)

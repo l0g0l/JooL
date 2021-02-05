@@ -22,11 +22,13 @@ exports.autenticar = async(email,password) => {
     let conn;
     try {
       conn = await pool.getConnection(); // Conexión a la base de datos
-      let query = `SELECT * FROM movies.userfilm WHERE fuente_datos = ? AND users_ID = (SELECT ID FROM movies.users WHERE email =?`;
+      let query = `SELECT * FROM movies.userfilm WHERE fuente_datos = ? AND users_ID = (SELECT ID FROM movies.users WHERE email =?)`;
       const data = [idSQL, email];
-      const res = await conn.query(query,data);
+      let res = await conn.query(query,data);      
       return res;
     } catch (err) {
+      console.log(err);
+      
         return null;
     } finally { // Tanto si se ejecuta el try como el catch, se ejecuta el finally, siempre se ejecuta
       if (conn) conn.end();
@@ -44,10 +46,30 @@ exports.insertFavorito = async (idSQL,email) => {
       return res;
 
       } catch (err) {
+        console.log(err);
+        
         return null;
       } finally {
       if (conn) return conn.end();
       }
+}
+exports.deleteFavorito = async (idSQL,email) => {
+  let conn;
+    try {
+      console.log(email)
+      console.log(idSQL)
+    conn = await pool.getConnection(); // Conexión a la base de datos
+    const query = "DELETE FROM movies.userfilm where users_ID=(SELECT ID FROM movies.users WHERE email =?) AND fuente_datos=?"
+    const data = [email, idSQL];
+    const res = await conn.query(query,data);
+    return res;
+
+    } catch (err) {
+          console.log(err)
+          return null;
+    } finally {
+          if (conn) return conn.end();
+    }
 }
 exports.leerPerfil = async (idUser) => {
   let conn;

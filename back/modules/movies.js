@@ -92,13 +92,13 @@ exports.getMovies = async (req, res) => {
               } else {
                 idUser = data.id1;
               }});
-    let perfil = await mysql.leerPerfil(idUser);
+    let perfil = await mysql.leerPerfil(idUser); //contiene el rol de ususario o de admin
     if (perfil[0].rol=="usuario"){
         let result = await mysql.leerPelis(idUser);
-        let longitud = result.length - 1;
+        let longitud = result.length; // quito el -1
         for (let k=0; k<longitud; k++){
             if (result[k].fuente_datos.length<15){
-                fetch(`http://www.omdbapi.com/?i=${result[k].fuente_datos}&apikey=${APIKEY}`)
+                await fetch(`http://www.omdbapi.com/?i=${result[k].fuente_datos}&apikey=${APIKEY}`)
                 .then(peli => peli.json())
                 .then(data => {
                     Resultados.push(data)
@@ -110,14 +110,14 @@ exports.getMovies = async (req, res) => {
             }
         }
         console.log(Resultados)
-        res.status(200).render('movies', {Details: Resultados, Longitud: Resultados.length})
+        res.status(200).render('movies', {Details: Resultados, Longitud: Resultados.length, Rol: perfil[0].rol}) // añadir rol: perfil tiene si es usuario o admin
     } else {
     let movies = await db.readMovies();
     let id = [];
     movies.forEach((element, index) => {
         id[index] = new ObjectID(element._id);
     });
-    res.status(200).render('movies', {Resultados: movies, Longitud: movies.length, identificador:id})
+    res.status(200).render('movies', {Resultados: movies, Longitud: movies.length, identificador:id, Rol: perfil[0].rol})// añadir rol
 }
 }
 exports.editMovie = async (req, res) => {
@@ -167,6 +167,7 @@ exports.createMovie = async (req, res) => {
             for (let i=0; i<movies.length; i++){
                 if (pelicula.toLowerCase()===movies[i].Title.toLowerCase()){
                     res.status(200).render('createmovie', {value: `La película ${pelicula} ya existe en la Base de Datos de MongoDB`})
+                    res.end()
                 }
             } 
             let save = await db.crearOneMovies(creador);
@@ -180,7 +181,7 @@ exports.createMovie = async (req, res) => {
 exports.deleteMovie = async (req, res) => {
     let id2 = req.params.id;
     let eliminar = await db.eliminarMovie(id2);
-    res.status(200).redirect('/movies?Borrada');
+    res.status(200).redirect('/movies');
 }
 exports.autenticarjwt = async (req, res) => {
     let email = req.body.email;
@@ -242,6 +243,7 @@ exports.rutasProtegidas = ((req, res, next) => {
           res.status(200).clearCookie("jwt").render('login');
         }  
       };
+      
 exports.postFavoritos = async (req, res) => {
     let idSQL = req.params.id;
     let email = "";
@@ -255,11 +257,30 @@ exports.postFavoritos = async (req, res) => {
                 email = data.email;
                 idUser = data.id1;
               }});
+    console.log(email, idUser, idSQL); 
     let leerFavorito = await mysql.leerFavorito(idSQL,email);
-    if(leerFavorito){
+    if(leerFavorito.length == 0){   
         let insertarFavorito = await mysql.insertFavorito(idSQL,email);
-        res.status(200).render('movies');
-    } else{
-        res.status(200).render('movies');
     }    
-}}
+}
+res.end()                                                                                                                                  
+}
+exports.deleteFavoritos = async (req, res) => {
+    let idSQL = req.params.id;
+    let email = "";
+    let idUser = "";
+    if (req.cookies.jwt) {
+            const aCookie = req.cookies.jwt;
+            jwt.verify(aCookie, Llave, (err, data) => {
+              if (err) {
+                res.sendStatus(403);
+              } else {
+                email = data.email;
+                idUser = data.id1;
+              }});
+    await mysql.deleteFavorito(idSQL,email);
+    
+
+    }
+    res.end()
+}
