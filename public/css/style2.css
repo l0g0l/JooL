@@ -563,6 +563,9 @@ form#edit {
     font-size: 25px;
     margin-left: 10px;
 }
+.nofound {
+    font-size: 30px;
+}
 .favoritas {
     margin-left: 10px;
     margin-right: 10px;
