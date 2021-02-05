@@ -283,14 +283,14 @@ if (dashboard)
       padding: -20
     })
   });
-// if (favorite) {
-//   Array.from(favorite).forEach(element => { // Array. from es neecsario para convertir get element a un array normal (sale un html colletion, y no tiene el método foreach)
-//     element.addEventListener('click', function (event) {
-//       console.log(event);
-//       event.srcElement.style.backgroundColor = "#aee1e1"
-//     });
-//   })
-// }
+if (favorite) {
+  Array.from(favorite).forEach(element => { // Array. from es neecsario para convertir get element a un array normal (sale un html colletion, y no tiene el método foreach)
+    element.addEventListener('click', function (event) {
+      console.log(event);
+      event.srcElement.style.backgroundColor = "#aee1e1"
+    });
+  })
+}
 function hazpost(id,url){
   fetch(url + id, 
   {method: "POST"

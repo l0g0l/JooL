@@ -382,17 +382,18 @@ p.p_año {
     display: flex;
     border-bottom: solid white 1px; 
 }
-#btn_fav {
-   background-color: transparent;
+.btn_fav {
+    background-color: transparent;
     border: none;
     text-align: right;
-    width: 50%;  
+      
     padding-left: 3px;
     padding-top: 2px;
     padding-bottom: 1px;
 }
 #fav {
- width: 80%;
+ width: 50%;
+ 
 }
 .detalles {
     width: 85%;
@@ -450,7 +451,7 @@ p.p_año {
     width: 25%;
     text-align: left;
     padding-top: 10px;
-    text-align: right;
+    text-align: left;
 }
 .p_contenido {
     font-size: 12px;
@@ -497,9 +498,11 @@ form#createform > * {
 }
 #guardar_c, #cancelar_c {
      margin-left: 20px;
-     border: black solid 3px;
+     border: black solid 2px;   
      background: #d8c292;
      color: black;
+     padding-top:5px;
+     padding-bottom: 20px;
 }
 form#create {
     display: flex;
@@ -532,10 +535,12 @@ form#edit {
 
 }
 #guardar_e, #cancelar_e{
-    margin-left: 20px;
-    border: black solid 3px;
-    background: #d8c292;
-    color: black;
+   margin-left: 20px;
+     border: black solid 2px;   
+     background: #d8c292;
+     color: black;
+     padding-top:5px;
+     padding-bottom: 20px;
 }
 
 /******************************MoviesAdmin NO TOCAR************************************************/
@@ -591,6 +596,7 @@ h6 {
     color: black;
     height: 5vh;
     margin-bottom: 3px;
+    font-size: 14px;
 
 }
 .btn_form_m {
@@ -598,56 +604,58 @@ display: flex;
 width: 20%;
 }
 
-/****************{********************MoviesUser*************************************/
+/************************************MoviesUser*************************************/
 #malef {
     background-image: url(/img/fondosPantalla/malef360x640.jpg); 
     background-position: center;
-    height: 100vh;
+    height: 100%;
+    width: 100vw;
     background-attachment: fixed;
     background-size:cover; 	
     background-repeat: no-repeat;
     background-blend-mode: soft-light;
     background-color: rgba(2, 34, 58, 1);
+   
 }
 .h2_m_u {
     margin-top: 8px;
     margin-left: 15px;
     font-size: 28px;
-
 }
 .campos {
     margin-left: 10px; 
     margin-top: 15px;
 }   
-.xx{
-    margin-left: 10px;
-    display: flex;
-    flex-direction:column;
-    height: 7px;
-}
+
 .input_m_u{
     border: 2px solid white;
     width: 50%;
     margin-bottom: 10px;
     margin-top: 5px;
     height: 2px;
-
 }  
 .button_m_u {
 color: black;
-
+margin-top: 10px;
+height: 10px;
+padding-top: 5px;
+margin-right: 10px;
 }
 .quitar {
     color: black;
     margin-top: 10px;
+    height: 10px;
+    padding-top: 5px;
+    margin-right: 10px;
    
 }
 .boton_m_u {
     display: flex;
     flex-direction: column;
-   margin-left: 200px;
-    width: 30%;
-    color: white;
+    margin-left: 200px;
+    color: black;
+    margin-bottom: 30px;  
+    
 }
 .foto {
     border: white 2px solid;
@@ -657,14 +665,20 @@ color: black;
     width: 10%;
     text-align: left;
 } 
-/*
-.fondo_m_u {
-    position: absolute;
-		width: 100vw; /* ocupa el ancho del viewport
-		height: calc(100% - 50px);/*navevgador calcula el alto que debe dar
-        background:#0b2f58;
-		top:-100vh;/*sacamos el desplegable fuera de la pantalla
-		text-align: center;
-		transition:all .3s;
-		flex-direction: column;
-} */
+
+.form_movies {
+    border: solid white 1px;
+    width: 85%;
+    margin-bottom: 8px;
+   
+}
+p.p_movies {
+    color:black;
+}
+.campos_movies {
+    display: flex;
+    flex-direction: column;
+}
+#Poster_movies {
+    width: 50%;
+}
