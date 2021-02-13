@@ -1,10 +1,19 @@
 const mariadb = require('mariadb');
+// const pool = mariadb.createPool({
+//     host: 'localhost', 
+//     user:'root', 
+//     password: '', 
+//     connectionLimit: 5,
+//     database: 'movies'});
+
+    // Datos para la conexion
 const pool = mariadb.createPool({
-    host: 'localhost', 
-    user:'root', 
-    password: '', 
-    connectionLimit: 5,
-    database: 'movies'});
+  host: 'db4free.net', 
+  user: 'root', 
+  password:'',
+  connectionLimit: 5,
+  database:'movies'
+});
 
 exports.autenticar = async(email,password) => {
     let conn;
