@@ -7,7 +7,6 @@ async function conexion(){
     let client;
     try{
         client = await MongoClient(url,{ useUnifiedTopology: true, useNewUrlParser: true });
-    
         await client
         .connect()
         .then(()=>console.log("Ha funcionado! estamos conectados"))
@@ -16,8 +15,7 @@ async function conexion(){
     }finally{
         return client; // Objeto de conexion a la BBDD
     }
-}
-
+}  
 exports.readMovies  = async () => {
     const client = await conexion();
     let result;
