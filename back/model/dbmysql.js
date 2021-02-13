@@ -9,10 +9,10 @@ const mariadb = require('mariadb');
     // Datos para la conexion
 const pool = mariadb.createPool({
       host: 'db4free.net', 
-      user: 'javier89', 
-      password:'javier89',
+      user: 'luciag', 
+      password:'1234Lucia',
       connectionLimit: 5,
-      database:'thebridge'
+      database:'movieappp'
   });
 exports.autenticar = async(email,password) => {
     let conn;
