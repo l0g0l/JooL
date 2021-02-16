@@ -1,5 +1,5 @@
 const MongoClient = require('mongodb').MongoClient;
-const url = "mongodb+srv://Javier89:Javier89@  .efmay.mongodb.net/moviedb?retryWrites=true&w=majority";
+const url = "mmongodb+srv://LaLu:1234Lucia@jool.kd9cm.mongodb.net/<dbname>?retryWrites=true&w=majority";
 ObjectID = require('mongodb').ObjectID;
 async function conexion(){
     let client;
